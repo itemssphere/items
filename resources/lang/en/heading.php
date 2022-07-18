@@ -6,5 +6,5 @@
  */
  
 return [
-    'message' => 'Welcome to our application!',
+    'title' => 'Welcome to our application!',
 ];
