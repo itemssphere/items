@@ -1,10 +1,10 @@
 <script setup>
 import BreezeButton from '@/Components/Button.vue';
-import BreezeCheckbox from '@/Components/Checkbox.vue';
+import BreezeCheckbox from '@/Components/PageParts/Components/FormComponents/Checkbox.vue';
 import BreezeGuestLayout from '@/Layouts/Guest.vue';
-import BreezeInput from '@/Components/Input.vue';
+import BreezeInput from '@/Components/PageParts/Components/Inputs/Input.vue';
 import BreezeLabel from '@/Components/Label.vue';
-import BreezeValidationErrors from '@/Components/ValidationErrors.vue';
+import BreezeValidationErrors from '@/Components/PageParts/Components/FormComponents/ValidationErrors.vue';
 import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
 
 defineProps({

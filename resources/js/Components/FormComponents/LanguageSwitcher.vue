@@ -1,53 +1,54 @@
 <script setup>
+/** Source  */
 import { ref, computed } from 'vue'
 import { loadLanguageAsync, getActiveLanguage } from 'laravel-vue-i18n'
 import { Inertia } from '@inertiajs/inertia'
-
+/** Props */
 const props = defineProps({
-  custom_class: String,
   langs: Array,
 })
-
-/** Active State */
+/** Constants */
 const isActive = ref(false)
+const langs = ref(['en', 'ge'])
+/** Computed */
 const activeLang = computed(function(){
     return getActiveLanguage()
 })
 const filteredLangs = computed(function(){
-    return props.langs.filter(lang => lang !== activeLang)
+    return langs.value.filter(lang => lang != activeLang.value)
 })
-
-/** Change Language FUnction */
-const changeLanguage = (lang) => {
+/** Functions*/
+const setLanguage = (lang) => {
     Inertia.get(route(route().current(), lang))
     loadLanguageAsync(lang);
 }
-
 </script>
+<!-- Language Switcher Template -->
 <template>
-    <div :class="custom_class">
+    <div class="header__head--lang">
         <!-- Toggle -->
-        <div class="header__head--lang-btn d-none d-lg-flex align-items-center" :class="{ active: isActive }" @click="isActive = !isActive">
+        <div 
+            class="header__head--lang-btn d-none d-lg-flex align-items-center" 
+            :class="{ active: isActive }"
+            @click="isActive = !isActive"
+        >
             <div class="header__head--lang-active d-flex align-items-center regular">
-                <img :src="'./assets/img/svg/flags/' + activeLang + '.svg'" alt="">
+                <img :src="'/assets/img/svg/flags/' + activeLang + '.svg'" alt="">
                 <span>{{ activeLang.toUpperCase() }}</span>
             </div>
-            <!-- <img src="./assets/img/svg/lang-arrow-down.svg" alt=""> -->
-
+            <img src="/assets/img/svg/lang-arrow-down.svg" alt="">
         </div>
         <!-- List -->
         <div class="header__head--lang-list" :class="{ active: isActive }" @click="isActive = !isActive">
             <div class="header__head--lang-item d-flex align-items-center regular"
                 v-for="lang in filteredLangs"
                 :key="lang.index"
-                @click="changeLanguage(lang)"
+                @click.prevent="setLanguage(lang)"
             >
-                <img :src="'./assets/img/svg/flags/' + lang + '.svg'" alt="">
+                <img :src="'/assets/img/svg/flags/' + lang + '.svg'" alt="">
                 <span>{{ lang.toUpperCase() }}</span>
             </div>
         </div>
-        <button class="header__head--close btn d-block d-lg-none">
-           <!-- <img src="./assets/img/svg/close-head-green.svg" alt=""> -->
-        </button>
+
     </div>
 </template>

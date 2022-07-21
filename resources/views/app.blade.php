@@ -16,5 +16,12 @@
     </head>
     <body class="font-sans antialiased">
         @inertia
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
+        <script src="{{ asset('js/pagination.js') }}"></script>
+        <script src="{{ asset('js/function.js') }}"></script>
+        
     </body>
 </html>

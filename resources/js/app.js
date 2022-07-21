@@ -1,15 +1,34 @@
-// import './bootstrap';
-// import '../css/app.css';
+/** Styles */
 import '../css/style/fonts.css';
 import '../css/style/grid.css';
+import '../css/style/splide-default.min.css';
+import '../css/style/splide.min.css';
 import '../css/style/style.scss';
+// import './bootstrap';
+// import '../css/app.css';
 
+/** Source */
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 import { i18nVue } from 'laravel-vue-i18n';
+import { createStore } from 'vuex'
+
+/** Create a new store instance */ 
+const store = createStore({
+  state () {
+    return {
+        count: 0
+    }
+  },
+  mutations: {
+    increment (state) {
+      state.count++
+    }
+  }
+})
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
