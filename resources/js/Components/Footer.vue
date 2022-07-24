@@ -7,7 +7,7 @@ import MobilePaymentMethodsPicker from './Navigation/Pickers/PaymentMethodsPicke
 import ContactUs from './Blocks/ContactUs.vue'
 import FindUs from './Blocks/FindUs.vue'
 import ProfilePopup from './Popups/ProfilePopup.vue'
-import LoginPopup from './Popups/LoginPopup.vue'
+import AuthorizationPopup from './Popups/AuthorizationPopup.vue'
 import CartPopup from './Popups/CartPopup.vue'
 import WishlistPopup from './Popups/WishlistPopup.vue'
 </script>
@@ -58,7 +58,7 @@ import WishlistPopup from './Popups/WishlistPopup.vue'
     </footer>
     <!-- Popups -->
     <ProfilePopup />
-    <LoginPopup />
+    <AuthorizationPopup />
     <CartPopup />
     <WishlistPopup />
 </template>

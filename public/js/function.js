@@ -28,18 +28,6 @@ mobileSearchCancel && mobileSearchCancel.addEventListener("click", function(e){
     document.querySelector('.header__search__bar').style.display = "none"
 });
 
-let registerOpen = document.querySelector('.register-open');
-registerOpen && registerOpen.addEventListener("click", function(e){
-    document.querySelector('.sign-in.login').style.display = "none";
-    document.querySelector('.sign-in.register').style.display = "block";
-});
-
-let registerToLogin = document.querySelector('.register__link--btn')
-registerToLogin && registerToLogin.addEventListener("click", function(e){
-    document.querySelector('.sign-in.login').style.display = "block";
-    document.querySelector('.sign-in.register').style.display = "none";
-});
-
 let registerStepFunc = $('.register__btns--btn');
 registerStepFunc && registerStepFunc.on( 'click', function() {
     var thisElement = this;
