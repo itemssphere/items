@@ -1,5 +1,6 @@
 /** Source */
 import { ref, computed } from 'vue'
+/** Export Statement */
 export function useCategories() {
     /** Constants */
     const categories = ref([

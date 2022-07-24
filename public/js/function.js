@@ -28,22 +28,6 @@ mobileSearchCancel && mobileSearchCancel.addEventListener("click", function(e){
     document.querySelector('.header__search__bar').style.display = "none"
 });
 
-let registerStepFunc = $('.register__btns--btn');
-registerStepFunc && registerStepFunc.on( 'click', function() {
-    var thisElement = this;
-    $('.register__btns--btn').removeClass('active');
-    $(thisElement).addClass('active');
-    
-    $('.register__step').each(function (id, element) {
-        if ($(this).data('step') == $(thisElement).data('step')) {
-            if(!$(this).hasClass('active') ){
-                $('.register__step').removeClass('active')
-                $(this).addClass('active');
-            }
-        }
-    });
-})
-
 const convertImages = (query, callback) => {
     const images = document.querySelectorAll(query);
   

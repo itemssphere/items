@@ -1,5 +1,3 @@
-/** Functions */
-
 export function usePopups() {
 
     const open = (popupClass) => {

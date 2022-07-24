@@ -21,6 +21,7 @@
         "vue": "^3.2.31"
     },
     "dependencies": {
+        "@splidejs/splide": "^4.0.7",
         "@splidejs/vue-splide": "^0.6.7",
         "laravel-vue-i18n": "^2.1.0",
         "vuex": "^4.0.2"

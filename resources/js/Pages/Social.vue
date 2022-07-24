@@ -1,7 +1,18 @@
 <script setup>
+
+/** Source */
+import { useSocials } from '@/Composables/useSocials'
+
+/** Components */
 import { Head } from '@inertiajs/inertia-vue3'
 import FrontPage from '@/Layouts/FrontPage.vue'
+import SocialBanner from '@/Components/Cards/SocialBanner.vue';
+
+/** Constants */
+const title = "Socials"
+const { socials } = useSocials()
 </script>
+<!-- Social Page Component Template -->
 <template>
     <Head title="Social Page" />
     <FrontPage>
@@ -33,7 +44,7 @@ import FrontPage from '@/Layouts/FrontPage.vue'
                     </div>
                     <div class="col">
                         <div class="row">
-                        <ul class="page__navigation--links d-none d-lg-flex">
+                            <ul class="page__navigation--links d-none d-lg-flex">
                                 <li class="page__navigation--link regular">
                                     <a href="">Home</a>
                                 </li>
@@ -45,9 +56,10 @@ import FrontPage from '@/Layouts/FrontPage.vue'
 
                             <div class="col-6 col-lg-12">
                                 <div class="page__title bold">
-                                    Products <span class="regular">60,000</span>
+                                    {{ title }} <span class="regular">{{ socials.length }}</span>
                                 </div>
                             </div>
+
                             <!-- filter -->
                             <div class="col-6 col-lg-12 d-block">
                                 <div class="product-filter">
@@ -76,182 +88,10 @@ import FrontPage from '@/Layouts/FrontPage.vue'
                                     </div>
                                 </div>
                             </div>
+                            <template v-for="social in socials" :key="social.id">
+                                <SocialBanner :social="social" />
+                            </template>
                             
-                            <div class="col-lg-4 col-xl-3 col-6">
-                                <div class="social-program-slider__item shop__item">
-                                    <figure class="social-program-slider__item--cover">
-                                        <img src="/assets/img/Product1.png" alt="">
-                                    </figure>
-                                    <div class="social-program-slider__item--text">
-                                        <a href="" class="title-link"><h1 class="social-program-slider__item--title bold">Justice for Jake Blake</h1></a>
-                                        <p class="social-program-slider__item--desc regular">
-                                            On August 23rd my son was shot multiple times in the back by a …
-                                        </p>
-                                        <div class="social-program-slider__item--price regular">
-                                            <span class="social-program-slider__item--price--green bold">$13,535</span> raised of $25,000 Goal
-                                        </div>
-                                        <div class="social-program-slider__item--price--line">
-                                            <div class="social-program-slider__item--price--line--green" style="width: 50%;"></div>
-                                        </div>
-                                        <div class="social-program-slider__item--btns">
-                                            <ul class="d-flex align-items-center item-btns">
-                                                <li class="header__btns--item item-btns__item regular d-flex align-items-center">
-                                                    <a href="" class="header__btns--link item-btns__item--btn d-flex align-items-center justify-content-center">
-                                                        <img src="/assets/img/svg/like-item.svg" alt="" class="item-btns__item--icon convert-svg">
-                                                    </a>
-                                                    300
-                                                </li>
-                                                <li class="header__btns--item item-btns__item regular d-flex align-items-center">
-                                                    <a href="" class="header__btns--link item-btns__item--btn d-flex align-items-center justify-content-center">
-                                                        <img src="/assets/img/svg/socshare.svg" alt="" class="item-btns__item--icon convert-svg">
-                                                    </a>
-                                                    200
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!-- end -->
-                            <div class="col-lg-4 col-xl-3 col-6">
-                                <div class="social-program-slider__item shop__item">
-                                    <figure class="social-program-slider__item--cover">
-                                        <img src="/assets/img/Product1.png" alt="">
-                                    </figure>
-                                    <div class="social-program-slider__item--text">
-                                        <a href="" class="title-link"><h1 class="social-program-slider__item--title bold">Justice for Jake Blake</h1></a>
-                                        <p class="social-program-slider__item--desc regular">
-                                            On August 23rd my son was shot multiple times in the back by a …
-                                        </p>
-                                        <div class="social-program-slider__item--price regular">
-                                            <span class="social-program-slider__item--price--green bold">$13,535</span> raised of $25,000 Goal
-                                        </div>
-                                        <div class="social-program-slider__item--price--line">
-                                            <div class="social-program-slider__item--price--line--green" style="width: 50%;"></div>
-                                        </div>
-                                        <div class="social-program-slider__item--btns">
-                                            <ul class="d-flex align-items-center item-btns">
-                                                <li class="header__btns--item item-btns__item regular d-flex align-items-center">
-                                                    <a href="" class="header__btns--link item-btns__item--btn d-flex align-items-center justify-content-center">
-                                                        <img src="/assets/img/svg/like-item.svg" alt="" class="item-btns__item--icon convert-svg">
-                                                    </a>
-                                                    300
-                                                </li>
-                                                <li class="header__btns--item item-btns__item regular d-flex align-items-center">
-                                                    <a href="" class="header__btns--link item-btns__item--btn d-flex align-items-center justify-content-center">
-                                                        <img src="/assets/img/svg/socshare.svg" alt="" class="item-btns__item--icon convert-svg">
-                                                    </a>
-                                                    200
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!-- end -->
-                            <div class="col-lg-4 col-xl-3 col-6">
-                                <div class="social-program-slider__item shop__item">
-                                    <figure class="social-program-slider__item--cover">
-                                        <img src="/assets/img/Product1.png" alt="">
-                                    </figure>
-                                    <div class="social-program-slider__item--text">
-                                        <a href="" class="title-link"><h1 class="social-program-slider__item--title bold">Justice for Jake Blake</h1></a>
-                                        <p class="social-program-slider__item--desc regular">
-                                            On August 23rd my son was shot multiple times in the back by a …
-                                        </p>
-                                        <div class="social-program-slider__item--price regular">
-                                            <span class="social-program-slider__item--price--green bold">$13,535</span> raised of $25,000 Goal
-                                        </div>
-                                        <div class="social-program-slider__item--price--line">
-                                            <div class="social-program-slider__item--price--line--green" style="width: 50%;"></div>
-                                        </div>
-                                        <div class="social-program-slider__item--btns">
-                                            <ul class="d-flex align-items-center item-btns">
-                                                <li class="header__btns--item item-btns__item regular d-flex align-items-center">
-                                                    <a href="" class="header__btns--link item-btns__item--btn d-flex align-items-center justify-content-center">
-                                                        <img src="/assets/img/svg/like-item.svg" alt="" class="item-btns__item--icon convert-svg">
-                                                    </a>
-                                                    300
-                                                </li>
-                                                <li class="header__btns--item item-btns__item regular d-flex align-items-center">
-                                                    <a href="" class="header__btns--link item-btns__item--btn d-flex align-items-center justify-content-center">
-                                                        <img src="/assets/img/svg/socshare.svg" alt="" class="item-btns__item--icon convert-svg">
-                                                    </a>
-                                                    200
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!-- end -->
-                            <div class="col-lg-4 col-xl-3 col-6">
-                                <div class="social-program-slider__item shop__item">
-                                    <figure class="social-program-slider__item--cover">
-                                        <img src="/assets/img/Product1.png" alt="">
-                                    </figure>
-                                    <div class="social-program-slider__item--text">
-                                        <a href="" class="title-link"><h1 class="social-program-slider__item--title bold">Justice for Jake Blake</h1></a>
-                                        <p class="social-program-slider__item--desc regular">
-                                            On August 23rd my son was shot multiple times in the back by a …
-                                        </p>
-                                        <div class="social-program-slider__item--price regular">
-                                            <span class="social-program-slider__item--price--green bold">$13,535</span> raised of $25,000 Goal
-                                        </div>
-                                        <div class="social-program-slider__item--price--line">
-                                            <div class="social-program-slider__item--price--line--green" style="width: 50%;"></div>
-                                        </div>
-                                        <div class="social-program-slider__item--btns">
-                                            <ul class="d-flex align-items-center item-btns">
-                                                <li class="header__btns--item item-btns__item regular d-flex align-items-center">
-                                                    <a href="" class="header__btns--link item-btns__item--btn d-flex align-items-center justify-content-center">
-                                                        <img src="/assets/img/svg/like-item.svg" alt="" class="item-btns__item--icon convert-svg">
-                                                    </a>
-                                                    300
-                                                </li>
-                                                <li class="header__btns--item item-btns__item regular d-flex align-items-center">
-                                                    <a href="" class="header__btns--link item-btns__item--btn d-flex align-items-center justify-content-center">
-                                                        <img src="/assets/img/svg/socshare.svg" alt="" class="item-btns__item--icon convert-svg">
-                                                    </a>
-                                                    200
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!-- end -->
-                            <div class="col-lg-4 col-xl-3 col-6">
-                                <div class="social-program-slider__item shop__item">
-                                    <figure class="social-program-slider__item--cover">
-                                        <img src="/assets/img/Product1.png" alt="">
-                                    </figure>
-                                    <div class="social-program-slider__item--text">
-                                        <a href="" class="title-link"><h1 class="social-program-slider__item--title bold">Justice for Jake Blake</h1></a>
-                                        <p class="social-program-slider__item--desc regular">
-                                            On August 23rd my son was shot multiple times in the back by a …
-                                        </p>
-                                        <div class="social-program-slider__item--price regular">
-                                            <span class="social-program-slider__item--price--green bold">$13,535</span> raised of $25,000 Goal
-                                        </div>
-                                        <div class="social-program-slider__item--price--line">
-                                            <div class="social-program-slider__item--price--line--green" style="width: 50%;"></div>
-                                        </div>
-                                        <div class="social-program-slider__item--btns">
-                                            <ul class="d-flex align-items-center item-btns">
-                                                <li class="header__btns--item item-btns__item regular d-flex align-items-center">
-                                                    <a href="" class="header__btns--link item-btns__item--btn d-flex align-items-center justify-content-center">
-                                                        <img src="/assets/img/svg/like-item.svg" alt="" class="item-btns__item--icon convert-svg">
-                                                    </a>
-                                                    300
-                                                </li>
-                                                <li class="header__btns--item item-btns__item regular d-flex align-items-center">
-                                                    <a href="" class="header__btns--link item-btns__item--btn d-flex align-items-center justify-content-center">
-                                                        <img src="/assets/img/svg/socshare.svg" alt="" class="item-btns__item--icon convert-svg">
-                                                    </a>
-                                                    200
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!-- end -->
                             <div class="col-12">
                                 <div class="page__navigation d-flex justify-content-center">
                                     <button class="page__navigation--btn bold">More</button>

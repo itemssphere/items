@@ -1,6 +1,12 @@
 <script setup>
 /** Source */
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import Splide from '@splidejs/splide';
+
+onMounted(function(){
+    new Splide( '.splide' ).mount()
+})
+
 /** constants */
 const buttons = ref([
     {
@@ -26,9 +32,9 @@ const banners = ref([
 >
 <!-- Main Slider Template -->
 <template>
+  <section class="splide" aria-label="Splide Basic HTML Example">
     <div class="main-slider d-flex align-items-center">
         <div class="splide__arrows main-slider__navs d-none d-lg-flex">
-
             <button 
                 :class="`splide__arrow splide__arrow--${button.name} main-slider__navs--btn  main-slider__navs--${button.name}`"
                 v-for="button in buttons"
@@ -48,4 +54,5 @@ const banners = ref([
             </ul>
         </div>
     </div>
+  </section>
 </template>

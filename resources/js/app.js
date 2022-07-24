@@ -1,8 +1,8 @@
 /** Styles */
 import '../css/style/fonts.css';
 import '../css/style/grid.css';
-import '../css/style/splide-default.min.css';
-import '../css/style/splide.min.css';
+import '@splidejs/splide/css';
+import '@splidejs/vue-splide/css';
 import '../css/style/style.scss';
 // import './bootstrap';
 // import '../css/app.css';

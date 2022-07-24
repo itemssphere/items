@@ -17,53 +17,35 @@ use Illuminate\Foundation\Application;
 */
 
 Route::redirect('/', '/' . App::getLocale());
-
 Route::group(['prefix' => '{language}'], function(){
-    Route::get('/', function () {
-        return Inertia::render('Home');
-    })->name('home');
-    Route::get('/market', function(){
-        return Inertia::render('Market');
-    })->name('market');
-    Route::get('/shop', function(){
-        return Inertia::render('Shop');
-    })->name('shop');
-    Route::get('/charity', function(){
-        return Inertia::render('Charity');
-    })->name('charity');
-    Route::get('/social', function(){
-        return Inertia::render('Social');
-    })->name('social');
-    Route::get('/news', function(){
-        return Inertia::render('News');
-    })->name('news');
-    Route::get('/about', function(){
-        return Inertia::render('About');
-    })->name('about');
-    Route::get('/contact', function(){
-        return Inertia::render('Contact');
-    })->name('contact');
-    Route::get('/cart', function(){
-        return Inertia::render('Cart');
-    })->name('cart');
-    Route::get('/notification', function(){
-        return Inertia::render('Notification');
-    })->name('notification');
-    Route::get('/message', function(){
-        return Inertia::render('Message');
-    })->name('message');
-    Route::get('/profile', function(){
-        return Inertia::render('Profile');
-    })->name('profile');
-    Route::get('/policy', function(){
-        return Inertia::render('Policy');
-    })->name('policy');
+
+    /** Guest Pages */
+    Route::middleware(['guest'])->group(function(){
+        /** Inertia: Directly Rendered Vue */
+        Route::inertia('/', 'Home')->name('home');
+        Route::inertia('/market','Market')->name('market');
+        Route::inertia('/shop','Shop')->name('shop');
+        Route::inertia('/charity','Charity')->name('charity');
+        Route::inertia('/social','Social')->name('social');
+        Route::inertia('/news','News')->name('news');
+        Route::inertia('/about','About')->name('about');
+        Route::inertia('/contact','Contact')->name('contact');
+        Route::inertia('/cart','Cart')->name('cart');
+        Route::inertia('/notification','Notification')->name('notification');
+        Route::inertia('/message','Message')->name('message');
+        Route::inertia('/profile','Profile')->name('profile');
+        Route::inertia('/policy', 'Policy')->name('policy');
+        Route::inertia('/agreement', 'Agreement')->name('agreement');
+    });
+
+    /** Authorized Pages **/
+    Route::middleware(['auth', 'verified'])->group(function(){
+        Route::inertia('/dashboard', 'Dashboard')->name('dashboard');
+    });
     
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->middleware(['auth', 'verified'])->name('dashboard');
-    
+    /** Authorization Routes **/
     require __DIR__.'/auth.php';
+
 });
 
 
