@@ -55,6 +55,9 @@ Route::group(['prefix' => '{language}'], function(){
     Route::get('/profile', function(){
         return Inertia::render('Profile');
     })->name('profile');
+    Route::get('/policy', function(){
+        return Inertia::render('Policy');
+    })->name('policy');
     
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');

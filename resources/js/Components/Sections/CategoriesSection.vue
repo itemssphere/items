@@ -1,10 +1,10 @@
 <script setup>
 /** Source */
 import { useBanners } from "@/Composables/Advertising/useBanners"
-import MainSlider from "../Sliders/MainSlider.vue"
-import BannerMini from "../Cards/BannerMini.vue"
 /** Components */
 import CategoriesPicker from "../Navigation/Pickers/CategoriesPicker.vue"
+import MainSlider from "../Sliders/MainSlider.vue"
+import BannerMini from "../Cards/BannerMini.vue"
 /** Constants */
 const { banners } = useBanners()
 </script>

@@ -1,4 +1,8 @@
 <script setup>
+/** Source */
+import { getActiveLanguage } from 'laravel-vue-i18n'
+/** Components */
+import { Link } from '@inertiajs/inertia-vue3'
 /** Emits */
 const emit = defineEmits(['switchPopup'])
 </script>
@@ -77,7 +81,7 @@ const emit = defineEmits(['switchPopup'])
         <div class="register__text regular">
             <p class="sign-in__register--text">By creating account, you agree to the</p>
             <a href="">ItemsSphere's Free Membership Agreement</a>
-            <p class="sign-in__register--text">and <a href="">Privacy Policy</a></p>
+            <p class="sign-in__register--text">and <Link :href="route('policy', getActiveLanguage())">Privacy Policy</Link></p>
         </div>
         <div class="register__link">
             <span class="sign-in__register--text regular">Have account?</span>

@@ -6,11 +6,13 @@ import FrontPage from '@/Layouts/FrontPage.vue'
     <Head title="Market Page" />
     <FrontPage>
         <section class="touch market-touch">
+            
             <!-- categories, main slider, banner -->
             <div class="container">
                 <div class="row">
                     <div class="col d-none d-lg-block js-filter" style="max-width: 275px;">
                         <div class="active-filter--container">
+
                             <div class="categories categories__shop d-none d-lg-block">
                                 <h2 class="categories--title regular">Categories</h2>
                                 <ul class="categories__list">
