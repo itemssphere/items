@@ -1,7 +1,14 @@
+<script setup>
+/** Source */
+import { usePopups } from '@/Composables/usePopups'
+/** Constants */
+const { close } = usePopups()
+</script>
+<!-- Login Popup Template -->
 <template>
     <div class="popup open-active align-items-center justify-content-center" data-active="login-popup">
         <div class="popup__container">
-            <button class="popup__close close-click" data-active="login-popup">
+            <button class="popup__close" @click="close('login-popup')">
                 <img src="/assets/img/svg/popup-close.svg" alt="" class="d-none d-lg-block">
                 <img src="/assets/img/svg/popup-back-btn.svg" alt="" class="d-block d-lg-none">
             </button>

@@ -1,9 +1,16 @@
+<script setup>
+/** Source */
+import { usePopups } from '@/Composables/usePopups'
+/** Constants */
+const { close } = usePopups()
+</script>
+<!-- Wishlist Popup Template -->
 <template>
     <div class="popup open-active align-items-start justify-content-end" data-active="wishlist-popup">
         <div class="cart-popup d-flex flex-column">
             <div class="cart-popup--padding d-flex justify-content-between align-items-center">
                 <h1 class="sign-in__title bold">Wishlist</h1>
-                <button class="popup__close close-click" data-active="wishlist-popup">
+                <button class="popup__close" @click="close('wishlist-popup')">
                     <img src="/assets/img/svg/popup-close.svg" alt="" class="d-none d-lg-block">
                     <img src="/assets/img/svg/popup-back-btn.svg" alt="" class="d-block d-lg-none">
                 </button>

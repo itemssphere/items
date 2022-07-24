@@ -7,14 +7,14 @@ import SocialProgramsSection from '../Components/Sections/SocialProgramsSection.
 import NewsSection from '../Components/Sections/NewsSection.vue'
 import CharitySection from '../Components/Sections/CharitySection.vue'
 import FrontPage from '../Layouts/FrontPage.vue'
-import CategoriesSlider from '@/Components/Sliders/CategoriesSlider.vue'
+import CategoriesSection from '@/Components/Sections/CategoriesSection.vue'
 </script>
 <!-- Home Page Template -->
 <template>
     <Head  title="Home Page" />
     <FrontPage>
         <section class="touch index-touch mb-2">
-            <CategoriesSlider />
+            <CategoriesSection />
             <ProductsSlider />
             <HashtingSection />
             <SocialProgramsSection />

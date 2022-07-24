@@ -1,7 +1,6 @@
 <script setup>
-import FooterLogo from '../FooterLogo.vue';
 /** Components */
-
+import FooterLogo from '../FooterLogo.vue';
 </script>
 <!-- Download App Sectopm Template -->
 <template>

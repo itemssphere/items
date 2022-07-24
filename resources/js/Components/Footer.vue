@@ -3,12 +3,12 @@
 import DownloadAppSection from './Sections/DownloadAppSection.vue'
 import TermsList from './Navigation/Lists/TermsList.vue'
 import TermsListMobile from './Navigation/Lists/TermsListMobile.vue'
-import PaymentMethodsMobile from './Navigation/Pickers/PaymentMethodsMobile.vue'
+import MobilePaymentMethodsPicker from './Navigation/Pickers/PaymentMethodsPicker.vue'
 import ContactUs from './Blocks/ContactUs.vue'
 import FindUs from './Blocks/FindUs.vue'
 import ProfilePopup from './Popups/ProfilePopup.vue'
 import LoginPopup from './Popups/LoginPopup.vue'
-import CardPopup from './Popups/CardPopup.vue'
+import CartPopup from './Popups/CartPopup.vue'
 import WishlistPopup from './Popups/WishlistPopup.vue'
 </script>
 <!-- Footer Template -->
@@ -33,7 +33,7 @@ import WishlistPopup from './Popups/WishlistPopup.vue'
                                     <TermsListMobile />
                                 </div>
                             </div>
-                            <PaymentMethodsMobile />
+                            <MobilePaymentMethodsPicker />
                             <div class="col-lg-4">
                                 <h2 class="footer__title d-none d-lg-block regular">CONTACT US</h2>
                                 <ContactUs />
@@ -59,6 +59,6 @@ import WishlistPopup from './Popups/WishlistPopup.vue'
     <!-- Popups -->
     <ProfilePopup />
     <LoginPopup />
-    <CardPopup />
+    <CartPopup />
     <WishlistPopup />
 </template>

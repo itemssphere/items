@@ -56,52 +56,6 @@ registerStepFunc && registerStepFunc.on( 'click', function() {
     });
 })
 
-$('document').ready(function(){
-    
-});
-let ActiveWinodw = document.querySelectorAll(".click-open");
-ActiveWinodw && ActiveWinodw.forEach(function(e) {
-    let elementClick = e.getAttribute("data-active");
-    e.addEventListener("click", function(){
-        document.querySelectorAll('.open-active').forEach(function(e){
-            let elementActive = e.getAttribute("data-active")
-            if(elementActive == elementClick){
-                e.classList.toggle('active');
-                document.querySelector('body').style.overflowY = 'hidden';
-                document.querySelector('body').classList.add('opened-popup');
-            }
-        })
-    });
-});
-
-let CloseActiveWindow = document.querySelectorAll(".close-click");
-CloseActiveWindow && CloseActiveWindow.forEach(function(e) {
-    let elementClick = e.getAttribute("data-active");
-    e.addEventListener("click", function(){
-        document.querySelectorAll('.open-active').forEach(function(e){
-            let elementActive = e.getAttribute("data-active")
-            if(elementActive == elementClick){
-                e.classList.toggle('active')
-                document.querySelector('body').style.overflowY = 'auto';
-                document.querySelector('body').classList.remove('opened-popup');
-            }
-        })
-    });
-});
-
-let CloseBgActiveWindow = document.querySelectorAll(".popup");
-CloseBgActiveWindow && CloseBgActiveWindow.forEach(function(e) {
-    e.addEventListener("click", function(i){
-        document.querySelectorAll('.open-active').forEach(function(e){
-            if(i.target == i.currentTarget){
-                e.classList.remove('active')
-                document.querySelector('body').style.overflowY = 'auto';
-                document.querySelector('body').classList.remove('opened-popup');
-            }
-        })
-    });
-});
-
 const convertImages = (query, callback) => {
     const images = document.querySelectorAll(query);
   
@@ -181,38 +135,6 @@ function fileUploadImage(input) {
 }
 
 
-$('.categories-not').on( 'mouseleave', function() {
-    $('.categories__three, .categories__second').removeClass('d-flex')
-})
-
-$('.categories__first--item').on( 'mouseover', function(e) {
-    var firstElem = this;
-    $('.categories__three').removeClass('d-flex')
-    $('.categories__second').each(function () {
-        if ($(this).data('id') === $(firstElem).data('id')) {
-            $(this).addClass('d-flex');
-        }else {
-            $(this).removeClass('d-flex');
-        }
-    });
-})
-
-$('.categories__second--item').on( 'mouseover', function(e) {
-    var firstElem = this;
-    $('.categories__three').each(function () {
-        if ($(this).data('id') === $(firstElem).data('id')) {
-            $(this).addClass('d-flex');
-        }else {
-            $(this).removeClass('d-flex');
-        }
-    });
-})
-
-$('.categories-btn').on( 'click', function() {
-    $('.mobile-categories').addClass('active');
-    $('body').css('overflow-y','hidden');
-})
-
 $('.open-filter').on( 'click', function() {
     $('.js-filter').removeClass('d-none');
     $('.js-filter').addClass('d-block');
@@ -240,6 +162,13 @@ $('.delete-filter').on( 'click', function() {
     $('.filter-btns').removeClass('d-flex')
 })
 
+
+/** Mobile Categories */
+
+$('.categories-btn').on( 'click', function() {
+    $('.mobile-categories').addClass('active');
+    $('body').css('overflow-y','hidden');
+})
 
 $('.mobile-categories__first--item').on( 'click', function(e) {
     var firstElem = this;
@@ -269,3 +198,5 @@ $('.mobile-categories__head--close').on( 'click', function() {
     $('.mobile-categories').removeClass('active');
     $('body').css('overflow-y','auto');
 })
+
+/** End Of Mobile Categories */
