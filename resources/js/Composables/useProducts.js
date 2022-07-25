@@ -10,10 +10,12 @@ export function useProducts(){
             status: 'New',
             stars: 4,
             total_reviews: 132,
-            price: 1239.39,
-            currency: {
-                code: 'GEL',
-                symbol: '₾'
+            price: { 
+                amount: 1239.39,
+                currency: {
+                    code: 'GEL',
+                    symbol: '₾',
+                },
             },
             images: [
                 {
@@ -30,12 +32,14 @@ export function useProducts(){
             id: 2,
             name: 'TCL 40S325 40 Inch 1080p Smart LED Roku TV',
             status: 'New',
-            stars: 4,
+            stars: 3,
             total_reviews: 132,
-            price: 1239.39,
-            currency: {
-                code: 'GEL',
-                symbol: '₾'
+            price: { 
+                amount: 1239.39,
+                currency: {
+                    code: 'GEL',
+                    symbol: '₾',
+                },
             },
             images: [
                 {
@@ -54,10 +58,12 @@ export function useProducts(){
             status: 'New',
             stars: 4,
             total_reviews: 132,
-            price: 1239.39,
-            currency: {
-                code: 'GEL',
-                symbol: '₾'
+            price: { 
+                amount: 1239.39,
+                currency: {
+                    code: 'GEL',
+                    symbol: '₾',
+                },
             },
             images: [
                 {
@@ -76,10 +82,12 @@ export function useProducts(){
             status: 'New',
             stars: 4,
             total_reviews: 132,
-            price: 1239.39,
-            currency: {
-                code: 'GEL',
-                symbol: '₾'
+            price: { 
+                amount: 1239.39,
+                currency: {
+                    code: 'GEL',
+                    symbol: '₾',
+                },
             },
             images: [
                 {
@@ -98,10 +106,12 @@ export function useProducts(){
             status: 'New',
             stars: 4,
             total_reviews: 132,
-            price: 1239.39,
-            currency: {
-                code: 'GEL',
-                symbol: '₾'
+            price: { 
+                amount: 1239.39,
+                currency: {
+                    code: 'GEL',
+                    symbol: '₾',
+                },
             },
             images: [
                 {
@@ -120,10 +130,12 @@ export function useProducts(){
             status: 'New',
             stars: 4,
             total_reviews: 132,
-            price: 1239.39,
-            currency: {
-                code: 'GEL',
-                symbol: '₾'
+            price: { 
+                amount: 1239.39,
+                currency: {
+                    code: 'GEL',
+                    symbol: '₾',
+                },
             },
             images: [
                 {
@@ -142,10 +154,12 @@ export function useProducts(){
             status: 'New',
             stars: 4,
             total_reviews: 132,
-            price: 1239.39,
-            currency: {
-                code: 'GEL',
-                symbol: '₾'
+            price: { 
+                amount: 1239.39,
+                currency: {
+                    code: 'GEL',
+                    symbol: '₾',
+                },
             },
             images: [
                 {
@@ -164,10 +178,12 @@ export function useProducts(){
             status: 'New',
             stars: 4,
             total_reviews: 132,
-            price: 1239.39,
-            currency: {
-                code: 'GEL',
-                symbol: '₾'
+            price: { 
+                amount: 1239.39,
+                currency: {
+                    code: 'GEL',
+                    symbol: '₾',
+                },
             },
             images: [
                 {
@@ -186,10 +202,12 @@ export function useProducts(){
             status: 'New',
             stars: 4,
             total_reviews: 132,
-            price: 1239.39,
-            currency: {
-                code: 'GEL',
-                symbol: '₾'
+            price: { 
+                amount: 1239.39,
+                currency: {
+                    code: 'GEL',
+                    symbol: '₾',
+                },
             },
             images: [
                 {
@@ -208,10 +226,12 @@ export function useProducts(){
             status: 'New',
             stars: 4,
             total_reviews: 132,
-            price: 1239.39,
-            currency: {
-                code: 'GEL',
-                symbol: '₾'
+            price: { 
+                amount: 1239.39,
+                currency: {
+                    code: 'GEL',
+                    symbol: '₾',
+                },
             },
             images: [
                 {

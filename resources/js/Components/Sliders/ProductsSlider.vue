@@ -1,65 +1,56 @@
 <script setup>
 /** Source */
+import { onMounted } from 'vue'
 import { useProducts } from '@/Composables/useProducts'
-import { Splide, SplideSlide } from '@splidejs/vue-splide';
+import { Splide, SplideTrack, SplideSlide } from '@splidejs/vue-splide'
 /** Components */
-import ProductsSliderMobile from './ProductsSliderMobile.vue';
-import ProductItemSlider from './ProductItemSlider.vue';
-
+import ProductSlide from './ProductSlide.vue';
+import SliderArrows from './SliderArrows.vue';
 /** Constants */
 const { products } = useProducts()
+const arrow_options = {
+  classes: {  
+    arrows: "products-slider__navs d-flex",
+    prev: "products-slider__navs--btn products-slider__navs--prev",
+    next: "products-slider__navs--btn products-slider__navs--next",
+  },
+  buttons: {
+    prev: '/assets/img/svg/slider-prev.svg',
+    next: '/assets/img/svg/slider-next.svg',
+  }
+}
+const Options = {
+    type: 'slide',
+    autoplay: false,
+    perPage: 5,
+    breakpoints: {
+        1024: {
+            perPage: 2,
+        },
+    },
+    arrows: false,
+    pagination: false,
+    updateOnMove: true,
+}
 </script>
 <!-- Products Slider Template -->
 <template>
     <div class="container">
-        <Splide class="products-slider" aria-labelledby="products-main-slider">
-            <div class="splide__arrows products-slider__navs d-none d-lg-flex">
-                <button class="splide__arrow splide__arrow--prev products-slider__navs--btn products-slider__navs--prev">
-                    <img src="/assets/img/svg/slider-prev.svg" alt="">
-                </button>
-                <button class="splide__arrow splide__arrow--next products-slider__navs--btn products-slider__navs--next">
-                    <img src="/assets/img/svg/slider-next.svg" alt="">
-                </button>
-            </div>
-            <div class="products__section d-flex align-items-center justify-content-center justify-content-lg-between">
-                <div class="d-flex align-items-center">
-                    <h2 class="products__section--text regular">Top offers</h2>
-                    <a href="" class="products__section--link regular">View all</a>
-                </div>
-            </div><!-- section head end -->
-            <!-- product slider desktop-->
-            <div class="d-none d-lg-block">
-                <SplideSlide class="splide__slide" v-for="product in products" :key="product.id">
-                    <div class="products-slider__item">
-                        <button class="products-slider__item--fav">
-                            <img src="/assets/img/svg/product-fav.svg" alt="">
-                        </button>
-                        <!-- item slider -->
-                        
-                        <ProductItemSlider :images="product.images" />
-                        <div class="products-slider__item--footer d-flex flex-column align-items-start">
-                            <div class="products-slider__item--status regular">
-                                {{ product.status.toUpperCase() }}
-                            </div>
-                            <div class="products-slider__item--price bold">
-                                {{ product.currency.symbol }}{{ product.price }}
-                            </div>
-                            <a href="" class="products-slider__item--name regular">
-                                {{ product.name }}
-                            </a>
-                            <div class="products-slider__item--stars regular d-flex align-items-center">
-                                <div class="products-slider__item--stars--item products-slider__item--stars--item--active"></div>
-                                <div class="products-slider__item--stars--item products-slider__item--stars--item--active"></div>
-                                <div class="products-slider__item--stars--item products-slider__item--stars--item--active"></div>
-                                <div class="products-slider__item--stars--item products-slider__item--stars--item--active"></div>
-                                <div class="products-slider__item--stars--item"></div>
-                                <span>{{ product.total_reviews }} review</span>
-                            </div>
-                        </div>
+        <div class="products-slider">
+            <Splide class="products-slider d-none d-lg-block" :hasTrack="false" :options="Options"> 
+                <div class="products__section d-flex align-items-center justify-content-center justify-content-lg-between">
+                    <div class="d-flex align-items-center">
+                        <h2 class="products__section--text regular">Top offers</h2>
+                        <a href="" class="products__section--link regular">View all</a>
                     </div>
-                </SplideSlide><!-- item end -->
-            </div>
-            <ProductsSliderMobile />
-        </Splide>
+                    <SliderArrows :options="arrow_options"/>
+                </div>
+                <SplideTrack>
+                    <SplideSlide v-for="product in products" :key="product.id">
+                        <ProductSlide :product="product" />
+                    </SplideSlide>
+                </SplideTrack>
+            </Splide>
+        </div>
     </div>
 </template>
