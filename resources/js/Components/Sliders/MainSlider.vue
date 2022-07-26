@@ -1,12 +1,11 @@
 <script setup>
 /** Source */
 import { ref, onMounted } from 'vue'
-import Splide from '@splidejs/splide';
-
+import Splide from '@splidejs/splide'
+/** onMounted */
 onMounted(function(){
     new Splide( '.splide' ).mount()
 })
-
 /** constants */
 const buttons = ref([
     {

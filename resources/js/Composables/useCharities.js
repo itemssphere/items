@@ -1,9 +1,9 @@
 /** Source */
 import { ref } from 'vue'
 /** Export Statement */
-export function useSocials(){
+export function useCharities(){
     /** Constants */
-    const socials = ref([
+    const charities = ref([
         {
             id: 1,
             title: "Justice for Jake Blake",
@@ -90,5 +90,5 @@ export function useSocials(){
         },
     ])
 
-    return { socials }
+    return { charities }
 }

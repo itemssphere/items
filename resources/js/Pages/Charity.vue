@@ -1,7 +1,13 @@
 <script setup>
-import { Head } from '@inertiajs/inertia-vue3';
+/** Source */
+import { useCharities } from '@/Composables/useCharities'
+/** Components */
+import { Head } from '@inertiajs/inertia-vue3'
 import FrontPage from '@/Layouts/FrontPage.vue'
+/** Constants */
+const { charities } = useCharities()
 </script>
+<!-- Charities Page Template -->
 <template>
     <Head title="Charity Page" />
     <FrontPage>
@@ -45,7 +51,7 @@ import FrontPage from '@/Layouts/FrontPage.vue'
 
                             <div class="col-6 col-lg-12">
                                 <div class="page__title bold">
-                                    Products <span class="regular">60,000</span>
+                                    Charities <span class="regular">{{ charities.length }}</span>
                                 </div>
                             </div>
                             <!-- filter -->
@@ -76,29 +82,27 @@ import FrontPage from '@/Layouts/FrontPage.vue'
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-xl-3 col-6">
+                            <div class="col-lg-4 col-xl-3 col-6" v-for="item in charities" :key="item.id">
                                 <div class="social-program-slider__item shop__item">
                                     <figure class="social-program-slider__item--cover">
-                                        <img src="/assets/img/Product1.png" alt="">
+                                        <img :src="item.cover" alt="">
                                     </figure>
                                     <div class="social-program-slider__item--text">
-                                        <a href="" class="title-link"><h1 class="social-program-slider__item--title bold">Justice for Jake Blake</h1></a>
-                                        <p class="social-program-slider__item--desc regular">
-                                            On August 23rd my son was shot multiple times in the back by a …
-                                        </p>
+                                        <a href="" class="title-link"><h1 class="social-program-slider__item--title bold">{{ item.title }}</h1></a>
+                                        <p class="social-program-slider__item--desc regular">{{ item.description }}</p>
                                         <div class="social-program-slider__item--btns">
                                             <ul class="d-flex align-items-center item-btns">
                                                 <li class="header__btns--item item-btns__item regular d-flex align-items-center">
                                                     <a href="" class="header__btns--link item-btns__item--btn d-flex align-items-center justify-content-center">
                                                         <img src="/assets/img/svg/man-icon.svg" alt="" class="item-btns__item--icon convert-svg">
                                                     </a>
-                                                    300
+                                                    {{ item.sum_likes }}
                                                 </li>
                                                 <li class="header__btns--item item-btns__item regular d-flex align-items-center">
                                                     <a href="" class="header__btns--link item-btns__item--btn d-flex align-items-center justify-content-center">
                                                         <img src="/assets/img/svg/socshare.svg" alt="" class="item-btns__item--icon convert-svg">
                                                     </a>
-                                                    200
+                                                    {{ item.sum_shares }}
                                                 </li>
                                             </ul>
                                         </div>
@@ -116,7 +120,6 @@ import FrontPage from '@/Layouts/FrontPage.vue'
                                     </div>
                                 </div>
                             </div><!-- end -->
-
                             <div class="col-12">
                                 <div class="page__navigation d-flex justify-content-center">
                                     <button class="page__navigation--btn">More</button>

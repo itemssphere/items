@@ -1,7 +1,13 @@
 <script setup>
-import { Head } from '@inertiajs/inertia-vue3';
+/** Source */
+import { useShops } from '@/Composables/useShops'
+/** Components */
+import { Head } from '@inertiajs/inertia-vue3'
 import Page from '@/Layouts/FrontPage.vue'
+/** Constants */
+const { shops } = useShops()
 </script>
+<!-- Shops Page Template -->
 <template>
     <Head title="Shop Page" />
     <Page>
@@ -45,7 +51,7 @@ import Page from '@/Layouts/FrontPage.vue'
 
                             <div class="col-6 col-lg-12">
                                 <div class="page__title bold">
-                                    Products <span class="regular">60,000</span>
+                                    Shops <span class="regular">{{ shops.len }}</span>
                                 </div>
                             </div>
                             <!-- filter -->
@@ -75,8 +81,7 @@ import Page from '@/Layouts/FrontPage.vue'
                                         </div><!-- end -->
                                     </div>
                                 </div>
-                            </div>
-                            
+                            </div> 
                             <div class="col-lg-4 col-xl-3 col-6">
                                 <div class="social-program-slider__item shop__item">
                                     <figure class="social-program-slider__item--cover">

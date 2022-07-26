@@ -1,7 +1,7 @@
 <script setup>
 /** Source */
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/vue-splide";
-import SliderArrows from "./SliderArrows.vue";
+import SliderArrows from '../Components/SliderArrows.vue'
 /** Props */
 defineProps({
   product: { type: Object, required: true },
@@ -50,18 +50,22 @@ const Options = {
     <div
       class="products-slider__item--footer d-flex flex-column align-items-start"
     >
-      <div class="products-slider__item--status regular">
+      <div class="products-slider__item--status regular" :class="{ 'products-slider__item--status--green': product.price?.sale }">
         {{ product.status.toUpperCase() }}
       </div>
-      <div class="products-slider__item--price bold">
-        {{ product.price.currency.symbol }}{{ product.price.amount }}
+      <div class="products-slider__item--price bold" :class="{ 'products-slider__item--price--red': product.price?.sale }">
+        <template v-if="product.price?.sale">
+        {{ product.price.currency.symbol }}{{ product.price.sale }}
+          <span class="products-slider__item--price--old">{{ product.price.currency.symbol }}{{ product.price.amount }}</span>
+        </template>
+        <template v-else>
+          {{ product.price.currency.symbol }}{{ product.price.amount }}
+        </template>
       </div>
       <a href="" class="products-slider__item--name regular">
         {{ product.name }}
       </a>
-      <div
-        class="products-slider__item--stars regular d-flex align-items-center"
-      >
+      <div class="products-slider__item--stars regular d-flex align-items-center">
         <template v-for="star in [1, 2, 3, 4, 5]" :key="star.index">
           <div
             class="products-slider__item--stars--item"

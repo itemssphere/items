@@ -12,6 +12,7 @@ export function useProducts(){
             total_reviews: 132,
             price: { 
                 amount: 1239.39,
+                sale: 1239.38,
                 currency: {
                     code: 'GEL',
                     symbol: '₾',
