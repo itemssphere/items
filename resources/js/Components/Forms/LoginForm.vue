@@ -2,19 +2,37 @@
 /** Source */
 import { useForm } from '@inertiajs/inertia-vue3'
 import { getActiveLanguage } from 'laravel-vue-i18n'
+import { usePopups } from '@/Composables/usePopups'
 /** Emits */
 const emit = defineEmits(['switchPopup'])
 /** Constants */
+const { open, close } = usePopups()
 const form = useForm({
   email: null,
   password: null,
 })
+const submit = (message) => {
+    close('login-popup')
+    form.post( route('login', getActiveLanguage()),
+        {
+          preserveScroll: true,
+          onSuccess: () => {
+            form.reset('email')
+            form.reset('password')
+          },
+          onError: () => {
+            open('login-popup')
+          }
+        }
+    )
+}
 </script>
 <!-- Login Form Template -->
 <template>
     <div class="sign-in login">
         <h1 class="sign-in__title bold">Sign in</h1>
-        <form @submit.prevent="form.post(route('login', getActiveLanguage()))" class="sign-in__form">
+        <form class="sign-in__form"
+            @submit.prevent="submit">
             <label class="sign-in__form--label d-flex align-items-center">
                 <input v-model="form.email" type="text" class="sign-in__form--input regular" placeholder="Email">
                 <div v-if="form.errors.email">{{ form.errors.email }}</div>

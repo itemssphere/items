@@ -1,12 +1,13 @@
 <script setup>
 /** Source */
-import { ref, onMounted } from 'vue'
+import { ref, toRef, onMounted } from 'vue'
 import Splide from '@splidejs/splide'
-/** onMounted */
-onMounted(function(){
-    new Splide( '.splide' ).mount()
+/** Props */
+const props = defineProps({
+    id: String
 })
 /** constants */
+const id = toRef(props, 'id')
 const buttons = ref([
     {
         name: 'prev',
@@ -27,11 +28,15 @@ const banners = ref([
         icon: '/assets/img/slider-banner.png',
     },
 ])
+/** onMounted */
+onMounted(function(){
+    new Splide( `#${id.value}` ).mount()
+})
 </script>
 >
 <!-- Main Slider Template -->
 <template>
-  <section class="splide" aria-label="Splide Basic HTML Example">
+  <section :id="id" class="splide">
     <div class="main-slider d-flex align-items-center">
         <div class="splide__arrows main-slider__navs d-none d-lg-flex">
             <button 

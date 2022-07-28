@@ -23,7 +23,7 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(route(RouteServiceProvider::HOME, app()->getLocale()));
+                return redirect(route(RouteServiceProvider::ACCOUNT, app()->getLocale()));
             }
         }
 

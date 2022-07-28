@@ -3,14 +3,14 @@
 import { useProducts } from '@/Composables/useProducts'
 import { Splide, SplideTrack, SplideSlide } from '@splidejs/vue-splide'
 /** Components */
-import ProductSlide from './ProductSlide.vue';
-import SliderArrows from '../Components/SliderArrows.vue';
+import ProductSlide from './ProductSlide.vue'
+import SliderArrows from '../Components/SliderArrows.vue'
 /** Props */
 defineProps({
     data: Array
 })
 /** Constants */
-const arrow_options = {
+const arrowsOptions = {
   classes: {  
     arrows: "products-slider__navs d-flex",
     prev: "products-slider__navs--btn products-slider__navs--prev",
@@ -21,7 +21,8 @@ const arrow_options = {
     next: '/assets/img/svg/slider-next.svg',
   }
 }
-const Options = {
+const splideOptions = {
+    tag: 'section',
     type: 'slide',
     autoplay: false,
     perPage: 5,
@@ -39,13 +40,13 @@ const Options = {
 <template>
     <div class="container">
         <div class="products-slider">
-            <Splide class="products-slider d-none d-lg-block" :hasTrack="false" :options="Options"> 
+            <Splide class="products-slider d-none d-lg-block" :hasTrack="false" :options="splideOptions"> 
                 <div class="products__section d-flex align-items-center justify-content-center justify-content-lg-between">
                     <div class="d-flex align-items-center">
                         <slot name="title" />
                         <slot name="link" />
                     </div>
-                    <SliderArrows :options="arrow_options"/>
+                    <SliderArrows :options="arrowsOptions"/>
                 </div>
                 <SplideTrack>
                     <SplideSlide v-for="product in data" :key="product.id">

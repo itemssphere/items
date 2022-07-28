@@ -20,7 +20,7 @@ Route::redirect('/', '/' . App::getLocale());
 Route::group(['prefix' => '{language}'], function(){
 
     /** Guest Pages */
-    Route::middleware(['guest'])->group(function(){
+//    Route::middleware(['guest'])->group(function(){
         /** Inertia: Directly Rendered Vue */
         Route::inertia('/', 'Home')->name('home');
         Route::inertia('/market','Market')->name('market');
@@ -36,11 +36,23 @@ Route::group(['prefix' => '{language}'], function(){
         Route::inertia('/profile','Profile')->name('profile');
         Route::inertia('/policy', 'Policy')->name('policy');
         Route::inertia('/agreement', 'Agreement')->name('agreement');
-    });
+//    });
 
     /** Authorized Pages **/
     Route::middleware(['auth', 'verified'])->group(function(){
-        Route::inertia('/dashboard', 'Dashboard')->name('dashboard');
+        Route::redirect('account','account.information');
+        Route::prefix('account')->group(function(){
+            Route::name('account.')->group(function(){
+                Route::inertia('information', 'Account/Information')->name('information');
+                Route::inertia('socials', 'Account/Socials')->name('socials');
+                Route::inertia('products', 'Account/Products')->name('products');
+                Route::inertia('sold', 'Account/Sold')->name('sold');
+                Route::inertia('orders', 'Account/Orders')->name('orders');
+                Route::inertia('addresses', 'Account/Addresses')->name('addresses');
+                Route::inertia('messages', 'Account/Messages')->name('messages');
+                Route::inertia('password', 'Account/Password')->name('password');
+            });
+        });
     });
     
     /** Authorization Routes **/

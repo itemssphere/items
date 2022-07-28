@@ -9,5 +9,5 @@ const pageName = 'home'
 <template>
     <Header :pageName="pageName"/>   
     <slot />
-    <Footer />  
+    <Footer />
 </template>

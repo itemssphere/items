@@ -15,7 +15,8 @@ import CategoriesSection from '@/Components/Sections/CategoriesSection.vue'
     <Head  title="Home Page" />
     <FrontPage>
         <section class="touch index-touch mb-2">
-            <CategoriesSection />
+            <CategoriesSection :id="`main1`" />
+            <CategoriesSection :id="`main2`"/>
             <ProductsSection />
             <HashtingSection />
             <SocialProgramsSection />
