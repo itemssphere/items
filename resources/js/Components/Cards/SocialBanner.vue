@@ -4,7 +4,7 @@
 import { toRef, computed } from 'vue'
 /** Props */
 const props = defineProps({
-    social: { type: String, required: true }
+    social: { type: Object, required: true }
 })
 /** Constants */
 const social = toRef(props, 'social')

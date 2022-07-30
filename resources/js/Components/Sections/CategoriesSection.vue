@@ -7,9 +7,6 @@ import MainSlider from "../Sliders/MainSlider.vue"
 import BannerMini from "../Cards/BannerMini.vue"
 /** Constants */
 const { banners } = useBanners()
-defineProps({
-  id: String
-})
 </script>
 <!-- Categories Section Template -->
 <template>
@@ -17,7 +14,7 @@ defineProps({
     <!-- Main Slider Section -->
     <template v-slot:mainSlider>
       <div class="col-12">
-        <MainSlider :id="id" />
+        <MainSlider slider_id="main_slider" />
       </div>
     </template>
     <!-- Banners -->

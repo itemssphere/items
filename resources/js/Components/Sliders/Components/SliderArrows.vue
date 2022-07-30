@@ -2,10 +2,11 @@
 /** Props */
 defineProps({
     options: Object,
+    aria: String,
 })
 </script>
 <template>
-    <div class="splide__arrows" :class="options.classes.arrows">
+    <div :id="aria" class="splide__arrows" :class="options.classes.arrows">
         <button class="splide__arrow" :class="options.classes.prev">
             <img :src="options.buttons.prev" alt="">
         </button>

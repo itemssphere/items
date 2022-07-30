@@ -3,7 +3,6 @@
 import { toRef, onMounted } from 'vue'
 import Splide from '@splidejs/splide'
 /** Components */
-import SliderArrows from '../Components/SliderArrows.vue'
 import Slide from './Slide.vue';
 /** Props */
 defineProps({

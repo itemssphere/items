@@ -4,10 +4,10 @@ import { ref, toRef, onMounted } from 'vue'
 import Splide from '@splidejs/splide'
 /** Props */
 const props = defineProps({
-    id: String
+    slider_id: String
 })
 /** constants */
-const id = toRef(props, 'id')
+const slider_id = toRef(props, 'slider_id')
 const buttons = ref([
     {
         name: 'prev',
@@ -30,13 +30,13 @@ const banners = ref([
 ])
 /** onMounted */
 onMounted(function(){
-    new Splide( `#${id.value}` ).mount()
+    new Splide( `#${slider_id.value}` ).mount()
 })
 </script>
 >
 <!-- Main Slider Template -->
 <template>
-  <section :id="id" class="splide">
+  <section :id="slider_id" class="splide">
     <div class="main-slider d-flex align-items-center">
         <div class="splide__arrows main-slider__navs d-none d-lg-flex">
             <button 
