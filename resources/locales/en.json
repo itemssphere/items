@@ -1,0 +1,15 @@
+{
+    "title": "Title",
+    "menus": {
+        "main": {
+            "home": "Home",
+            "market": "Market",
+            "shop": "Shops",
+            "charity": "Charitys And Other NPOs",
+            "social": "Social Programs",
+            "news": "News",
+            "about": "About us",
+            "contact": "Help & Contact"
+        }
+    }
+}

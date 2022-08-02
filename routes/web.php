@@ -17,6 +17,7 @@ use Illuminate\Foundation\Application;
 */
 
 Route::redirect('/', '/' . App::getLocale());
+// Route::inertia('/', 'Home');
 Route::group(['prefix' => '{language}'], function(){
 
     /** Guest Pages */

@@ -1,17 +1,20 @@
-import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
-import vue from '@vitejs/plugin-vue';
-import i18n from 'laravel-vue-i18n/vite';
+import laravel from 'laravel-vite-plugin'
+import { defineConfig } from 'vite'
+import { resolve, dirname } from 'node:path'
+import { fileURLToPath } from 'url'
+import vue from '@vitejs/plugin-vue'
+import { vueI18n } from '@intlify/vite-plugin-vue-i18n'
+
 
 export default defineConfig({
-    server:{
-        hmr: {
-            host: "127.0.0.1",
-            port: 8000
-        }
+    server: {
+        host: 'items.magischer.de',
+        watch: {
+            usePolling: true,
+        },
     },
     plugins: [
-        laravel({
+        laravel({ 
             input: 'resources/js/app.js',
         }),
         vue({
@@ -22,6 +25,10 @@ export default defineConfig({
                 },
             },
         }),
-        i18n(),
+        vueI18n({
+          include: resolve(dirname(fileURLToPath(import.meta.url)), './resources/locales/**'),
+          compositionOnly: false,
+          runtimeOnly: false,
+        })
     ],
 });

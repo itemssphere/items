@@ -1,26 +1,25 @@
 <script setup>
 /** Source  */
 import { ref, computed } from 'vue'
-import { loadLanguageAsync, getActiveLanguage } from 'laravel-vue-i18n'
+import { useI18n } from 'vue-i18n'
 import { Inertia } from '@inertiajs/inertia'
+
 /** Props */
 const props = defineProps({
   langs: Array,
 })
 /** Constants */
+const { locale, t } = useI18n({ useScope: 'global' })
 const isActive = ref(false)
 const langs = ref(['en', 'ge'])
 /** Computed */
-const activeLang = computed(function(){
-    return getActiveLanguage()
-})
 const filteredLangs = computed(function(){
-    return langs.value.filter(lang => lang != activeLang.value)
+    return langs.value.filter(lang => lang != locale.value)
 })
 /** Functions*/
 const setLanguage = (lang) => {
     Inertia.get(route(route().current(), lang))
-    loadLanguageAsync(lang);
+    locale.value = lang;
 }
 </script>
 <!-- Language Switcher Template -->
@@ -33,8 +32,8 @@ const setLanguage = (lang) => {
             @click="isActive = !isActive"
         >
             <div class="header__head--lang-active d-flex align-items-center regular">
-                <img :src="'/assets/img/svg/flags/' + activeLang + '.svg'" alt="">
-                <span>{{ activeLang.toUpperCase() }}</span>
+                <img :src="'/assets/img/svg/flags/' + locale + '.svg'" alt="">
+                <span>{{ locale.toUpperCase() }}</span>
             </div>
             <img src="/assets/img/svg/lang-arrow-down.svg" alt="">
         </div>

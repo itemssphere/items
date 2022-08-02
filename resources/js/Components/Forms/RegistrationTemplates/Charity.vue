@@ -1,8 +1,10 @@
 <script setup>
 /** Source */
 import { useForm } from '@inertiajs/inertia-vue3'
-import { getActiveLanguage } from 'laravel-vue-i18n'
+import { useI18n } from 'vue-i18n'
+
 /** Constants */
+const { locale, t } = useI18n({ inheritLocale: true })
 const form = useForm({
   type: 'charity',
   name: null,
@@ -14,7 +16,7 @@ const form = useForm({
 
 <!-- Individual User Registration Form Template -->
 <template>
-    <form @submit.prevent="form.post(route('register', getActiveLanguage()))" class="sign-in__form register__step active">
+    <form @submit.prevent="form.post(route('register', locale))" class="sign-in__form register__step active">
         <label class="sign-in__form--label d-flex align-items-center">
             <input v-model="form.name" type="text" class="sign-in__form--input regular" placeholder="Full name">
             <div v-if="form.errors.email">{{ form.errors.name }}</div>

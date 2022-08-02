@@ -1,15 +1,15 @@
 <script setup>
 /** Components */
 import ApplicationLogo from '../ApplicationLogo.vue'
-import AuthorizationBlock from '../Blocks/AuthorizationBlock.vue';
-import MobileLogo from '../MobileLogo.vue';
-import SearchPopup from '../Popups/SearchPopup.vue';
+import AuthorizationBlock from '../Blocks/AuthorizationBlock.vue'
+import MobileLogo from '../MobileLogo.vue'
+import SearchPopup from '../Popups/SearchPopup.vue'
 /** Props */
 defineProps({
     pageName: String
 })
 </script>
-<!-- Search Bar Template -->
+<!-- Search Bar Template --->
 <template>
     
     <div class="container">

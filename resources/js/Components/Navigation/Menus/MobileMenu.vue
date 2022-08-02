@@ -2,8 +2,9 @@
 /** Source */
 import { ref } from 'vue'
 import { Link } from '@inertiajs/inertia-vue3'
-import { getActiveLanguage } from 'laravel-vue-i18n'
-/** Constants */
+import { useI18n } from 'vue-i18n'
+/** Constnats */
+const { locale, t } = useI18n({ inheritLocale: true })
 const menu = ref([
     {
         route: 'home',
@@ -40,7 +41,7 @@ const menu = ref([
                     <Link 
                         class="m-header__menu--a regular d-flex flex-column align-items-center"
                         :class="{ active: item.route == route().current() }"
-                        :href="route(item.route, getActiveLanguage())"
+                        :href="route(item.route, locale)"
                     >
                         <figure class="m-header__menu--figure d-flex justify-content-center">
                             <div class="m-header__menu--icon">

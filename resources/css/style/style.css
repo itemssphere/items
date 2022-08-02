@@ -11,7 +11,7 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
   background-color: #FBFBFB;
-  overflow-x: hidden;
+  overflow-x: hidden;f
 }
 
 @media (max-width: 1025px) {
@@ -152,7 +152,7 @@ body {
 .header__head--container {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
+  display: flex-end;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: end;
@@ -178,7 +178,7 @@ body {
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
+  display: flex-end;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: end;

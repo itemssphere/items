@@ -9,12 +9,28 @@ import '../css/style/style.scss';
 
 /** Source */
 import { createApp, h } from 'vue';
-import { createInertiaApp } from '@inertiajs/inertia-vue3';
-import { InertiaProgress } from '@inertiajs/progress';
-import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
-import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
-import { i18nVue } from 'laravel-vue-i18n';
+import { createInertiaApp } from '@inertiajs/inertia-vue3'
+import { InertiaProgress } from '@inertiajs/progress'
+import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
+import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m'
+import { createI18n } from 'vue-i18n'
 import { createStore } from 'vuex'
+
+/*
+ * The i18n resources in the path specified in the plugin `include` option can be read
+ * as vue-i18n optimized locale messages using the import syntax
+ */
+import en from '../locales/en.json'
+import ge from '../locales/ge.json'
+
+const i18n = createI18n({
+  legacy: false,
+  locale: 'en',
+  messages: {
+    en,
+    ge,
+  }
+})
 
 /** Create a new store instance */ 
 const store = createStore({
@@ -37,15 +53,10 @@ createInertiaApp({
     resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
     setup({ el, app, props, plugin }) {
         return createApp({ render: () => h(app, props) })
-            .use(plugin)
-            .use(i18nVue, {
-                resolve: async lang => {
-                    const langs = import.meta.glob('../../lang/*.json');
-                    return await langs[`../../lang/${lang}.json`]();
-                }
-            })
-            .use(ZiggyVue, Ziggy)
-            .mount(el);
+          .use(i18n)
+          .use(plugin)
+          .use(ZiggyVue, Ziggy)
+          .mount(el);
     },
 });
 

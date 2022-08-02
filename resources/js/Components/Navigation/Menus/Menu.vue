@@ -1,8 +1,10 @@
 <script setup>
+/** Source */
 import { ref } from 'vue'
 import { Link } from '@inertiajs/inertia-vue3'
-import { getActiveLanguage } from 'laravel-vue-i18n'
-
+import { useI18n } from 'vue-i18n'
+/** Constnats */
+const { locale, t } = useI18n({ inheritLocale: true })
 const main_menu_items = ref({
     'left': [
         {
@@ -78,7 +80,7 @@ const mobile_menu_items = ref({
 })
 </script>
 <template>
-    <!-- head menu -->   
+    <!-- head menu -->    
     <div class="head-menu--fix d-none d-lg-block" style="top: 88px;">
         <div class="container">
             <div class="head-menu d-flex justify-content-between align-items-center">
@@ -88,9 +90,9 @@ const mobile_menu_items = ref({
                         :key="item.index"
                         class="head-menu__categories--item"
                     >
-                        <Link :href="route(item.route, getActiveLanguage())" class="head-menu__categories--link regular d-flex align-items-center">
+                        <Link :href="route(item.route, locale)" class="head-menu__categories--link regular d-flex align-items-center">
                             <img :src="`/assets/img/svg/menu/${item.icon}.svg`" alt="" class="head-menu__categories--icon convert-svg">
-                            <span>{{ $t('components.menu.main.'+ item.title +'.title') }}</span>
+                            <span>{{ t('menus.main.'+ item.title) }}</span>
                         </Link>
                     </li>
                 </ul>
@@ -100,8 +102,8 @@ const mobile_menu_items = ref({
                         :key="item.index"
                         class="head-menu__categories--item"
                     >
-                        <Link :href="route(item.route, getActiveLanguage())" class="head-menu__categories--link regular">
-                            <span>{{ $t('components.menu.main.'+ item.title +'.title') }}</span>
+                        <Link :href="route(item.route, locale)" class="head-menu__categories--link regular">
+                            <span>{{ t('menus.main.'+ item.title) }}</span>
                         </Link>
                     </li>
                 </ul>
@@ -117,11 +119,11 @@ const mobile_menu_items = ref({
                     :key="item.index"
                     class="fix-bar__lists--li"
                 >
-                    <a :href="route(item.route,getActiveLanguage())" data-active="cart-popup" class="fix-bar__lists--link regular d-flex align-items-center flex-column click-open">
+                    <a :href="route(item.route, locale)" data-active="cart-popup" class="fix-bar__lists--link regular d-flex align-items-center flex-column click-open">
                         <figure class="fix-bar__lists--icon">
                             <img :src="`/assets/img/svg/header-btn/${item.icon}.svg`" alt="">
                         </figure>
-                        <span>{{ $t('components.menu.mobile.'+ item.title +'.title') }}</span>
+                        <span>{{ t('components.menu.mobile.'+ item.title +'.title') }}</span>
                     </a>
                 </li>
                 <!-- Plus Button -->
@@ -136,11 +138,11 @@ const mobile_menu_items = ref({
                     :key="item.index"
                     class="fix-bar__lists--li"
                 >
-                    <a :href="route(item.route,getActiveLanguage())" data-active="cart-popup" class="fix-bar__lists--link regular d-flex align-items-center flex-column click-open">
+                    <a :href="route(item.route, locale)" data-active="cart-popup" class="fix-bar__lists--link regular d-flex align-items-center flex-column click-open">
                         <figure class="fix-bar__lists--icon">
                             <img :src="`/assets/img/svg/header-btn/${item.icon}.svg`" alt="">
                         </figure>
-                        <span>{{ $t('components.menu.mobile.'+ item.title +'.title') }}</span>
+                        <span>{{ t('components.menu.mobile.'+ item.title +'.title') }}</span>
                     </a>
                 </li>
             </ul>

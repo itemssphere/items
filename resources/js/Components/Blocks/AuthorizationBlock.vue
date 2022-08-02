@@ -3,11 +3,12 @@
 import { ref } from 'vue'
 import { usePopups } from '@/Composables/usePopups'
 import { Inertia } from '@inertiajs/inertia'
-import { getActiveLanguage } from 'laravel-vue-i18n'
+import { useI18n } from 'vue-i18n'
 /** Components */
 import BreezeResponsiveNavLink from '@/Components/Navigation/Includes/ResponsiveNavLink.vue'
 import { Link } from '@inertiajs/inertia-vue3'
-/** Constants */
+/** Constnats */
+const { locale, t } = useI18n({ inheritLocale: true })
 const { open } = usePopups()
 const isActive = ref(false)
 /** Functions */
@@ -56,7 +57,7 @@ const logout = () => {
                                     {{ Inertia.page.props.auth.user?.email }}
                                 </p>
                                 <BreezeResponsiveNavLink class="profile__logout--btn regular"
-                                    :href="route('logout', getActiveLanguage())" W
+                                    :href="route('logout', locale)" W
                                     method="post"
                                     as="button"
                                 >
@@ -66,18 +67,18 @@ const logout = () => {
                         </div>
                         <ul class="profile__menu regular">
                             <li class="profile__menu--li">
-                                <Link :href="route('account.password', getActiveLanguage())" class="profile__menu--link">Change Password</Link>
+                                <Link :href="route('account.password', locale)" class="profile__menu--link">Change Password</Link>
                             </li>
                         </ul>
                         <ul class="profile__menu regular">
                             <li class="profile__menu--li">
-                                <Link :href="route('account.information', getActiveLanguage())" class="profile__menu--link">Profile</Link>
+                                <Link :href="route('account.information', locale)" class="profile__menu--link">Profile</Link>
                             </li>
                             <li class="profile__menu--li">
-                                <Link :href="route('account.information', getActiveLanguage())" class="profile__menu--link">Account Information</Link>
+                                <Link :href="route('account.information', locale)" class="profile__menu--link">Account Information</Link>
                             </li>
                             <li class="profile__menu--li">
-                                <Link :href="route('account.products', getActiveLanguage())" class="profile__menu--link">My Products</Link>
+                                <Link :href="route('account.products', locale)" class="profile__menu--link">My Products</Link>
                             </li>
                         </ul>
                     </div>

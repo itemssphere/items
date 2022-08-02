@@ -1,10 +1,11 @@
 <script setup>
 /** Source */
 import { ref, computed } from 'vue'
-import { getActiveLanguage } from 'laravel-vue-i18n'
+import { useI18n } from 'vue-i18n'
 /**Components */
 import { Link } from '@inertiajs/inertia-vue3'
 /** Constants */
+const { locale, t } = useI18n({ inheritLocale: true })
 const menu = ref([
     {
         title: 'Account Informaton',
@@ -50,7 +51,7 @@ const currentRoute = computed(() => {
     <ul class="organization__menu">
         <li class="organization__menu--item" v-for="item in menu" :key="item.index">
             <Link preserve-scroll
-                :href="route(item.route, getActiveLanguage())"
+                :href="route(item.route, locale)"
                 class="organization__menu--link regular"
                 :class="{ active: item.route == route().current() }" 
             >
