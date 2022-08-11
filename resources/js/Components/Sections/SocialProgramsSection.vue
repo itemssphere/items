@@ -1,16 +1,18 @@
 <script setup>
 /** Source */
-import { useSocials } from "@/Composables/useSocials";
+import { useSocials } from "@/Composables/useSocials"
+import { useI18n } from 'vue-i18n'
 /** Components */
-import SocialsSlider from "../Sliders/Socials/SocialsSlider.vue";
+import SocialsSlider from "../Sliders/Socials/SocialsSlider.vue"
 /** Constants */
-const { socials } = useSocials();
+const { socials } = useSocials()
+const { t } = useI18n({ inheritLocale: true })
 </script>
 <!-- Social Programs Section's Template -->
 <template>
   <SocialsSlider :data="socials">
     <template #title>
-      <h1 class="social-program__text--title bold">Social Programs</h1>
+      <h1 class="social-program__text--title bold">{{ t("titles.social_programs") }}</h1>
     </template>
     <template #description>
       <p class="social-program__text--desc regular">
@@ -22,7 +24,7 @@ const { socials } = useSocials();
       </p>
     </template>
     <template #link>
-      <a href="" class="social-program__text--link bold">View all</a>
+      <a href="" class="social-program__text--link bold">{{ t("links.view_all") }}</a>
     </template>
   </SocialsSlider>
 </template>

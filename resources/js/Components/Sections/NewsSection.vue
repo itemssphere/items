@@ -2,9 +2,11 @@
 /** Source */
 import { useNews } from '@/Composables/useNews'
 import { useShops } from '@/Composables/useShops'
+import { useI18n } from 'vue-i18n'
 /** Constants */
 const { news } = useNews()
 const { shops } = useShops()
+const { t } = useI18n({ inheritLocale: true })
 </script>
 <!-- News Section's Template -->
 <template>
@@ -13,8 +15,8 @@ const { shops } = useShops()
             <div class="col-12 col-lg-6">
                 <div class="products__section d-flex align-items-center justify-content-center justify-content-lg-between">
                     <div class="d-flex align-items-center">
-                        <h2 class="products__section--text regular">News</h2>
-                        <a href="" class="products__section--link regular">View all</a>
+                        <h2 class="products__section--text regular">{{ t("titles.news") }}</h2>
+                        <a href="" class="products__section--link regular">{{ t("links.view_all") }}</a>
                     </div>
                 </div><!-- section head end -->
                 <!-- news desktop version -->
@@ -93,7 +95,7 @@ const { shops } = useShops()
                                             </p>
                                         </div>
                                     </a>
-                                </div><!-- item end -->
+                                </div>
                             </ul>
                         </div>
                     </div>
@@ -103,8 +105,8 @@ const { shops } = useShops()
             <div class="col-12 col-lg-6">
                 <div class="products__section d-flex align-items-center justify-content-center justify-content-lg-between">
                     <div class="d-flex align-items-center">
-                        <h2 class="products__section--text regular">Our shops</h2>
-                        <a href="" class="products__section--link regular">View all</a>
+                        <h2 class="products__section--text regular">{{ t("titles.our_shops") }}</h2>
+                        <a href="" class="products__section--link regular">{{ t("links.view_all") }}</a>
                     </div>
                 </div><!-- section head end -->
                 <!-- desktop version -->
