@@ -16,8 +16,11 @@
         "categories": "Categories",
         "top_offers": "Top offers",
         "hashtags": "Hashtags",
+        "social_programs": "Social Programs",
         "sales": "Sales",
-        "news": "News"
+        "charity": "Charity",
+        "news": "News",
+        "our_shops": "Our Shops"
     },
     "links": {
         "view_all": "View all"
