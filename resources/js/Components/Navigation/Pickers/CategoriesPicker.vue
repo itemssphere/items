@@ -1,9 +1,11 @@
 <script setup>
 /** Source */
-import { ref } from "vue";
-import { useCategories } from "@/Composables/useCategories";
+import { useI18n } from 'vue-i18n'
+import { useCategories } from "@/Composables/useCategories"
 /** Constants */
-const { categories, parents, secondary, getChildren, hasChildren } = useCategories();
+const { categories, parents, secondary, getChildren, hasChildren } = useCategories()
+const { t } = useI18n({ inheritLocale: true })
+
 /** Functions */
 const mouseLeave = () => {
   let className = "d-flex";
@@ -74,7 +76,7 @@ const toChunks = (array, chunkSize = 5) => {
         <div class="categories__first" style="max-width: 250px; width: 100%">
           <div class="categories">
             <!-- Categories Main List -->
-            <h2 class="categories--title regular">Categories</h2>
+            <h2 class="categories--title regular">{{ t('titles.categories') }}</h2>
             <ul class="categories__list">
               <li
                 v-for="item in parents"

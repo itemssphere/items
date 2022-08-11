@@ -57,7 +57,7 @@ const logout = () => {
                                     {{ Inertia.page.props.auth.user?.email }}
                                 </p>
                                 <BreezeResponsiveNavLink class="profile__logout--btn regular"
-                                    :href="route('logout', locale)" W
+                                    :href="route('logout', locale)"
                                     method="post"
                                     as="button"
                                 >

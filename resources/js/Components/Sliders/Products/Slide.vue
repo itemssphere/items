@@ -13,17 +13,17 @@ const images = toRef(props, 'images')
 
 /** onMounted */
 onMounted(() => {
-  new Splide( `#${id.value}`, { pagination: false, arrows: false } ).mount()
+  new Splide( `#${id.value}`, { pagination: false, arrows: true } ).mount()
 })
 </script>
 <!-- Template of Product Slide -->
 <template>
   <section :id="id" class="splide">
     <div class="splide__arrows item-slider__navs">
-        <button class="splide__arrow item-slider__navs--btn item-slider__navs--prev">
+        <button class="splide__arrow splide__arrow--prev item-slider__navs--btn item-slider__navs--prev">
             <img src="/assets/img/svg/item-prev.svg" alt="">
         </button>
-        <button class="splide__arrow item-slider__navs--btn item-slider__navs--next">
+        <button class="splide__arrow splide__arrow--next item-slider__navs--btn item-slider__navs--next">
           <img src="/assets/img/svg/item-next.svg" alt="">
         </button>
     </div>

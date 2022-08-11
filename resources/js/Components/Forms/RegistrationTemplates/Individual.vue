@@ -19,6 +19,7 @@ const form = useForm({
 const submit = () => {
     close('login-popup')
     form.post(route('register', locale.value),{
+        resetOnSuccess: true,
         onFinish: () => form.reset('password', 'password_confirmation'),
     })
 }

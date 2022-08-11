@@ -12,7 +12,7 @@ const active = ref(true)
 <template>
     <div v-show="active" class="header__head">
         <div class="container header__head--container d-flex align-items-center">
-            <h3 class="header__head--text regular">{{ t('title') }}</h3>
+            <h3 class="header__head--text regular">{{ t('headline') }}</h3>
             <LanguageSwitcher />
             <button class="header__head--close btn d-block d-lg-none">
                 <img src="/assets/img/svg/close-head-green.svg" alt="" @click="active = !active">

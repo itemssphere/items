@@ -1,9 +1,10 @@
 <script setup>
 /** Source */
 import { toRef, onMounted } from 'vue'
+import { Link } from '@inertiajs/inertia-vue3'
 import Splide from '@splidejs/splide'
 /** Components */
-import Slide from './Slide.vue';
+import Slide from './Slide.vue'
 /** Props */
 defineProps({
   product: { type: Object, required: true },
@@ -31,9 +32,9 @@ defineProps({
           {{ product.price.currency.symbol }}{{ product.price.amount }}
         </template>
       </div>
-      <a href="" class="products-slider__item--name regular">
+      <Link href="" class="products-slider__item--name regular">
         {{ product.name }}
-      </a>
+      </Link>
       <div class="products-slider__item--stars regular d-flex align-items-center">
         <template v-for="star in [1, 2, 3, 4, 5]" :key="star.index">
           <div

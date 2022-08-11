@@ -1,5 +1,5 @@
 {
-    "title": "Title",
+    "headline": "Manage Your Property and Contribute to Sustainable Dvelopment",
     "menus": {
         "main": {
             "home": "Home",
@@ -11,5 +11,15 @@
             "about": "About us",
             "contact": "Help & Contact"
         }
+    },
+    "titles": {
+        "categories": "Categories",
+        "top_offers": "Top offers",
+        "hashtags": "Hashtags",
+        "sales": "Sales",
+        "news": "News"
+    },
+    "links": {
+        "view_all": "View all"
     }
 }

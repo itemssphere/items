@@ -1,5 +1,8 @@
 <script setup>
+/** Source */
+import { useI18n } from 'vue-i18n'
 /** Components */
+import FooterLogo from './FooterLogo.vue'
 import DownloadAppSection from './Sections/DownloadAppSection.vue'
 import TermsList from './Navigation/Lists/TermsList.vue'
 import TermsListMobile from './Navigation/Lists/TermsListMobile.vue'
@@ -10,6 +13,8 @@ import ProfilePopup from './Popups/ProfilePopup.vue'
 import AuthorizationPopup from './Popups/AuthorizationPopup.vue'
 import CartPopup from './Popups/CartPopup.vue'
 import WishlistPopup from './Popups/WishlistPopup.vue'
+/** Constants */
+const { t } = useI18n({ inheritLocale: true })
 </script>
 <!-- Footer Template -->
 <template>
@@ -19,6 +24,10 @@ import WishlistPopup from './Popups/WishlistPopup.vue'
                 <div class="row flex-wrap-reverse flex-wrap">
                     <div class="col-lg-5">
                         <div class="footer__content--left">
+                            <FooterLogo />
+                            <p class="footer__content--status regular">
+                                {{ t("headline") }}
+                            </p>
                             <DownloadAppSection />
                         </div>
                     </div>

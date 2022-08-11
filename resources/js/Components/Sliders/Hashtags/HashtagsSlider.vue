@@ -28,7 +28,7 @@ const Options = {
             perPage: 2,
         },
     },
-    arrows: false,
+    arrows: true,
     pagination: false,
     updateOnMove: true,
 }

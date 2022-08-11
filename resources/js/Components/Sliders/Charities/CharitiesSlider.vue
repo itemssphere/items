@@ -37,7 +37,7 @@ const Options = {
             },
         },
     },
-    arrows: false,
+    arrows: true,
     pagination: false,
     updateOnMove: true,
 }

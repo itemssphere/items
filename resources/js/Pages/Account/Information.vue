@@ -78,7 +78,7 @@ import { Head, Link } from '@inertiajs/inertia-vue3'
                     </div>
                     <div class="col-lg-6">
                         <div class="select">
-                            <select name="" id="" class="select__list cart-order__form--select regular">
+                            <select class="select__list cart-order__form--select regular">
                                 <option value="" class="select__list--item">Tbilisi</option>
                                 <option value="" class="select__list--item">erti</option>
                                 <option value="" class="select__list--item">ori</option>
@@ -87,7 +87,7 @@ import { Head, Link } from '@inertiajs/inertia-vue3'
                     </div>
                     <div class="col-lg-6">
                         <div class="select">
-                            <select name="" id="" class="select__list cart-order__form--select regular">
+                            <select class="select__list cart-order__form--select regular">
                                 <option value="" class="select__list--item">თბილისი</option>
                                 <option value="" class="select__list--item">erti</option>
                                 <option value="" class="select__list--item">ori</option>

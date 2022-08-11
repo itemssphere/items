@@ -15,7 +15,6 @@ const pageName = 'home'
                 <a href="">Home</a>
             </li>
             <li class="page__navigation--link regular">
-                >
                 <a href="">Home</a>
             </li>
         </ul>

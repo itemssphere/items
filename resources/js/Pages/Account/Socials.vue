@@ -19,7 +19,7 @@ const { socials } = useSocials()
             <div class="row">
                 <div class="col-6 col-lg-3" v-for="social in socials" :key="social.id">
                     <SocialSlide :social="social" />
-                </div><!-- end -->
+                </div>
             </div>
         </div>
     </Authenticated>

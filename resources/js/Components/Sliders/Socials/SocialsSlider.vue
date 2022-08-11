@@ -37,7 +37,7 @@ const Options = {
           },
       },
   },
-  arrows: false,
+  arrows: true,
   pagination: false,
   updateOnMove: true,
 };
@@ -53,8 +53,9 @@ const Options = {
             <slot name="description" />
             <slot name="link" />
           </div>
-          <SliderArrows :options="arrow_options" />
+          
           <Splide class="social-program-slider" :hasTrack="false" :options="Options">
+          <SliderArrows :options="arrow_options" />
             <SplideTrack>
               <SplideSlide v-for="item in data" :key="item.id">
                 <SocialSlide :social="item" />

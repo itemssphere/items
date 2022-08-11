@@ -33,7 +33,7 @@ const splideOptions = {
             perPage: 2,
         },
     },
-    arrows: false,
+    arrows: true,
     pagination: false,
     updateOnMove: true,
 }
@@ -43,22 +43,22 @@ onMounted(() => {
 </script>
 <!-- Products Slider Template -->
 <template>
-        <div class="products-slider">
-            <div :id="slider_id" class="splide products-slider d-none d-lg-block" :hasTrack="false" :options="splideOptions" :aria-labelledby="slider_id"> 
-                <div class="products__section d-flex align-items-center justify-content-center justify-content-lg-between">
-                    <div class="d-flex align-items-center">
-                        <slot name="title" />
-                        <slot name="link" />
-                    </div>
-                    <SliderArrows :aria="slider_id" :options="arrowsOptions"/>
+    <div class="products-slider">
+        <div :id="slider_id" class="splide products-slider d-none d-lg-block" :hasTrack="false" aria-labelledby="customLabel"> 
+            <div id="customLabel" class="products__section d-flex align-items-center justify-content-center justify-content-lg-between">
+                <div class="d-flex align-items-center">
+                    <slot name="title" />
+                    <slot name="link" />
                 </div>
-                <div class="splide__track">
-                    <div class="splide__list">
-                        <div class="splide__slide" v-for="product in data" :key="product.id">
-                            <ProductSlide :product="product" />
-                        </div>
+                <SliderArrows :options="arrowsOptions"/>
+            </div>
+            <div class="splide__track">
+                <div class="splide__list">
+                    <div class="splide__slide" v-for="product in data" :key="product.id">
+                        <ProductSlide :product="product" />
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 </template>

@@ -141,7 +141,7 @@ import { Head } from '@inertiajs/inertia-vue3'
                             <label class="cart-order__form--label">
                                 <p class="cart-order__form--title regular">Address</p>
                                 <div class="select">
-                                    <select name="" id="" class="select__list cart-order__form--select regular">
+                                    <select class="select__list cart-order__form--select regular">
                                         <option value="" class="select__list--item">A - Z</option>
                                         <option value="" class="select__list--item">erti</option>
                                         <option value="" class="select__list--item">ori</option>
