@@ -50,6 +50,7 @@ const Options = {
         <div class="social-program__content d-flex flex-column flex-lg-row">
           <div class="social-program__text d-flex flex-column align-items-start">
             <slot name="title" />
+            <slot name="subtitle" />
             <slot name="description" />
             <slot name="link" />
           </div>

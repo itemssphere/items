@@ -31,9 +31,16 @@ const progress = computed( () => {
             </div>
             <div class="social-program-slider__item--btns">
                 <ul class="d-flex align-items-center item-btns">
+                    <!-- Follow -->
                     <li class="header__btns--item item-btns__item regular d-flex align-items-center">
                         <a href="" class="header__btns--link item-btns__item--btn d-flex align-items-center justify-content-center">
-                            <img src="/assets/img/svg/like-item.svg" alt="" class="item-btns__item--icon convert-svg">
+                            <img src="/assets/img/svg/fav.svg" alt="" class="item-btns__item--icon convert-svg">
+                        </a>
+                    </li>
+                    <!-- Share -->
+                    <li class="header__btns--item item-btns__item regular d-flex align-items-center">
+                        <a href="" class="header__btns--link item-btns__item--btn d-flex align-items-center justify-content-center">
+                            <img src="/assets/img/svg/share.svg" alt="" class="item-btns__item--icon convert-svg">
                         </a>
                     </li>
                 </ul>

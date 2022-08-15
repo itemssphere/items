@@ -23,15 +23,6 @@ import { createStore } from 'vuex'
 import en from '../locales/en.json'
 import ge from '../locales/ge.json'
 
-const i18n = createI18n({
-  legacy: false,
-  locale: 'en',
-  messages: {
-    en,
-    ge,
-  }
-})
-
 /** Create a new store instance */ 
 const store = createStore({
   state () {
@@ -52,11 +43,17 @@ createInertiaApp({
     title: (title) => `${title} - ${appName}`,
     resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
     setup({ el, app, props, plugin }) {
+        const i18n = createI18n({
+          legacy: false,
+          locale: props.initialPage.props.locale,
+          messages: { en, ge, }
+        })
+
         return createApp({ render: () => h(app, props) })
           .use(i18n)
           .use(plugin)
           .use(ZiggyVue, Ziggy)
-          .mount(el);
+          .mount(el)
     },
 });
 

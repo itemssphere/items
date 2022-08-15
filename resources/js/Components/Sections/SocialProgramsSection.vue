@@ -14,6 +14,9 @@ const { t } = useI18n({ inheritLocale: true })
     <template #title>
       <h1 class="social-program__text--title bold">{{ t("titles.social_programs") }}</h1>
     </template>
+    <template #subtitle>
+      <h2 class="social-program__text--title-smoll bold">lorem ipsum</h2>
+    </template>
     <template #description>
       <p class="social-program__text--desc regular">
         We used light green and blue colors that match the company identity. The

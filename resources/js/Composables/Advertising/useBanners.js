@@ -5,7 +5,7 @@ export function useBanners() {
     const banners = ref([
         {
             name: 'banner1',
-            icon: '/assets/img/mini-banner1.png',
+            icon: '/assets/img/main_banner.png',
         },
         {
             name: 'banner2',

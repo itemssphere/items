@@ -8,6 +8,7 @@ import Slide from './Slide.vue'
 /** Props */
 defineProps({
   product: { type: Object, required: true },
+  id_prefix: { type: String, required: true }
 })
 </script>
 <!-- Template of Product Slide -->
@@ -17,7 +18,7 @@ defineProps({
       <img src="/assets/img/svg/product-fav.svg" alt="" />
     </button>
     <div class="item-slider">
-      <Slide :id="`product_${product.id}_slider`" :images="product.images" />
+      <Slide :id="`${id_prefix}_${product.id}_slider`" :images="product.images" />
     </div>
     <div class="products-slider__item--footer d-flex flex-column align-items-start">
       <div class="products-slider__item--status regular" :class="{ 'products-slider__item--status--green': product.price?.sale }">

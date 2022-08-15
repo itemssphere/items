@@ -39,6 +39,7 @@
             background-color: #fff;
             outline: none;
             cursor: pointer;
+            top: -15px;
 
         }
         
@@ -296,7 +297,7 @@
 
 
 .social-program-slider {
-    width: calc(100% - 450px);
+    width: calc(100% - 390px);
 
     @media (max-width: 1199px) {
         width: calc(100% - 350px);        
@@ -305,7 +306,7 @@
     &__navs {
         position: absolute;
         right: 0;
-        top: -60px;
+        top: -30px;
 
         &--btn {
             width: 32px;
@@ -524,6 +525,22 @@
         .is-active {
             border: 3px solid transparent !important;
         }
+
+        .splide__pagination {
+            bottom: -30px;
+
+            &__page {
+                width: 24px;
+                height: 8px;
+                border-radius: 50px;
+                
+                &.is-active {
+                    background-color: #40CF25;
+                    transform: scale(1);
+                    border: 0;
+                }
+            }
+        }
     }
 
     &__main-slider {
@@ -533,6 +550,10 @@
         height: 100vh;
         max-height: 463px;
         overflow: hidden;
+
+        @media (max-width: 1024px) {
+            max-height: 307px;
+        }
 
         &--cover {
             width: 100%;

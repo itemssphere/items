@@ -20,8 +20,8 @@ const buttons = ref([
 ])
 const banners = ref([
     {
-        name: 'banner',
-        icon: '/assets/img/slider-banner.png',
+        name: 'main',
+        icon: '/assets/img/main_banner.png',
     },
     {
         name: 'banner',
@@ -30,7 +30,7 @@ const banners = ref([
 ])
 /** onMounted */
 onMounted(function(){
-    new Splide( `#${slider_id.value}` ).mount()
+    new Splide( `#${slider_id.value}`, { pagination: false, } ).mount()
 })
 </script>
 >
