@@ -14,11 +14,11 @@ export function useShops() {
         },
         {
             id: 3,
-            cover: '/assets/img/zoomer.png',
+            cover: '/assets/img/alta.png',
         },
         {
             id: 4,
-            cover: '/assets/img/samsung.png',
+            cover: '/assets/img/ee.png',
         },
         {
             id: 5,

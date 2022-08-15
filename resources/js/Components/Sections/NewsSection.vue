@@ -29,7 +29,7 @@ const { t } = useI18n({ inheritLocale: true })
                             </figure>
                             <div class="news__item--text">
                                 <h1 class="news__item--title bold">{{ item.title }}</h1>
-                                <p class="news__item--desc regular">{{ item.descriotion }}</p>
+                                <p class="news__item--desc regular">{{ item.description }}</p>
                                 <p class="news__item--date regular">{{ item.published_at }}</p>
                             </div>
                         </a>
@@ -48,7 +48,7 @@ const { t } = useI18n({ inheritLocale: true })
                                         <div class="news__item--text">
                                             <p class="news__item--date regular">{{ item.published_at }}</p>
                                             <h1 class="news__item--title bold">{{ item.title }}</h1>
-                                            <p class="news__item--desc regular">{{ item.descriotion }}</p>
+                                            <p class="news__item--desc regular">{{ item.description }}</p>
                                         </div>
                                     </a>
                                 </div>

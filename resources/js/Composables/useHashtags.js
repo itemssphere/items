@@ -7,7 +7,7 @@ export function useHashtags() {
         {
             id: 1,
             title: 'Christmas & Winter',
-            image: '/assets/img/watch.png',
+            image: '/assets/img/main_banner.png',
         },
         {
             id: 2,

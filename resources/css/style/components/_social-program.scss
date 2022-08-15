@@ -15,24 +15,38 @@
         transform: rotate(-4deg);
         margin-right: -41px;
         padding: 43px 0 43px 80px;
+
+        @media (max-width: 1200px) {
+            padding: 43px 0 43px 25px;
+        }
     }
 
     &__text {
         width: 450px;
         padding-right: 80px;
 
+        @media (max-width: 1400px) {
+            width: 390px;
+        }
         @media (max-width: 1199px) {
-            width: 350px;
+            width: 330px;
         }
 
         &--title {
             color: #fff;
-            font-size: 76px;
+            font-size: 53px;
+            line-height: 58px;
+        }
+
+        &--title-smoll {
+            color: #fff;
+            font-size: 35px;
             line-height: 69px;
+            opacity: 0.8;
         }
 
         &--desc {
-            margin-top: 15px;
+            // margin-top: 15px;
             height: 76px;
             color: #fff;
             font-size: 15px;
@@ -42,10 +56,10 @@
 
         &--link {
             margin-top: 24px;
-            padding: 15px 25px;
+            padding: 15px 49px;
             border-radius: 100px;
             border: 2px solid #fff;
-            box-shadow: $boxshadow;
+            box-shadow: inset 0px 3px 6px #00000029;
             color: #fff;
             font-size: 15px;
             line-height: 20px;
