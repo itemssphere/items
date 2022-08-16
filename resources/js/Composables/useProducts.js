@@ -18,6 +18,7 @@ export function useProducts(){
                     symbol: '₾',
                 },
             },
+            cover: '/assets/img/watch.png',
             images: [
                 {
                     id: 1,
@@ -42,6 +43,7 @@ export function useProducts(){
                     symbol: '₾',
                 },
             },
+            cover: '/assets/img/watch.png',
             images: [
                 {
                     id: 1,
@@ -66,6 +68,7 @@ export function useProducts(){
                     symbol: '₾',
                 },
             },
+            cover: '/assets/img/watch.png',
             images: [
                 {
                     id: 1,
@@ -90,6 +93,7 @@ export function useProducts(){
                     symbol: '₾',
                 },
             },
+            cover: '/assets/img/watch.png',
             images: [
                 {
                     id: 1,
@@ -114,6 +118,7 @@ export function useProducts(){
                     symbol: '₾',
                 },
             },
+            cover: '/assets/img/watch.png',
             images: [
                 {
                     id: 1,
@@ -138,6 +143,7 @@ export function useProducts(){
                     symbol: '₾',
                 },
             },
+            cover: '/assets/img/watch.png',
             images: [
                 {
                     id: 1,
@@ -162,6 +168,7 @@ export function useProducts(){
                     symbol: '₾',
                 },
             },
+            cover: '/assets/img/watch.png',
             images: [
                 {
                     id: 1,
@@ -186,6 +193,7 @@ export function useProducts(){
                     symbol: '₾',
                 },
             },
+            cover: '/assets/img/watch.png',
             images: [
                 {
                     id: 1,
@@ -199,7 +207,7 @@ export function useProducts(){
         },
         {
             id: 9,
-            name: 'TCL 40S325 40 Inch 1080p Smart LED Roku TV',
+            name: 'TCL 40S325 40 Inch 1080p Smart LED Roku TV Elite',
             status: 'New',
             stars: 4,
             total_reviews: 132,
@@ -210,6 +218,7 @@ export function useProducts(){
                     symbol: '₾',
                 },
             },
+            cover: '/assets/img/watch.png',
             images: [
                 {
                     id: 1,
@@ -223,7 +232,7 @@ export function useProducts(){
         },
         {
             id: 10,
-            name: 'TCL 40S325 40 Inch 1080p Smart LED Roku TV',
+            name: 'TCL 40S325 40 Inch 1080p Smart LED Roku TV Elite',
             status: 'New',
             stars: 4,
             total_reviews: 132,
@@ -234,6 +243,7 @@ export function useProducts(){
                     symbol: '₾',
                 },
             },
+            cover: '/assets/img/watch.png',
             images: [
                 {
                     id: 1,

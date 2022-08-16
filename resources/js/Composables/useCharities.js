@@ -36,7 +36,7 @@ export function useCharities(){
         },
         {
             id: 3,
-            title: "Justice for Jake Blake",
+            title: "Justice for Jake Blake Elite",
             description: "On August 23rd my son was shot multiple times in the back by a …",
             goal: 21000,
             raised: 14000,
@@ -51,7 +51,7 @@ export function useCharities(){
         },
         {
             id: 4,
-            title: "Justice for Jake Blake",
+            title: "Justice for Jake Blake Elite",
             description: "On August 23rd my son was shot multiple times in the back by a …",
             goal: 45000,
             raised: 35000,
