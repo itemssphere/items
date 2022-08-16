@@ -8,9 +8,9 @@ import { vueI18n } from '@intlify/vite-plugin-vue-i18n'
 
 export default defineConfig({
     server: {
-        // host: 'items.magischer.de',
+        host: 'items.magischer.de',
         // host: '192.168.56.56',
-        hmr: { host: '127.0.0.1' },
+        // hmr: { host: '127.0.0.1' },
         watch: { usePolling: true },
     },
     plugins: [
