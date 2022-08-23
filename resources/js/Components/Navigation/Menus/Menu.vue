@@ -19,7 +19,7 @@ const main_menu_items = ref({
         },
         {
             title: 'shop',
-            route: 'shop',
+            route: 'shop.index',
             icon: 'shop'
         },
         {
@@ -78,6 +78,7 @@ const mobile_menu_items = ref({
         },
     ],
 })
+
 </script>
 <template>
     <!-- head menu -->    
@@ -90,7 +91,7 @@ const mobile_menu_items = ref({
                         :key="item.index"
                         class="head-menu__categories--item"
                     >
-                        <Link :href="route(item.route, locale)" class="head-menu__categories--link regular d-flex align-items-center">
+                        <Link :href="route(item.route, locale)" class="head-menu__categories--link regular d-flex align-items-center" :class="{ active: item.route == route().current() }">
                             <img :src="`/assets/img/svg/menu/${item.icon}.svg`" alt="" class="head-menu__categories--icon convert-svg">
                             <span>{{ t('menus.main.'+ item.title) }}</span>
                         </Link>

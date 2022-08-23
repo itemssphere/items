@@ -1,6 +1,7 @@
 <script setup>
 import { Head } from '@inertiajs/inertia-vue3'
 import FrontPage from '@/Layouts/FrontPage.vue'
+import SubUrl from '@/Components/Blocks/SubUrl.vue'
 </script>
 <template>
     <Head title="News Page" />
@@ -9,15 +10,7 @@ import FrontPage from '@/Layouts/FrontPage.vue'
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <ul class="page__navigation--links d-flex">
-                            <li class="page__navigation--link regular">
-                                <a href="">Home</a>
-                            </li>
-                            <li class="page__navigation--link regular">
-                                >
-                                <a href="">Home</a>
-                            </li>
-                        </ul>
+                        <SubUrl />
                         <div class="d-flex align-items-center justify-content-between">
                             <div class="page__title regular">
                                 News

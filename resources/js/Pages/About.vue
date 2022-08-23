@@ -1,22 +1,14 @@
 <script setup>
-import { Head } from '@inertiajs/inertia-vue3';
+import { Head } from '@inertiajs/inertia-vue3'
 import FrontPage from '@/Layouts/FrontPage.vue'
+import SubUrl from '@/Components/Blocks/SubUrl.vue'
 </script>
 <template>
     <Head title="About Page" />
     <FrontPage>
         <div class="about-page">
             <div class="container">
-                <ul class="page__navigation--links d-none d-lg-flex">
-                    <li class="page__navigation--link regular">
-                        <a href="">Home</a>
-                    </li>
-                    <li class="page__navigation--link regular">
-                        >
-                        <a href="">Home</a>
-                    </li>
-                </ul>
-
+                <SubUrl />
                 <div class="col-6 col-lg-12">
                     <div class="page__title bold">
                         About

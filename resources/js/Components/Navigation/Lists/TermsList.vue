@@ -16,7 +16,7 @@ const terms = ref([
     },
     {
         title: 'shop',
-        url: route('shop', getActiveLanguage()),
+        url: route('shop.index', getActiveLanguage()),
     },
     {
         title: 'charity',

@@ -4,6 +4,7 @@ import { useCharities } from '@/Composables/useCharities'
 /** Components */
 import { Head } from '@inertiajs/inertia-vue3'
 import FrontPage from '@/Layouts/FrontPage.vue'
+import SubUrl from '@/Components/Blocks/SubUrl.vue'
 /** Constants */
 const { charities } = useCharities()
 </script>
@@ -39,15 +40,7 @@ const { charities } = useCharities()
                     </div>
                     <div class="col">
                         <div class="row">
-                            <ul class="page__navigation--links d-none d-lg-flex">
-                                <li class="page__navigation--link regular">
-                                    <a href="">Home</a>
-                                </li>
-                                <li class="page__navigation--link regular">
-                                    >
-                                    <a href="">Home</a>
-                                </li>
-                            </ul>
+                            <SubUrl />
 
                             <div class="col-6 col-lg-12">
                                 <div class="page__title bold">

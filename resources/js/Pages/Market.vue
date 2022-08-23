@@ -1,12 +1,14 @@
 <script setup>
+/** Components */
 import { Head } from '@inertiajs/inertia-vue3'
 import FrontPage from '@/Layouts/FrontPage.vue'
+import SubUrl from '@/Components/Blocks/SubUrl.vue'
 </script>
+<!-- Market Page Template -->
 <template>
     <Head title="Market Page" />
     <FrontPage>
         <section class="touch market-touch">
-            
             <!-- categories, main slider, banner -->
             <div class="container">
                 <div class="row">
@@ -42,7 +44,7 @@ import FrontPage from '@/Layouts/FrontPage.vue'
                                         <img src="/assets/img/svg/clear-bold.svg" alt="" class="convert-svg">    
                                     </button>
                                 </div><!-- end -->
-                                
+
                                 <div class="categories-filter__form">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <h2 class="select__title bold">Review:</h2>
@@ -59,7 +61,7 @@ import FrontPage from '@/Layouts/FrontPage.vue'
                                         <div class="products-slider__item--stars--item categories-filter__rating"></div>
                                     </div>
                                 </div><!-- end -->
-                                
+
                                 <form class="categories-filter__form">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <h2 class="select__title bold">Price range:</h2>
@@ -119,7 +121,7 @@ import FrontPage from '@/Layouts/FrontPage.vue'
                                         </select>
                                     </div>
                                 </form> -->
-                            
+
                                 <form class="categories-filter__form">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <h2 class="select__title bold">Shops</h2>
@@ -425,6 +427,7 @@ import FrontPage from '@/Layouts/FrontPage.vue'
                                 </form>
                             </div><!-- end -->
 
+
                             <div class="categories categories-filter categories__shop">
                                 <div class="categories-filter__form d-flex justify-content-between align-items-center">
                                     <h2 class="categories--title regular">Filters</h2>
@@ -486,15 +489,7 @@ import FrontPage from '@/Layouts/FrontPage.vue'
                     <div class="col">
                         <div class="row">
                             <div class="col-12 d-none d-lg-block">
-                                <ul class="page__navigation--links d-flex">
-                                    <li class="page__navigation--link regular">
-                                        <a href="">Home</a>
-                                    </li>
-                                    <li class="page__navigation--link regular">
-                                        >
-                                        <a href="">Home</a>
-                                    </li>
-                                </ul>
+                                <SubUrl />
                             </div>
                             <div class="col-6 col-lg-12">
                                 <div class="page__title bold">

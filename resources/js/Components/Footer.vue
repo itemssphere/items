@@ -1,6 +1,8 @@
 <script setup>
 /** Source */
+import { onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useFunctions } from '@/Composables/Assets/useFunctions'
 /** Components */
 import FooterLogo from './FooterLogo.vue'
 import DownloadAppSection from './Sections/DownloadAppSection.vue'
@@ -15,6 +17,11 @@ import CartPopup from './Popups/CartPopup.vue'
 import WishlistPopup from './Popups/WishlistPopup.vue'
 /** Constants */
 const { t } = useI18n({ inheritLocale: true })
+const { convertImages } = useFunctions()
+/** onMounted */
+onMounted(() => {
+    convertImages('.convert-svg')
+})
 </script>
 <!-- Footer Template -->
 <template>

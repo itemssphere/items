@@ -6,7 +6,8 @@ import { useSocials } from '@/Composables/useSocials'
 /** Components */
 import { Head } from '@inertiajs/inertia-vue3'
 import FrontPage from '@/Layouts/FrontPage.vue'
-import SocialBanner from '@/Components/Cards/SocialBanner.vue';
+import SocialBanner from '@/Components/Cards/SocialBanner.vue'
+import SubUrl from '@/Components/Blocks/SubUrl.vue'
 
 /** Constants */
 const title = "Socials"
@@ -44,15 +45,7 @@ const { socials } = useSocials()
                     </div>
                     <div class="col">
                         <div class="row">
-                            <ul class="page__navigation--links d-none d-lg-flex">
-                                <li class="page__navigation--link regular">
-                                    <a href="">Home</a>
-                                </li>
-                                <li class="page__navigation--link regular">
-                                    >
-                                    <a href="">Home</a>
-                                </li>
-                            </ul>
+                            <SubUrl />
 
                             <div class="col-6 col-lg-12">
                                 <div class="page__title bold">
