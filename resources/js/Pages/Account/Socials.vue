@@ -1,6 +1,6 @@
 <script setup>
 /** Source */
-import { useSocials } from '@/Composables/useSocials'
+import { useSocials } from '@/Composables/Data/useSocials'
 /** Components */
 import Authenticated from '@/Layouts/Authenticated.vue'
 import { Head } from '@inertiajs/inertia-vue3'

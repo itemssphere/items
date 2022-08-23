@@ -1,7 +1,7 @@
 <script setup>
 /** Source */
 import { ref } from 'vue'
-import { usePopups } from '@/Composables/usePopups'
+import { usePopups } from '@/Composables/Data/usePopups'
 import { Inertia } from '@inertiajs/inertia'
 import { useI18n } from 'vue-i18n'
 /** Components */

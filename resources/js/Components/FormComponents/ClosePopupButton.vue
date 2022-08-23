@@ -1,6 +1,6 @@
 <script setup>
 /** Source */
-import { usePopups } from '@/Composables/usePopups'
+import { usePopups } from '@/Composables/Data/usePopups'
 /** Constants */
 const { close } = usePopups()
 /** Props */

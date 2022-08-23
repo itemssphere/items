@@ -1,7 +1,7 @@
 <script setup>
 /** Source */
 import { useI18n } from 'vue-i18n'
-import { useCategories } from "@/Composables/useCategories"
+import { useCategories } from "@/Composables/Data/useCategories"
 /** Constants */
 const { categories, parents, secondary, getChildren, hasChildren } = useCategories()
 const { t } = useI18n({ inheritLocale: true })

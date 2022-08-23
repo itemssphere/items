@@ -7,6 +7,6 @@ defineProps({
 <!-- Mini Banner Template -->
 <template>
     <div class="banner__mini banner">
-        <img :src="banner.icon" :alt="banner.name">
+        <img :src="banner.cover" :alt="banner.title">
     </div>
 </template>

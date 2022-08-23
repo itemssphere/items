@@ -1,11 +1,14 @@
+<!-- Products Slider Mobile Template -->
 <template>
     <div class="row d-flex d-lg-none">
         <div class="col-6">
             <div class="products-slider__item">
-                <button class="products-slider__item--fav"><img src="assets/img/svg/product-fav.svg" alt=""></button>
+                <button class="products-slider__item--fav">
+                    <img src="/assets/img/svg/product-fav.svg" alt="">
+                </button>
                 <!-- item slider -->
                 <div class="item-slider__item">
-                    <img src="assets/img/watch.png" alt="">
+                    <img src="/assets/img/watch.png" alt="">
                 </div>
                 <div class="products-slider__item--footer d-flex flex-column align-items-start">
                     <div class="products-slider__item--status regular">
@@ -30,10 +33,10 @@
         </div>
         <div class="col-6">
             <div class="products-slider__item">
-                <button class="products-slider__item--fav"><img src="assets/img/svg/product-fav.svg" alt=""></button>
+                <button class="products-slider__item--fav"><img src="/assets/img/svg/product-fav.svg" alt=""></button>
                 <!-- item slider -->
                 <div class="item-slider__item">
-                    <img src="assets/img/watch.png" alt="">
+                    <img src="/assets/img/watch.png" alt="">
                 </div>
                 <div class="products-slider__item--footer d-flex flex-column align-items-start">
                     <div class="products-slider__item--status regular">
@@ -58,10 +61,10 @@
         </div>
         <div class="col-6">
             <div class="products-slider__item">
-                <button class="products-slider__item--fav"><img src="assets/img/svg/product-fav.svg" alt=""></button>
+                <button class="products-slider__item--fav"><img src="/assets/img/svg/product-fav.svg" alt=""></button>
                 <!-- item slider -->
                 <div class="item-slider__item">
-                    <img src="assets/img/watch.png" alt="">
+                    <img src="/assets/img/watch.png" alt="">
                 </div>
                 <div class="products-slider__item--footer d-flex flex-column align-items-start">
                     <div class="products-slider__item--status regular">
@@ -86,10 +89,10 @@
         </div>
         <div class="col-6">
             <div class="products-slider__item">
-                <button class="products-slider__item--fav"><img src="assets/img/svg/product-fav.svg" alt=""></button>
+                <button class="products-slider__item--fav"><img src="/assets/img/svg/product-fav.svg" alt=""></button>
                 <!-- item slider -->
                 <div class="item-slider__item">
-                    <img src="assets/img/watch.png" alt="">
+                    <img src="/assets/img/watch.png" alt="">
                 </div>
                 <div class="products-slider__item--footer d-flex flex-column align-items-start">
                     <div class="products-slider__item--status regular">

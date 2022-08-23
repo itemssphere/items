@@ -2,7 +2,7 @@
 /** Source */
 import { useForm } from '@inertiajs/inertia-vue3'
 import { getActiveLanguage } from 'laravel-vue-i18n'
-import { usePopups } from '@/Composables/usePopups'
+import { usePopups } from '@/Composables/Data/usePopups'
 /** Emits */
 const emit = defineEmits(['switchPopup'])
 /** Constants */

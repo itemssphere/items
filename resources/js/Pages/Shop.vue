@@ -1,6 +1,6 @@
 <script setup>
 /** Source */
-import { useShops } from '@/Composables/useShops'
+import { useShops } from '@/Composables/Data/useShops'
 import { useI18n } from 'vue-i18n'
 /** Components */
 import { Head } from '@inertiajs/inertia-vue3'

@@ -1,6 +1,6 @@
 <script setup>
 /** Source */
-import { useHashtags } from '@/Composables/useHashtags'
+import { useHashtags } from '@/Composables/Data/useHashtags'
 import { useI18n } from 'vue-i18n'
 /** Components */
 import HashtagsSlider from '../Sliders/Hashtags/HashtagsSlider.vue'

@@ -1,12 +1,12 @@
 <script setup>
 
 /** Source */
-import { useSocials } from '@/Composables/useSocials'
+import { useSocials } from '@/Composables/Data/useSocials'
 
 /** Components */
 import { Head } from '@inertiajs/inertia-vue3'
 import FrontPage from '@/Layouts/FrontPage.vue'
-import SocialBanner from '@/Components/Cards/SocialBanner.vue'
+import BannerSocial from '@/Components/Cards/BannerSocial.vue'
 import SubUrl from '@/Components/Blocks/SubUrl.vue'
 
 /** Constants */
@@ -77,12 +77,12 @@ const { socials } = useSocials()
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div><!-- end -->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <template v-for="social in socials" :key="social.id">
-                                <SocialBanner :social="social" />
+                                <BannerSocial :social="social" />
                             </template>
                             
                             <div class="col-12">

@@ -1,6 +1,6 @@
 <script setup>
 /** Source */
-import { useCharities } from "@/Composables/useCharities"
+import { useCharities } from "@/Composables/Data/useCharities"
 import { useI18n } from 'vue-i18n'
 /** Components */
 import CharitiesSlider from "../Sliders/Charities/CharitiesSlider.vue"

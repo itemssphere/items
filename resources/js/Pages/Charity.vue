@@ -1,6 +1,6 @@
 <script setup>
 /** Source */
-import { useCharities } from '@/Composables/useCharities'
+import { useCharities } from '@/Composables/Data/useCharities'
 /** Components */
 import { Head } from '@inertiajs/inertia-vue3'
 import FrontPage from '@/Layouts/FrontPage.vue'
@@ -71,7 +71,7 @@ const { charities } = useCharities()
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div><!-- end -->
+                                        </div>
                                     </div>
                                 </div>
                             </div>

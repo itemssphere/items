@@ -2,7 +2,7 @@
 /** Source */
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { usePopups } from '@/Composables/usePopups'
+import { usePopups } from '@/Composables/Data/usePopups'
 import { Inertia } from '@inertiajs/inertia'
 /** Components */
 import { Link } from '@inertiajs/inertia-vue3'

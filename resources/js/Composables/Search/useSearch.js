@@ -1,7 +1,7 @@
 /** Source */
-import { useProducts } from '../useProducts'
-import { useCharities } from '../useCharities'
-import { useNews } from '../useNews'
+import { useProducts } from '../Data/useProducts'
+import { useCharities } from '../Data/useCharities'
+import { useNews } from '../Data/useNews'
 /** Export Statement */
 export function useSearch() {
     /** Constants */

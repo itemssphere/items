@@ -1,17 +1,15 @@
 <script setup>
 /** Source */
-import { ref, toRef, onMounted } from 'vue'
-import Splide from '@splidejs/splide'
+import { toRef } from 'vue'
+import { Splide, SplideTrack, SplideSlide } from '@splidejs/vue-splide'
 /** Components */
 import ProductSlide from './ProductSlide.vue'
 import SliderArrows from '../Components/SliderArrows.vue'
 /** Props */
 const props = defineProps({
     data: Array,
-    slider_id: String
 })
 /** Constants */
-const slider_id = toRef(props, 'slider_id')
 const data = toRef(props, 'data')
 const arrowsOptions = {
   classes: {  
@@ -37,28 +35,23 @@ const splideOptions = {
     pagination: false,
     updateOnMove: true,
 }
-onMounted(() => {
-    new Splide(`#${slider_id.value}`, splideOptions).mount()
-})
 </script>
 <!-- Products Slider Template -->
 <template>
     <div class="products-slider">
-        <div :id="slider_id" class="splide products-slider d-none d-lg-block" :hasTrack="false" aria-labelledby="customLabel"> 
-            <div id="customLabel" class="products__section d-flex align-items-center justify-content-center justify-content-lg-between">
+        <Splide class="splide products-slider d-none d-lg-block" :hasTrack="false" :options="splideOptions"> 
+            <div class="products__section d-flex align-items-center justify-content-center justify-content-lg-between">
                 <div class="d-flex align-items-center">
                     <slot name="title" />
                     <slot name="link" />
                 </div>
                 <SliderArrows :options="arrowsOptions"/>
             </div>
-            <div class="splide__track">
-                <div class="splide__list">
-                    <div class="splide__slide" v-for="product in data" :key="product.id">
-                        <ProductSlide :product="product" :id_prefix="slider_id" />
-                    </div>
-                </div>
-            </div>
-        </div>
+            <SplideTrack>
+                <SplideSlide v-for="product in data" :key="product.id">
+                    <ProductSlide :product="product" :id_prefix="slider_id" />
+                </SplideSlide>
+            </SplideTrack>
+        </Splide>
     </div>
 </template>

@@ -1,7 +1,7 @@
 <script setup>
 /** Source */
-import { useNews } from '@/Composables/useNews'
-import { useShops } from '@/Composables/useShops'
+import { useNews } from '@/Composables/Data/useNews'
+import { useShops } from '@/Composables/Data/useShops'
 import { useI18n } from 'vue-i18n'
 /** Constants */
 const { news } = useNews()

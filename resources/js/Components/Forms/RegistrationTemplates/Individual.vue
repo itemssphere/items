@@ -2,7 +2,7 @@
 /** Source */
 import { useForm } from '@inertiajs/inertia-vue3'
 import { useI18n } from 'vue-i18n'
-import { usePopups } from '@/Composables/usePopups.js'
+import { usePopups } from '@/Composables/Data/usePopups.js'
 
 
 /** Constants */

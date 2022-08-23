@@ -6,7 +6,7 @@ import CategoriesPicker from "../Navigation/Pickers/CategoriesPicker.vue"
 import MainSlider from "../Sliders/MainSlider.vue"
 import BannerMini from "../Cards/BannerMini.vue"
 /** Constants */
-const { banners } = useBanners()
+const { mini_banners } = useBanners()
 </script>
 <!-- Categories Section Template -->
 <template>
@@ -14,16 +14,12 @@ const { banners } = useBanners()
     <!-- Main Slider Section -->
     <template v-slot:mainSlider>
       <div class="col-12">
-        <MainSlider slider_id="main_slider" />
+        <MainSlider />
       </div>
     </template>
     <!-- Banners -->
     <template v-slot:banners>
-      <div
-        class="col-3 d-none d-lg-block"
-        v-for="banner in banners"
-        :key="banner.index"
-      >
+      <div class="col-3 d-none d-lg-block" v-for="banner in mini_banners" :key="banner.id">
         <BannerMini :banner="banner" />
       </div>
     </template>

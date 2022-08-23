@@ -54,7 +54,6 @@ const Options = {
             <slot name="description" />
             <slot name="link" />
           </div>
-          
           <Splide class="social-program-slider" :hasTrack="false" :options="Options">
           <SliderArrows :options="arrow_options" />
             <SplideTrack>

@@ -1,6 +1,6 @@
 <script setup>
 /** Source */
-import { useSocials } from "@/Composables/useSocials"
+import { useSocials } from "@/Composables/Data/useSocials"
 import { useI18n } from 'vue-i18n'
 /** Components */
 import SocialsSlider from "../Sliders/Socials/SocialsSlider.vue"
