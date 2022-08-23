@@ -4,6 +4,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
+use App\Http\Controllers\Pages\ShopsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,10 @@ Route::group(['prefix' => '{language}'], function(){
         /** Inertia: Directly Rendered Vue */
         Route::inertia('/', 'Home')->name('home');
         Route::inertia('/market','Market')->name('market');
-        Route::inertia('/shop','Shop')->name('shop');
+
+        // Route::inertia('/shop','Shop')->name('shop');
+        Route::resource('/shop', ShopsController::class)->except(['store', 'update', 'destroy']);
+        
         Route::inertia('/charity','Charity')->name('charity');
         Route::inertia('/social','Social')->name('social');
         Route::inertia('/news','News')->name('news');

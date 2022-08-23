@@ -58,5 +58,5 @@ const share = () => {
                 </div>
             </div>
         </div>
-    </div><!-- end -->
+    </div>
 </template>
