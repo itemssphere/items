@@ -97,16 +97,16 @@ const reverse = (item) => {
               <!-- Category Rang 3 -->
               <template v-for="item in categories.filter(category => category.parent_id != null)" :key="item.id">
                   <div v-if="hasChildren(item)" class="categories__three flex-row flex-wrap" :data-id="item.id">
-                    <div class="row mb-2" v-for="chunk in toChunks(getChildren(item),3)" :key="chunk.index">
-                      <div class="col" v-for="section in chunk" :key="section.id">
-                        <h3 class="categories--title regular">{{ section.name }}</h3>
+                    <template v-for="chunk in toChunks(getChildren(item),3)" :key="chunk.index">
+                      <div class="col-4" v-for="section in chunk" :key="section.id">
+                        <h2 class="categories--title regular"><a href="" class="categories__list--link">{{ section.name }}</a></h2>
                         <ul class="categories__list">
                             <li class="categories__list--item" v-for="item in getChildren(section)" :key="item.id">
-                                <a :href="item.url" class="categories__list--link regular"><span>{{ item.name }}</span></a>
+                                <a href="" class="categories__list--link regular"><span>{{ item.name }}</span></a>
                             </li>
                         </ul>
                       </div>
-                    </div>
+                    </template>
                   </div>
               </template>
             </div>
