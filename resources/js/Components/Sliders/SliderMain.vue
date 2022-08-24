@@ -1,14 +1,13 @@
 <script setup>
 /** Source */
-import { ref } from 'vue'
-import { useBanners } from '@/Composables/Advertising/useBanners'
 import { useButtons } from '@/Composables/Assets/useButtons'
-
 /** Components */
 import { Splide, SplideTrack, SplideSlide } from '@splidejs/vue-splide'
-
+/** Props */
+const props = defineProps({
+    data: Array
+})
 /** Constants */
-const { main_banners } = useBanners()
 const { sliderButtons } = useButtons()
 /** Slider Options */
 const Options = {
@@ -28,7 +27,7 @@ const Options = {
             </template>
         </div>
         <SplideTrack>
-            <SplideSlide v-for="banner in main_banners" :key="banner.id">
+            <SplideSlide v-for="banner in data" :key="banner.id">
                 <div class="main-slider__item">
                     <img :src="banner.cover" :alt="banner.title">
                 </div>

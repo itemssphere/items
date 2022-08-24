@@ -68,10 +68,7 @@ const toChunks = (array, chunkSize = 5) => {
 <template>
   <div class="container categories-not" @mouseleave="mouseLeave">
     <div class="row">
-      <div
-        class="d-none d-lg-inline-flex"
-        style="position: relative; max-width: 265px; width: 100%"
-      >
+      <div class="d-none d-lg-inline-flex" style="position: relative; max-width: 265px; width: 100%">
         <!-- Category Rang 1 -->
         <div class="categories__first" style="max-width: 250px; width: 100%">
           <div class="categories">
@@ -158,6 +155,8 @@ const toChunks = (array, chunkSize = 5) => {
           <slot name="mainSlider"></slot>
           <!-- Slot: "Banners" -->
           <slot name="banners"></slot>
+          <!-- Slot: "Default" -->
+          <slot name="default" />
         </div>
       </div>
     </div>

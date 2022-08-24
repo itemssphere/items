@@ -5,6 +5,7 @@ import { useCharities } from '@/Composables/Data/useCharities'
 import { Head } from '@inertiajs/inertia-vue3'
 import FrontPage from '@/Layouts/FrontPage.vue'
 import SubUrl from '@/Components/Blocks/SubUrl.vue'
+import FormSearch from '@/Components/Forms/FormSearch.vue';
 /** Constants */
 const { charities } = useCharities()
 </script>
@@ -52,12 +53,7 @@ const { charities } = useCharities()
                                 <div class="product-filter">
                                     <div class="row">
                                         <div class="col-8 d-none d-lg-block">
-                                            <form class="header__search d-flex align-items-center justify-content-between">
-                                                <input type="text" placeholder="search" class="header__search--input regular">
-                                                <button class="header__search--btn">
-                                                    <img src="/assets/img/svg/loop.svg" alt="">
-                                                </button>
-                                            </form>
+                                            <FormSearch />
                                         </div>
                                         <div class="col-12 col-lg-4">
                                             <div class="product-filter__item  d-flex align-items-center justify-content-end justify-content-lg-center">

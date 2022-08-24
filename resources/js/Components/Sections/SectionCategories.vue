@@ -2,19 +2,19 @@
 /** Source */
 import { useBanners } from "@/Composables/Advertising/useBanners"
 /** Components */
-import CategoriesPicker from "../Navigation/Pickers/CategoriesPicker.vue"
-import MainSlider from "../Sliders/MainSlider.vue"
+import PickerCategories from "../Navigation/Pickers/PickerCategories.vue"
+import SliderMain from "../Sliders/SliderMain.vue"
 import BannerMini from "../Cards/BannerMini.vue"
 /** Constants */
-const { mini_banners } = useBanners()
+const { main_banners, mini_banners } = useBanners()
 </script>
 <!-- Categories Section Template -->
 <template>
-  <CategoriesPicker>
+  <PickerCategories>
     <!-- Main Slider Section -->
     <template v-slot:mainSlider>
       <div class="col-12">
-        <MainSlider />
+        <SliderMain :data="main_banners" />
       </div>
     </template>
     <!-- Banners -->
@@ -23,5 +23,5 @@ const { mini_banners } = useBanners()
         <BannerMini :banner="banner" />
       </div>
     </template>
-  </CategoriesPicker>
+  </PickerCategories>
 </template>
