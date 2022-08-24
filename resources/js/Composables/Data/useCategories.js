@@ -1,9 +1,12 @@
 /** Source */
-import { ref, computed } from 'vue'
+import { ref, onMounted } from 'vue'
+
 /** Export Statement */
-export function useCategories() {
+export function useCategories(props) {
+
     /** Constants */
-    const categories = ref([
+    const typeOf = ref('product')
+    const data = ref([
         {
             id: 1,
             name: 'Agriculture & Food',
@@ -326,33 +329,83 @@ export function useCategories() {
             parent_id: null,
             type: 'social',
         },
+        {
+            id: 46,
+            name: 'Product Category 4',
+            url: '',
+            parent_id: 35,
+            type: 'product',
+        },
     ])
-    /** computed */
-    const product_categories = computed(() => {
-        return categories.value.filter((category) => {
-            return category.type == 'product'
-        })
-    })
-    const social_categories = computed(() => {
-        return categories.value.filter((category) => {
-            return category.type == 'social'
-        })
-    })
-    const parents = computed(function(){
-        return product_categories.value.filter(category => category.parent_id == null)
-    })
-    const secondary = computed(function(){
-        let parent_ids = parents.value.map(parent => parent.id)
-        return product_categories.value.filter(category => parent_ids.includes(category.parent_id))
-    })
-    
-    
-    /** Functions */
+
+    const active = ref([])
+    const categories = ref(data.value.filter((category) => { return category.type == typeOf.value }))
+
+    /**
+     * 
+     * @param {Object} parent 
+     * @returns {Array}
+     */
     const getChildren = (parent) => {
         return categories.value.filter(category => category.parent_id == parent.id)
     }
+    /**
+     * 
+     * @param {Object} parent 
+     * @returns {Boolean}
+     */
     const hasChildren = (parent) => {
-        return getChildren(parent).length
+        return ( getChildren(parent).length )
     }
-return { categories, parents, secondary, getChildren, hasChildren, product_categories, social_categories, }
+    /**
+     * 
+     * @param {Object} array 
+     * @returns {Void}
+     */
+    const setActive = (array) => {
+        active.value = array
+    }
+
+    /**
+     * 
+     * @param {Object} obj 
+     * @returns {Object}
+     */
+    const getParent = (obj) => {
+        return (hasParent(obj)) ? categories.value.filter( item => item.id == obj.parent_id )[0] : obj
+    }
+    /**
+     * 
+     * @param {Object} obj 
+     * @returns {Array}
+     */
+    const getParents = (obj) => {
+        return categories.value.filter( item => item.parent_id == getParent(obj).parent_id )
+    }
+    /**
+     * 
+     * @param {Object} obj 
+     * @returns {Boolean}
+     */
+    const hasParent = (obj) => {
+        return ( obj?.parent_id != null )
+    }
+
+    /** HOOCKS */
+    onMounted(() => {
+        /** Set Parent Categories as Active */
+        setActive(categories.value.filter( category => category.parent_id == null ))
+    })
+
+    /** RETURNS */
+    return { 
+        active,
+        categories,
+        getChildren,
+        getParent,
+        getParents,
+        hasParent,
+        hasChildren,
+        setActive
+    }
 }
