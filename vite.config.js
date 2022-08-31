@@ -14,7 +14,7 @@ export default defineConfig({
     },
     plugins: [
         laravel({
-            input: ['resources/js/app.js','resources/js/admin.js'],
+            input: ['resources/js/app.js'],
         }),
         vue({
             template: {
