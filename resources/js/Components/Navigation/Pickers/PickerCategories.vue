@@ -55,14 +55,14 @@ const reverse = (item) => {
 <!-- Categories Picker Template -->
 <template>
   <div class="container categories-not" @mouseleave="mouseLeave">
-    <div class="row">
+    <div class="row" style="position: relative;">
       <div class="d-none d-lg-inline-flex" style="position: relative; max-width: 265px; width: 100%">
-        <div class="categories__first" style="max-width: 250px; width: 100%">
+        <div class="categories__first" style="max-width: 250px; width: 100%; position: relative; height: auto;">
 
           <div class="categories">
             <h2 v-if="!hasParent(active[0])" class="categories--title regular">{{ t('titles.categories') }}</h2>
             <h2 v-else class="categories--title regular">{{ backSlash }} <a href="" @click="reverse(active[0])">{{ getParent(active[0]).name }}</a></h2>
-            <ul class="categories__list">
+            <ul class="categories__list" style="height: 94%;">
               <li v-for="item in active" :key="item.index" @mouseover="mouseOver" :data-id="item.id" class="categories__list--item categories__first--item">
                 <a href="" @click="activate(item)" :data-id="item.id" class="categories__list--link regular">
                   <span :data-id="item.id">{{ item.name }}</span>
@@ -79,7 +79,7 @@ const reverse = (item) => {
             <div class="col" style="max-width: 265px; width: 100%">
               <!-- Category Rang 2 Section -->
               <template v-for="item in active" :key="item.id">
-                <div v-if="hasChildren(item)" class="categories__second" style="max-width: 250px; width: 100%" :data-id="item.id">
+                <div v-if="hasChildren(item)" class="categories__second" style="max-width: 250px; width: 100%;" :data-id="item.id">
                   <div class="categories">
                     <h2 class="categories--title regular">{{ item.name }}</h2>
                     <ul class="categories__list">
@@ -90,10 +90,11 @@ const reverse = (item) => {
                       </li>
                     </ul>
                   </div>
+                  <slot name="filters" />
                 </div>
               </template>
             </div>
-            <div class="col" style="position: relative">
+            <div class="col">
               <!-- Category Rang 3 -->
               <template v-for="item in categories.filter(category => category.parent_id != null)" :key="item.id">
                   <div v-if="hasChildren(item)" class="categories__three flex-row flex-wrap" :data-id="item.id">

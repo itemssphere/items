@@ -1,14 +1,14 @@
 /** Styles */
-import '../css/style/fonts.css';
-import '../css/style/grid.css';
-import '@splidejs/splide/css';
-import '@splidejs/vue-splide/css';
-import '../css/style/style.scss';
-// import './bootstrap';
-// import '../css/app.css';
+import '../css/style/fonts.css'
+import '../css/style/grid.css'
+import '@splidejs/splide/css'
+import '@splidejs/vue-splide/css'
+import '../css/style/style.scss'
+// import './bootstrap'
+// import '../css/app.css'
 
 /** Source */
-import { createApp, h } from 'vue';
+import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/inertia-vue3'
 import { InertiaProgress } from '@inertiajs/progress'
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
@@ -27,7 +27,7 @@ import ge from '../locales/ge.json'
 const store = createStore({
   state () {
     return {
-        count: 0
+        count: 0,
     }
   },
   mutations: {
@@ -37,7 +37,7 @@ const store = createStore({
   }
 })
 
-const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
+const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel'
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
@@ -57,4 +57,4 @@ createInertiaApp({
     },
 });
 
-InertiaProgress.init({ color: '#4B5563' });
+InertiaProgress.init({ color: '#4B5563' })

@@ -336,6 +336,69 @@ export function useCategories(props) {
             parent_id: 35,
             type: 'product',
         },
+        {
+            id: 46,
+            name: 'Test',
+            url: '',
+            parent_id: null,
+            type: 'product',
+        },
+        {
+            id: 47,
+            name: 'Test',
+            url: '',
+            parent_id: null,
+            type: 'product',
+        },
+        {
+            id: 48,
+            name: 'Test',
+            url: '',
+            parent_id: null,
+            type: 'product',
+        },
+        {
+            id: 49,
+            name: 'Test',
+            url: '',
+            parent_id: null,
+            type: 'product',
+        },
+        {
+            id: 50,
+            name: 'Test',
+            url: '',
+            parent_id: null,
+            type: 'product',
+        },
+        {
+            id: 51,
+            name: 'Test',
+            url: '',
+            parent_id: null,
+            type: 'product',
+        },
+        {
+            id: 52,
+            name: 'Test',
+            url: '',
+            parent_id: null,
+            type: 'product',
+        },
+        {
+            id: 53,
+            name: 'Test',
+            url: '',
+            parent_id: null,
+            type: 'product',
+        },
+        {
+            id: 54,
+            name: 'Test',
+            url: '',
+            parent_id: null,
+            type: 'product',
+        }
     ])
 
     const active = ref([])

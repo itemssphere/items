@@ -5,7 +5,6 @@ import { fileURLToPath } from 'url'
 import vue from '@vitejs/plugin-vue'
 import { vueI18n } from '@intlify/vite-plugin-vue-i18n'
 
-
 export default defineConfig({
     server: {
         host: 'items.magischer.de',
@@ -15,7 +14,7 @@ export default defineConfig({
     },
     plugins: [
         laravel({
-            input: 'resources/js/app.js',
+            input: ['resources/js/app.js','resources/js/admin.js'],
         }),
         vue({
             template: {
@@ -31,4 +30,4 @@ export default defineConfig({
           runtimeOnly: false,
         })
     ],
-});
+})
