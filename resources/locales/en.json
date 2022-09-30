@@ -9,7 +9,8 @@
             "social": "Social Programs",
             "news": "News",
             "about": "About us",
-            "contact": "Help & Contact"
+            "contact": "Help & Contact",
+            "products": "Product"
         }
     },
     "titles": {
@@ -24,5 +25,30 @@
     },
     "links": {
         "view_all": "View all"
+    },
+    "forms": {
+        "headers": {
+            "create": {
+                "product": "Upload Product"
+            }
+        },
+        "tabs": {
+            "product": {
+                "list": "Listing Details",
+                "sell": "Selling Details",
+                "shipping": "Shipping Details",
+                "donate": "Make Donation"
+            }
+        }
+    },
+    "tabs": {
+        "product": {
+            "details": {
+                "characteristics": "Characteristics",
+                "descriptions": "Descriptions",
+                "return_policy": "Return Policy",
+                "customer_reviews": "Customer Reviews"
+            }
+        }
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Http\JsonResponse;
 use App\Http\Resources\Api\CategoryResource;
 use App\Http\Resources\Api\Categories\CategoriesResource;
 use App\Http\Resources\Api\Categories\CategoriesSelectResource;
+use App\Http\Resources\Api\Categories\CategoriesWithParentResource;
 
 
 /**
@@ -39,15 +40,18 @@ class CategoriesService {
      */
     public function getFormated($format): JsonResponse
     {
-        $categories = Category::with('children')->get();
+        $categories = Category::all();
         $result = [];
 
         switch($format){
             case 'select':
-                $result = ['none'];
+                $result = CategoriesSelectResource::collection($categories);
+                break;
+            case 'with_parents':
+                $result = CategoriesWithParentResource::collection($categories);
                 break;
             default:
-                $result = CategoriesSelectResource::collection($categories);
+                $result = CategoriesResource::collection($categories);
         }
         return response()->json($result, 200);
     }

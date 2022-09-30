@@ -1,6 +1,6 @@
 <script setup>
 /** Source */
-import { toRef } from 'vue'
+import { ref, toRef, onMounted } from 'vue'
 import { Splide, SplideTrack, SplideSlide } from '@splidejs/vue-splide'
 /** Components */
 import ProductSlide from './ProductSlide.vue'
@@ -8,9 +8,14 @@ import SliderArrows from '../Components/SliderArrows.vue'
 /** Props */
 const props = defineProps({
     data: Array,
+    options: {
+        type: Object,
+        required: false
+    },
 })
 /** Constants */
 const data = toRef(props, 'data')
+const options = toRef(props, 'options')
 const arrowsOptions = {
   classes: {  
     arrows: "products-slider__navs d-flex",
@@ -22,7 +27,7 @@ const arrowsOptions = {
     next: '/assets/img/svg/slider-next.svg',
   }
 }
-const splideOptions = {
+const splideOptions = ref({
     type: 'slide',
     autoplay: false,
     perPage: 5,
@@ -34,7 +39,18 @@ const splideOptions = {
     arrows: true,
     pagination: false,
     updateOnMove: true,
+})
+/** Hooks */
+onMounted(() => {
+    applyOptions(options.value)
+})
+/** Functions */
+const applyOptions = (obj) => {
+    for (const [key, value] of Object.entries(obj)) {
+        splideOptions.value[key] = value
+    }
 }
+
 </script>
 <!-- Products Slider Template -->
 <template>

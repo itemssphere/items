@@ -23,4 +23,12 @@ class Category extends Model
     {
         return $this->hasMany(Category::class,'parent_id');
     }
+
+    /**
+     * This Relationship is for parent
+     */
+    public function parent()
+    {
+        return $this->belongsTo(Category::class,'parent_id');
+    }
 }

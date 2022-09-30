@@ -19,7 +19,7 @@ const main_menu_items = ref({
         },
         {
             title: 'shop',
-            route: 'shop.index',
+            route: 'shop',
             icon: 'shop'
         },
         {

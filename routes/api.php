@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Services\UsersService;
 use App\Services\CategoriesService;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
@@ -25,14 +26,31 @@ Route::group(['prefix'=>'categories'], function(){
     Route::get('formated/{format}', [ CategoriesService::class, 'getFormated' ]);
 });
 
+Route::group(['prefix'=>'users', 'as' => 'users.'], function(){
+    Route::get('/', [ UsersService::class, 'index' ])->name('all');
+    Route::get('/roles', [ UsersService::class, 'getUsersByRoles' ] )->name('byRoles');
+    Route::get('/roles/{role}', [ UsersService::class, 'getUsersByRole' ] )->name('byRole');
+});
 
 /** Auth Routes */
 Route::middleware('auth:sanctum')->group(function(){
+
+    
+
+
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
 
     Route::resource('categories', CategoriesController::class);
+
+    /** Admin Routes */
+    Route::middleware('admin')->group(function(){
+        Route::get('/admintest', function(){
+            return "middleware works";
+        });
+    });
+
 });
 
 

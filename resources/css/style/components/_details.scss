@@ -11,6 +11,7 @@
             margin-top: 7px;
             color: #707070;
             font-size: 13px;
+            margin-bottom: 21px;
         }
 
         &--manufacturing-data {
@@ -72,6 +73,34 @@
             margin-bottom: 8px;
             margin-right: 28px;
         }
+
+        &--new {
+            margin: 0 11px 0 0;
+        }
+
+        &--rate {
+            margin: 0 14px 0 0;
+        }
+
+        &--favorite {
+            margin-right: 26px;
+
+            img {
+                margin-right: 6px;
+            }
+        }
+
+        &--view {
+            img {
+                margin-right: 7px;
+            }
+        }
+
+        &--size {
+            margin-right: 19px;
+        }
+
+
     }
 
     &__add-cart {
@@ -144,6 +173,21 @@
             font-size: 15px;
             text-align: center;
         }
+
+        &--desc {
+            color: #8D8D8D;
+            font-size: 15px;
+            margin-left: 16px;
+        }
+
+        &--num {
+            background-color: #F3F3F3;
+            border-radius: 28px;
+            color: #42D921;
+            font-size: 28px;
+            line-height: 37px;
+            padding: 0 10px;
+        }
     }
 
     &__tabs {
@@ -182,4 +226,6 @@
             }
         }
     }
+
+    
 }

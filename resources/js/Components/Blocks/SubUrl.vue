@@ -9,6 +9,7 @@ const { locale, t } = useI18n({ inheritLocale: true })
 const currentTitle = route().current().split('.')[0]
 const separator = '>'
 const current = ref({ title: currentTitle.split('')[0].toUpperCase() + currentTitle.slice(1), })
+//route(route().current(),locale)
 </script>
 <!-- Template of Sub Url -->
 <template>
@@ -18,7 +19,7 @@ const current = ref({ title: currentTitle.split('')[0].toUpperCase() + currentTi
         </li>
         <li class="page__navigation--link regular">
             {{ separator }}
-            <Link :href="route(route().current(),locale)" class="active">{{ t(`menus.main.${route().current().split('.')[0]}`) }}</Link>
+            <Link href="" class="active">{{ t(`menus.main.${route().current().split('.')[0]}`) }}</Link>
         </li>
     </ul>
 </template>

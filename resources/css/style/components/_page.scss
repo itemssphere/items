@@ -44,6 +44,9 @@
         }
 
         &--links {
+            margin-bottom: 10px;
+        }
+        &hashtags{
             margin-bottom: 12px;
         }
 
@@ -54,8 +57,18 @@
 
             a {
                 color: #3D3D3D;
-                font-style: 13px;
+                font-size: 13px;
                 text-decoration: none;
+            }
+        }
+        &--hashtag{
+            margin-right: 5px;
+            list-style-type: none;
+            opacity: .5;
+            margin-bottom: 10px;
+            span{
+                color: #3D3D3D;
+                font-size: 13px;
             }
         }
     }

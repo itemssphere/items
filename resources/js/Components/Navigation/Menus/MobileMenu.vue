@@ -15,7 +15,7 @@ const menu = ref([
         icon: '/assets/img/svg/menu/market1.svg',
     },
     {
-        route: 'shop.index',
+        route: 'shop',
         icon: '/assets/img/svg/menu/shop1.svg',
     },
     {
