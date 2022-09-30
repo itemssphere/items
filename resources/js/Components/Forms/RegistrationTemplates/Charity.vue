@@ -6,7 +6,7 @@ import { useI18n } from 'vue-i18n'
 /** Constants */
 const { locale, t } = useI18n({ inheritLocale: true })
 const form = useForm({
-  type: 'charity',
+  role: 'charity',
   name: null,
   email: null,
   password: null,
