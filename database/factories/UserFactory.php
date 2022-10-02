@@ -22,7 +22,7 @@ class UserFactory extends Factory
         /** Hooks for created users */
         return $this->afterCreating(function (User $user) {
             /** Assign roles */
-            $user->assignRole(Arr::random(User::STATIC_ROLES, 2));
+            $user->assignRole(Arr::random(User::STATIC_ROLES, 1));
         });
     }
 

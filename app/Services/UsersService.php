@@ -20,7 +20,7 @@ class UsersService {
     }
     
     public function getUsersByRole($role){
-        return UsersResource::collection(User::role($role)->get());
+        return UsersResource::collection(User::role($role)->with('roles')->get());
     }
 
 }

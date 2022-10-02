@@ -9,7 +9,7 @@ import { usePopups } from '@/Composables/Data/usePopups.js'
 const { close } = usePopups()
 const { locale, t } = useI18n({ inheritLocale: true })
 const form = useForm({
-  role: 'individual',
+  role: 'standard',
   name: null,
   email: null,
   password: null,

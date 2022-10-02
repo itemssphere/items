@@ -13,7 +13,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
-    const STATIC_ROLES = [ 'individual', 'shop', 'charity' ];
+    const STATIC_ROLES = [ 'standard', 'shop', 'charity' ];
     /**
      * The attributes that are mass assignable.
      *

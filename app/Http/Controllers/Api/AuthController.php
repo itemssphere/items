@@ -85,13 +85,15 @@ class AuthController extends Controller
             }
 
             $user = User::where('email', $request->email)->first();
+            
+            $status_code = ($user->is_admin) ? 200 : 401;
 
             return response()->json([
-                'status' => true,
+                'status' => ($user->is_admin) ? true : false,
                 'user' => $user,
-                'message' => 'User Logged In Successfully',
-                'token' => $user->createToken("API TOKEN")->plainTextToken
-            ], 200);
+                'message' => ($user->is_admin) ? 'Admin Logged In Successfully' : 'User is not Admin',
+                'token' => ($user->is_admin) ? $user->createToken("API TOKEN")->plainTextToken : false
+            ], $status_code);
 
         } catch (\Throwable $th) {
             return response()->json([

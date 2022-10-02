@@ -18,6 +18,7 @@ use App\Http\Controllers\Api\CategoriesController;
 |
 */
 
+
 Route::post('/auth/register', [ AuthController::class, 'createUser' ]);
 Route::post('/auth/login', [ AuthController::class, 'loginUser' ]);
 
@@ -26,11 +27,6 @@ Route::group(['prefix'=>'categories'], function(){
     Route::get('formated/{format}', [ CategoriesService::class, 'getFormated' ]);
 });
 
-Route::group(['prefix'=>'users', 'as' => 'users.'], function(){
-    Route::get('/', [ UsersService::class, 'index' ])->name('all');
-    Route::get('/roles', [ UsersService::class, 'getUsersByRoles' ] )->name('byRoles');
-    Route::get('/roles/{role}', [ UsersService::class, 'getUsersByRole' ] )->name('byRole');
-});
 
 /** Auth Routes */
 Route::middleware('auth:sanctum')->group(function(){
@@ -46,8 +42,10 @@ Route::middleware('auth:sanctum')->group(function(){
 
     /** Admin Routes */
     Route::middleware('admin')->group(function(){
-        Route::get('/admintest', function(){
-            return "middleware works";
+        Route::group(['prefix'=>'users', 'as' => 'users.'], function(){
+            Route::get('/', [ UsersService::class, 'index' ])->name('all');
+            Route::get('/roles', [ UsersService::class, 'getUsersByRoles' ] )->name('byRoles');
+            Route::get('/roles/{role}', [ UsersService::class, 'getUsersByRole' ] )->name('byRole');
         });
     });
 
