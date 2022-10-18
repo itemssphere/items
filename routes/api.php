@@ -1,11 +1,14 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Services\UsersService;
 use App\Services\CategoriesService;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\NewsController;
+use App\Http\Controllers\Api\UsersController;
 use App\Http\Controllers\Api\CategoriesController;
+use ProtoneMedia\LaravelCrossEloquentSearch\Search;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,37 +21,19 @@ use App\Http\Controllers\Api\CategoriesController;
 |
 */
 
-
+/** Authentication */
 Route::post('/auth/register', [ AuthController::class, 'createUser' ]);
 Route::post('/auth/login', [ AuthController::class, 'loginUser' ]);
 
-Route::group(['prefix'=>'categories'], function(){
-    Route::get('constants/{constant}', [ CategoriesService::class, 'getConstants' ] );
-    Route::get('formated/{format}', [ CategoriesService::class, 'getFormated' ]);
-});
-
-
 /** Auth Routes */
 Route::middleware('auth:sanctum')->group(function(){
-
-    
-
-
-    Route::get('/user', function (Request $request) {
-        return $request->user();
-    });
-
-    Route::resource('categories', CategoriesController::class);
-
-    /** Admin Routes */
-    Route::middleware('admin')->group(function(){
-        Route::group(['prefix'=>'users', 'as' => 'users.'], function(){
-            Route::get('/', [ UsersService::class, 'index' ])->name('all');
-            Route::get('/roles', [ UsersService::class, 'getUsersByRoles' ] )->name('byRoles');
-            Route::get('/roles/{role}', [ UsersService::class, 'getUsersByRole' ] )->name('byRole');
-        });
-    });
-
+    /** Users Routes */
+    Route::resource('users', UsersController::class)->only(['index', 'show'])->middleware( 'permission:view users|manage users' );
+    Route::resource('users', UsersController::class)->only(['store', 'update', 'destroy'])->middleware( 'permission:manage users' );
+    /** News Routes */
+    Route::resource('news', NewsController::class)->only('index', 'show')->middleware( 'permission:view news|manage news' );
+    Route::resource('news', NewsController::class)->only('store', 'update', 'destroy')->middleware( 'permission:manage news' );
+    /** Categoris Routes */
+    Route::resource('categories', CategoriesController::class)->only('index', 'show')->middleware( 'permission:view categories|manage categories' );
+    Route::resource('categories', CategoriesController::class)->only('store', 'update', 'destroy')->middleware( 'permission:manage categories' );
 });
-
-

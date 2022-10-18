@@ -22,7 +22,13 @@ class UserFactory extends Factory
         /** Hooks for created users */
         return $this->afterCreating(function (User $user) {
             /** Assign roles */
-            $user->assignRole(Arr::random(User::STATIC_ROLES, 1));
+            $user->assignRole(Arr::random(User::STATIC_ROLES['user'], 1));
+            /** Add Avatar */
+            $user->addMediaFromUrl("https://source.unsplash.com/random/300x300")->toMediaCollection("avatar");
+            /** Add Wallpaper */
+            $user->addMediaFromUrl("https://source.unsplash.com/random/1024x1024")->toMediaCollection("wallpaper");
+            /** Define `Initial Status` depending on their Role */
+            $user->defineInitialStatus();
         });
     }
 

@@ -16,8 +16,11 @@ class RolesAndPermissionsSeeder extends Seeder
      */
     public function run()
     {
+        /** Admin and User roles */
         foreach(User::STATIC_ROLES as $role){
-            Role::create(['name' => $role]);
+            foreach($role as $role_name){
+                Role::create(['name' => $role_name]);
+            }
         }
     }
 }

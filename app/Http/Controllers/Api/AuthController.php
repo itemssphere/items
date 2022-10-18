@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Resources\Api\Users\UsersResource;
 
 class AuthController extends Controller
 {
@@ -84,15 +85,19 @@ class AuthController extends Controller
                 ], 401);
             }
 
-            $user = User::where('email', $request->email)->first();
-            
-            $status_code = ($user->is_admin) ? 200 : 401;
+            $user = User::where('email', $request->email)->with(['roles', 'media'])->first();
+            /** Update Last Seen */
+            $user->update([ 'last_seen' => now() ]);
+            /** Determine if user is Admin */
+            $is_admin = $user->isAdmin();
+
+            $status_code = ($is_admin) ? 200 : 401;
 
             return response()->json([
-                'status' => ($user->is_admin) ? true : false,
-                'user' => $user,
-                'message' => ($user->is_admin) ? 'Admin Logged In Successfully' : 'User is not Admin',
-                'token' => ($user->is_admin) ? $user->createToken("API TOKEN")->plainTextToken : false
+                'status' => ($is_admin) ? true : false,
+                'user' => new UsersResource($user),
+                'message' => ($is_admin) ? 'Admin Logged In Successfully' : 'User is not Admin',
+                'token' => ($is_admin) ? $user->createToken("API TOKEN")->plainTextToken : false
             ], $status_code);
 
         } catch (\Throwable $th) {

@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Resources\Api\Users;
+namespace App\Http\Resources\Api\News;
 
+use App\Http\Resources\Api\Users\UsersResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UsersResource extends JsonResource
+class NewsResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,12 +17,11 @@ class UsersResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
-            'email' => $this->email,
-            'roles' => $this->roles,
-            'date' => $this->created_at->isoFormat('DD.MM.YYYY / H:m'),
-            'seen' => $this->created_at->diffForHumans(),
-            'avatar' => $this->getFirstMediaUrl('avatar', 'thumb'),
+            'title' => $this->title,
+            'body' => $this->body,
+            'author' => new UsersResource($this->user),
+            'published_at' => $this->created_at->format('d.m.Y'),
+            'cover' => $this->getFirstMediaUrl('cover', 'thumb'),
             'status' => $this->status
         ];
     }

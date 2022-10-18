@@ -24,6 +24,7 @@ Route::redirect('/', '/' . App::getLocale());
 /**
  * Translatable Routes
  */
+
 Route::group(['prefix' => '{language}'], function(){
 
     /** Landing Pages */
