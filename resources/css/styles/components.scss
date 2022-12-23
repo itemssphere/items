@@ -1,0 +1,22 @@
+.tag-container{
+    padding: 18px 25px;
+    border-radius: 30px;
+    background: #EFEFEF;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    margin-right: 16px;
+    p{
+        color: #828282;
+        font-size: 15px;
+        margin-right: 10px;
+    }
+    img{
+        cursor: pointer;
+    }
+}
+@media(max-width: 1024px){
+    .tag-container{
+        padding: 11px 25px !important;
+    }
+}

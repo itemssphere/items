@@ -1,0 +1,251 @@
+.product-table-show-on-mobile {
+  display: none;
+}
+
+.show-on-mobile-device, .thead-on-mobile {
+  display: none;
+}
+
+.table-container .product-price-current-table input {
+  width: 75px;
+  background: none;
+  border: none;
+  outline: none;
+  color: #41C227;
+}
+
+.table-container .product-price-old-price-table input {
+  width: 60px;
+  background: none;
+  border: none;
+  outline: none;
+  color: #E82828;
+}
+
+.show-more-btn-container {
+  margin-top: 75px;
+  display: flex;
+  justify-content: center;
+}
+.show-more-btn-container button {
+  font-size: 15px;
+  border: #42D921 2px solid;
+  border-radius: 30px;
+  width: 154px;
+  height: 48px;
+  color: #42D921;
+  background: none;
+}
+
+@media (max-width: 1399px) {
+  .organizations-page-navigation {
+    width: 290px !important;
+  }
+  .organizations-page-main-content-container {
+    width: calc(100% - 300px) !important;
+  }
+  .organizations-banner-container .organization-banner-image-container {
+    width: 290px !important;
+  }
+  .organizations-banner-container .organization-banner-info-container {
+    width: calc(100% - 300px) !important;
+  }
+  .organizations-banner-container .organization-page-baner-image {
+    width: 200px;
+    height: 200px;
+    margin: 70px auto 0px auto;
+  }
+  .table-container .date-col {
+    width: 80px;
+  }
+  .table-container .date-col div {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .table-container .date-col .date-col-title {
+    margin-bottom: 5px;
+  }
+  .table-container .table-date {
+    width: 80px;
+  }
+  .product-price-current-table {
+    font-size: 15px !important;
+  }
+  .product-price-old-price-table {
+    font-size: 13px !important;
+  }
+  .col-standard.product-col, .table-product {
+    max-width: 180px !important;
+  }
+  .table-container .counter-col, .table-quantity, .sum-col, .table-sum {
+    width: 70px !important;
+  }
+  .sum-col .fs20 {
+    font-size: 16px;
+  }
+  .table-container .actions-col, .table-select {
+    width: 135px !important;
+  }
+  .table-container .actions-col .select-form-control {
+    width: 135px !important;
+  }
+  .product-price-current-table {
+    width: 93px !important;
+    display: flex;
+    justify-content: center;
+    padding: 0px !important;
+  }
+  .product-price-old-price-table {
+    width: 80px !important;
+    padding: 0px !important;
+    display: flex;
+    justify-content: center;
+  }
+}
+@media (max-width: 1199px) {
+  .organizations-page-navigation {
+    width: 200px !important;
+  }
+  .organizations-page-main-content-container {
+    width: calc(100% - 210px) !important;
+  }
+  .organizations-banner-container .organization-banner-image-container {
+    width: 200px !important;
+  }
+  .organizations-banner-container .organization-banner-info-container {
+    width: calc(100% - 210px) !important;
+  }
+  .organizations-banner-container .organization-page-baner-image {
+    width: 160px !important;
+    height: 160px !important;
+    margin: 83px auto 0px auto;
+  }
+}
+@media (max-width: 1024px) {
+  .organizations-page-main-content-container {
+    width: 100% !important;
+  }
+  .hide-section-head-container {
+    display: flex !important;
+  }
+  .hide-section-head-container button {
+    width: 109px !important;
+    height: 44px !important;
+  }
+}
+@media (max-width: 769px) {
+  .organizations-page-main-content-container {
+    width: 100% !important;
+  }
+  .product-table-show-on-mobile {
+    display: flex;
+    align-items: flex-start;
+  }
+  .product-table-hide-on-mobile {
+    display: none !important;
+  }
+  .table-row {
+    flex-direction: column;
+  }
+  .product-col {
+    width: calc(100% - 80px) !important;
+    max-width: 700px !important;
+  }
+  .table-product-image {
+    width: 64px !important;
+    height: 64px !important;
+  }
+  .image-col {
+    width: 80px !important;
+  }
+  .table-container .product-price-current-table {
+    font-size: 18px !important;
+  }
+  .table-container .product-price-old-price-table {
+    font-size: 15px !important;
+  }
+  .table-head {
+    display: none !important;
+  }
+  .table-container .col-standard {
+    height: -webkit-fit-content !important;
+    height: -moz-fit-content !important;
+    height: fit-content !important;
+    margin-bottom: 15px;
+  }
+  .sum-col, .date-col {
+    height: -webkit-fit-content !important;
+    height: -moz-fit-content !important;
+    height: fit-content !important;
+  }
+  .sum-col {
+    margin-bottom: 15px;
+  }
+  .table-container .date-col {
+    width: 140px;
+  }
+  .table-container .date-col div {
+    flex-direction: row;
+  }
+  .table-container .actions-col .select-form-control {
+    height: 32px !important;
+    width: 151px !important;
+    margin-bottom: 0px !important;
+  }
+  .table-container .actions-col, .table-select {
+    width: 100% !important;
+    justify-content: space-between !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-direction: row !important;
+  }
+  .hide-on-mobile-device {
+    display: none;
+  }
+  .show-on-mobile-device {
+    display: block;
+    border: none;
+    background: none;
+  }
+  .table-container .actions-col {
+    height: -webkit-fit-content !important;
+    height: -moz-fit-content !important;
+    height: fit-content !important;
+    margin-top: 13px;
+  }
+  .product-price-current-table {
+    width: 110px !important;
+  }
+  .product-price-old-price-table {
+    width: 95px !important;
+  }
+  .table-container .product-price-table {
+    width: 250px;
+  }
+  .thead-on-mobile {
+    display: block;
+    width: 57px;
+    margin-right: 25px;
+    font-size: 13px !important;
+    color: #303030 !important;
+  }
+  .table-container .col-standard {
+    align-items: center !important;
+  }
+  .table-container .table-body .set-width {
+    width: 100% !important;
+  }
+  .flex-content {
+    display: flex;
+    align-items: center;
+  }
+  .table-container .date-col {
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+  }
+  .hide-section-head-container button {
+    margin-right: 0px;
+    width: 104px !important;
+  }
+}/*# sourceMappingURL=ogranizations-product.css.map */

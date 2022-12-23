@@ -1,0 +1,121 @@
+.news-section-title {
+  display: flex;
+  align-items: center;
+}
+.section-title {
+  color: #3d3d3d;
+  font-size: 20px;
+}
+.section-view-all {
+  color: #40cf25;
+  font-size: 20px;
+  text-decoration: none;
+  margin-left: 20px;
+  &:hover {
+    color: #40cf25;
+  }
+}
+.news-items-list {
+  width: 670px;
+  margin-top: 24px;
+  padding: 33px;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0px 3px 6px #00000029;
+  height: 665px;
+}
+.news-post-item-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.news-image {
+  width: 210px;
+  height: 129px;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.news-item-description {
+  width: calc(100% - 250px);
+}
+.news-item-container {
+  margin-bottom: 26px;
+}
+.news-item-title {
+  color: #3d3d3d;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.news-item-description-text {
+  color: #5a5a5a;
+  font-size: 15px;
+}
+.news-item-created-date {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #a3a3a3;
+}
+@media (max-width: 1399px) {
+  .news-items-list {
+    width: 550px;
+  }
+}
+@media (max-width: 1024px) {
+  .news-items-list {
+    background: none;
+    flex-direction: row;
+    display: flex;
+    box-shadow: none;
+  }
+  .news-post-item-container {
+    flex-direction: column;
+  }
+  .news-item-description {
+    width: 100%;
+  }
+  #news-container {
+    width: 100%;
+  }
+  .news-items-list {
+    height: fit-content;
+    width: 100% !important;
+    padding: 0px;
+    justify-content: space-between;
+  }
+  .news-post-item-container {
+    padding: 12px 12px 17px 12px;
+    background: #ffffff;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 20px;
+  }
+  .news-image{
+    border-radius: 7px;
+    width: 100%;
+    height: 87px;
+    margin-bottom: 12px;
+  }
+  .news-item-description-text{
+    margin-bottom: 11px;
+  }
+  .news-item-description-text{
+    font-size: 13px;
+  }
+  .news-item-container{
+    &:nth-child(3){
+        display: none;
+    }
+  }
+  .news-item-container{
+    width: 30%;
+  }
+}
+@media(max-width: 600px){
+    .news-item-container{
+        width: 48% !important;
+        &:nth-child(1){
+            display: none;
+        }
+    }
+}

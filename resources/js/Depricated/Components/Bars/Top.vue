@@ -20,3 +20,6 @@ const active = ref(true)
         </div>
     </div>
 </template>
+<style scopped>
+
+</style>

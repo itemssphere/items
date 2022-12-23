@@ -2,12 +2,10 @@
 /** Components */
 import Header from '@/Components/Header.vue'
 import Footer from '@/Components/Footer.vue'
-/** Constants */
-const pageName = 'home'
 </script>
-<!-- Front Page Template -->
+<!-- Front page -->
 <template>
-    <Header :pageName="pageName"/>   
+    <Header />
     <slot />
     <Footer />
 </template>

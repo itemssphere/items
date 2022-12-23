@@ -1,0 +1,138 @@
+.categories-content-shops-page {
+  width: 394px;
+}
+
+.shops-items-list-content-container {
+  width: calc(100% + 20px);
+  margin-left: -10px;
+}
+
+#shops-slider {
+  margin-bottom: 21px;
+  padding: 0px 10px;
+}
+
+.shop-item-box {
+  height: unset !important;
+  background: none !important;
+}
+
+.shops-list-page-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.shops-list-content {
+  width: calc(100% - 414px);
+}
+
+.flex-box {
+  display: flex;
+  align-items: center;
+}
+
+.shops-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 27px;
+}
+
+.sort-text {
+  color: #3d3d3d;
+  font-size: 18px;
+  opacity: 0.5;
+  margin-right: 8px;
+}
+
+.main-section-head-title {
+  font-size: 20px;
+}
+.main-section-head-title span {
+  color: #a0a0a0;
+}
+
+.items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.items .shop-item-box {
+  width: 25%;
+  padding: 0px 10px;
+  margin-bottom: 21px;
+  height: 385px;
+}
+.items .shop-item-box .social-program-item-container {
+  height: 100%;
+}
+.items .shop-item-box .social-program-item-container .social-program-item-image {
+  height: 290px;
+}
+
+.load-more-shop-items {
+  margin-top: 55px;
+  border: 2px solid #42d921;
+  width: 154px;
+  height: 48px;
+  color: #42d921;
+  font-size: 15px;
+  background: none;
+  border-radius: 24px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+#shops-slider .small-banners-container {
+  display: none;
+}
+
+@media (max-width: 1399px) {
+  .categories-content-shops-page {
+    width: 260px;
+  }
+  .shops-list-content {
+    width: calc(100% - 280px);
+  }
+}
+@media (max-width: 1199px) {
+  .items .shop-item-box {
+    width: 33.3333333333%;
+  }
+}
+@media (max-width: 1024px) {
+  .shops-list-content {
+    width: 100%;
+  }
+  .items .shop-item-box {
+    height: 233px !important;
+  }
+  #social-programs .shop-item-box {
+    height: 317px !important;
+  }
+  .items .on-organization-page {
+    height: -webkit-fit-content !important;
+    height: -moz-fit-content !important;
+    height: fit-content !important;
+    margin-bottom: 13px;
+  }
+  .social-program-item-image {
+    height: 167px !important;
+  }
+  .social-program-description {
+    padding: 10px 17px 11px 17px;
+  }
+  #shop-items .social-programs-actions {
+    margin-top: 8px;
+  }
+  #shop-items .header-search-block-mobile {
+    display: none !important;
+  }
+}
+@media (max-width: 700px) {
+  .items .shop-item-box {
+    width: 50%;
+  }
+}/*# sourceMappingURL=shops-list.css.map */

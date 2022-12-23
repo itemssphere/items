@@ -1,11 +1,30 @@
 /** Styles */
-import '../css/style/fonts.css'
-import '../css/style/grid.css'
-import '@splidejs/splide/css'
-import '@splidejs/vue-splide/css'
-import '../css/style/style.scss'
+
+/** Default */
 // import './bootstrap'
 // import '../css/app.css'
+
+/** Depricated */
+// import '../css/style/fonts.css'
+// import '../css/style/grid.css'
+// import '@splidejs/splide/css'
+// import '@splidejs/vue-splide/css'
+// import '../css/style/style.scss'
+
+/** Current */
+import '../css/styles/categories.css'
+import '../css/styles/product.css'
+import '../css/styles/mobileBottomBar.css'
+import '../css/styles/footer.css'
+import '../css/styles/reset.css'
+import '../css/styles/home.css'
+import '../css/styles/market.css'
+import '../css/styles/components.css'
+import '../css/styles/organizations/style.css'
+import '../css/styles/organizations/prev-project-styles.css'
+import '../css/styles/socialPrograms.css'
+import '../css/styles/news.css'
+import '../css/styles/header.css'
 
 /** Source */
 import { createApp, h } from 'vue'
