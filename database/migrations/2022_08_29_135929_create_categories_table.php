@@ -16,9 +16,9 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->json('name');
             $table->enum('type', Category::TYPES);
-            $table->foreignId('parent_id')
+            $table->foreignId('category_id')
                 ->nullable()
                 ->constrained('categories');
 

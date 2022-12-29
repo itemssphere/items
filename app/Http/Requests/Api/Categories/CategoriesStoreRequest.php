@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests\Api\Categories;
 
+use App\Models\Category;
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CategoriesStoreRequest extends FormRequest
@@ -25,7 +27,8 @@ class CategoriesStoreRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'type' => 'required'
+            'type' => [ 'required', Rule::in(Category::TYPES) ]
         ];
     }
+
 }

@@ -18,24 +18,24 @@ use App\Http\Controllers\Pages\ShopsController;
 */
 
 /**
- * Redirect to Active Locale 
+ * Redirect to Active Locale
  */
-Route::redirect('/', '/' . App::getLocale());
+// Route::redirect('/', '/' . App::getLocale());
 /**
  * Translatable Routes
  */
 
-Route::group(['prefix' => '{language}'], function(){
+// Route::group(['prefix' => '{language}'], function(){
 
-    /** Landing Pages */
-    require __DIR__.'/landing.php';
-    
-    /** Authenticated Pages */
-    Route::middleware(['auth', 'verified'])->group(function(){    
-        require __DIR__.'/authenticated.php';
-    });
-      
-    /** Authorization Routes */
-    require __DIR__.'/auth.php';
+//     /** Landing Pages */
+//     require __DIR__.'/landing.php';
 
-});
+//     /** Authenticated Pages */
+//     Route::middleware(['auth', 'verified'])->group(function(){
+//         require __DIR__.'/authenticated.php';
+//     });
+
+//     /** Authorization Routes */
+//     require __DIR__.'/auth.php';
+
+// });

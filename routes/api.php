@@ -37,3 +37,14 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::resource('categories', CategoriesController::class)->only('index', 'show')->middleware( 'permission:view categories|manage categories' );
     Route::resource('categories', CategoriesController::class)->only('store', 'update', 'destroy')->middleware( 'permission:manage categories' );
 });
+
+
+/** Users Routes */
+Route::resource('users', UsersController::class)->only(['index', 'show']);//->middleware( 'permission:view users|manage users' );
+Route::resource('users', UsersController::class)->only(['store', 'update', 'destroy']);//->middleware( 'permission:manage users' );
+/** News Routes */
+Route::resource('news', NewsController::class)->only('index', 'show');//->middleware( 'permission:view news|manage news' );
+Route::resource('news', NewsController::class)->only('store', 'update', 'destroy');//->middleware( 'permission:manage news' );
+/** Categoris Routes */
+Route::resource('categories', CategoriesController::class)->only('index', 'show');//->middleware( 'permission:view categories|manage categories' );
+Route::resource('categories', CategoriesController::class)->only('store', 'update', 'destroy');//->middleware( 'permission:manage categories' );

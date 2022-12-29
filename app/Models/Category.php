@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Category extends Model
 {
-    use HasFactory;
+    use HasFactory, HasTranslations;
 
     /**
      * Constants
@@ -16,12 +16,14 @@ class Category extends Model
     const TYPES = ['product', 'social'];
 
     protected $guarded = [];
+
+    public $translatable = ['name'];
     /**
      * This Relationship is for children
      */
     public function children()
     {
-        return $this->hasMany(Category::class,'parent_id');
+        return $this->hasMany($this);
     }
 
     /**
@@ -29,6 +31,6 @@ class Category extends Model
      */
     public function parent()
     {
-        return $this->belongsTo(Category::class,'parent_id');
+        return $this->belongsTo($this);
     }
 }
