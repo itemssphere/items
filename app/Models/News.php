@@ -8,10 +8,11 @@ use Spatie\ModelStatus\HasStatuses;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\Translatable\HasTranslations;
 
 class News extends Model implements HasMedia
 {
-    use HasFactory, InteractsWithMedia, HasStatuses;
+    use HasFactory, InteractsWithMedia, HasStatuses, HasTranslations;
 
     /**
      * The attributes that are mass assignable.
@@ -23,6 +24,7 @@ class News extends Model implements HasMedia
         'body'
     ];
 
+    protected $translatable = [ 'title', 'body' ];
     /**
      * Get the author of News
      */

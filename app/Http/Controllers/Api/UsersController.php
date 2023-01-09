@@ -23,20 +23,21 @@ class UsersController extends Controller
      */
     public function index(Request $request): JsonResponse
     {
-        $data = ($request->has('role')) 
-            ? Search::new()->add(User::class, 'roles.name')->search($request->role)
-            : User::all();
-
-        return response()->json([ 
-            'data' => UsersResource::collection($data)
+        return response()->json([
+            'success' => true,
+            'data' => UsersResource::collection($request->has('role')
+                ? Search::new()->add(User::class, 'roles.name')->search($request->role)
+                : User::all())
         ]);
 
     }
 
     /**
      * Store a newly created resource in storage.
+     * Requires super_admin permission
      *
      * @param  \App\Http\Requests\Api\Users\UsersStoreRequest $request
+     *
      * @return \Illuminate\Http\jsonResponse
      */
     public function store(UsersStoreRequest $request): jsonResponse
@@ -46,7 +47,6 @@ class UsersController extends Controller
             $user = User::create($request->validated());
             /** Hash Password */
             $user->password = Hash::make($request->password);
-            // $user->save();
             /** Manually add administrator */
             $user->assignRole('administrator');
             /** First status pending */
@@ -90,7 +90,7 @@ class UsersController extends Controller
         $user->update($request->validated());
         /** Update Status */
         $user->setStatus($request->status, 'updated manually');
-        
+
         return response()->json([
             'success' => true,
             'current_status' => $user->status,

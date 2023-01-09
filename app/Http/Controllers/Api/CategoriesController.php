@@ -17,20 +17,29 @@ class CategoriesController extends Controller
      */
     public function index(): JsonResponse
     {
-        $categories = Category::with('children')->get();
-        return response()->json(CategoriesResource::collection($categories), 200);
+        return response()->json([
+            'success' => true,
+            'data' => CategoriesResource::collection(Category::with('children'))
+        ], 200);
+
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\Api\Categories\CategoriesStoreRequest  $request
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function store(CategoriesStoreRequest $request): jsonResponse
     {
         $category = Category::create($request->validated());
-        return response()->json(new CategoriesResource($category));
+
+        return response()->json([
+            'success' => true,
+            'data' => new CategoriesResource($category)
+        ], 200);
+
     }
 
     /**
@@ -42,7 +51,10 @@ class CategoriesController extends Controller
      */
     public function show(Category $category): JsonResponse
     {
-        return response()->json(new CategoriesResource($category), 200);
+        return response()->json([
+            'success' => true,
+            'data' => new CategoriesResource($category)
+        ], 200);
     }
 
     /**
@@ -56,7 +68,10 @@ class CategoriesController extends Controller
     public function update(CategoriesStoreRequest $request, Category $category): jsonResponse
     {
         $category->update($request->validated());
-        return response()->json(new CategoriesResource($category), 200);
+        return response()->json([
+            'success' => true,
+            'data' => new CategoriesResource($category)
+        ], 200);
     }
 
     /**
@@ -64,11 +79,14 @@ class CategoriesController extends Controller
      *
      * @param  \App\Models\Category  $category
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy(Category $category)
+    public function destroy(Category $category): JsonResponse
     {
-        return $category->delete();
+        return response()->json([
+            'success' => ($category->delete()) ? true : false,
+            'message' => 'Category id: ' . $category->id . ' has been deleted from database',
+        ], 200);
     }
 
 }

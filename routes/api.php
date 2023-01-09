@@ -21,6 +21,11 @@ use ProtoneMedia\LaravelCrossEloquentSearch\Search;
 |
 */
 
+/**
+ * Remove Cors (Handle allow only spacified Ip's later...)
+ */
+Route::middleware('cors')->group(function(){
+
 /** Authentication */
 Route::post('/auth/register', [ AuthController::class, 'createUser' ]);
 Route::post('/auth/login', [ AuthController::class, 'loginUser' ]);
@@ -38,7 +43,6 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::resource('categories', CategoriesController::class)->only('store', 'update', 'destroy')->middleware( 'permission:manage categories' );
 });
 
-
 /** Users Routes */
 Route::resource('users', UsersController::class)->only(['index', 'show']);//->middleware( 'permission:view users|manage users' );
 Route::resource('users', UsersController::class)->only(['store', 'update', 'destroy']);//->middleware( 'permission:manage users' );
@@ -48,3 +52,5 @@ Route::resource('news', NewsController::class)->only('store', 'update', 'destroy
 /** Categoris Routes */
 Route::resource('categories', CategoriesController::class)->only('index', 'show');//->middleware( 'permission:view categories|manage categories' );
 Route::resource('categories', CategoriesController::class)->only('store', 'update', 'destroy');//->middleware( 'permission:manage categories' );
+
+});

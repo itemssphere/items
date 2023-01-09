@@ -15,9 +15,7 @@ class NewsSeeder extends Seeder
      */
     public function run()
     {
-        /** Define Number of Users Needed */
-        $count = 5;
-        /** Create Users */
-        News::factory()->count($count)->create();
+        /** Create Fake News */
+        News::factory()->count(10)->create();
     }
 }

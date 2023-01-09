@@ -17,8 +17,8 @@ class NewsResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'title' => $this->title,
-            'body' => $this->body,
+            'title' => $this->getTranslations('title'),
+            'body' => $this->getTranslations('body'),
             'author' => new UsersResource($this->user),
             'published_at' => $this->created_at->format('d.m.Y'),
             'cover' => $this->getFirstMediaUrl('cover', 'thumb'),

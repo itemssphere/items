@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->longText('body')->nullabe();
+            $table->json('title')->nullable();
+            $table->json('body')->nullabe();
             $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });

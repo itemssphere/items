@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Api\News;
 
+use App\Models\News;
 use Illuminate\Foundation\Http\FormRequest;
 
 class NewsStoreRequest extends FormRequest
@@ -25,8 +26,8 @@ class NewsStoreRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
-            'body' => 'required|string|max:255',
-            'status' => 'nullable'
+            'body' => 'nullable',
+            'status' => 'nullable|string|max:30'
         ];
     }
 }

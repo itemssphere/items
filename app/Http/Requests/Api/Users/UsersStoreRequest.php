@@ -16,7 +16,7 @@ class UsersStoreRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -35,5 +35,5 @@ class UsersStoreRequest extends FormRequest
         ];
     }
 
-  
+
 }
