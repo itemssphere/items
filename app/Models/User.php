@@ -20,11 +20,11 @@ class User extends Authenticatable implements HasMedia
 
     const SUPER_ADMIN = 'super_admin';
     const ADMINISTRATOR = 'administrator';
-    const STATIC_ROLES = [ 
-        'admin' => [ 
+    const STATIC_ROLES = [
+        'admin' => [
             self::SUPER_ADMIN,
             self::ADMINISTRATOR
-        ], 
+        ],
         'user' => [ 'standard', 'shop', 'charity' ]
     ];
 
@@ -68,7 +68,7 @@ class User extends Authenticatable implements HasMedia
     }
 
     public function isSuperAdmin()
-    {   
+    {
         $bool = false;
         foreach(Auth::user()->roles as $role){
             $bool = ($role->name == self::SUPER_ADMIN) ? true : $bool;
@@ -89,7 +89,7 @@ class User extends Authenticatable implements HasMedia
         $role = $this->getRoleNames()[0];
         $admins = self::STATIC_ROLES['admin'];
         $users = self::STATIC_ROLES['user'];
-        
+
         /** Set initial status for users */
         if(in_array($role, $users)){
             switch($role){
@@ -107,7 +107,7 @@ class User extends Authenticatable implements HasMedia
                     break;
             }
         }
-        
+
         /** Set initial status for admins */
         $status = in_array( $role, $admins ) ? 'pending' : $status;
         /** Set Active Status for super admin */

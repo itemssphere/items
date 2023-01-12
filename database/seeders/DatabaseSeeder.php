@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Database\Seeders\NewsSeeder;
 use Database\Seeders\AdminSeeder;
+use Database\Seeders\ProductsSeeder;
 use Database\Seeders\CategoriesSeeder;
 use Database\Seeders\RolesAndPermissionsSeeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -24,6 +25,7 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class, // super_admin
             UsersSeeder::class, // users from factory
             NewsSeeder::class, // news from factory
+            ProductsSeeder::class, // Products from factory
         ];
         /** Loop Through */
         foreach($seeders as $seed){
