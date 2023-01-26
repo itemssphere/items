@@ -6,9 +6,12 @@ use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\UsersController;
 use App\Http\Controllers\Api\ProductsController;
 use App\Http\Controllers\Api\CategoriesController;
+<<<<<<< HEAD
 use App\Http\Controllers\Api\AdvertisementController;
 use App\Http\Controllers\Api\SocialsController;
 use App\Http\Controllers\HashtagController;
+=======
+>>>>>>> ad9023aa5a5befee8151f7f4aa12b6349fae90a4
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +55,7 @@ Route::middleware('cors')->group(function(){
     /** Products Routes */
     Route::resource('products', ProductsController::class)->only('index', 'show');//->middleware( 'permission:view products|manage products' );
     Route::resource('products', ProductsController::class)->only('store', 'update', 'destroy');//->middleware( 'permission:manage products' );
+<<<<<<< HEAD
 
 
     /** Avertisements */
@@ -64,4 +68,6 @@ Route::middleware('cors')->group(function(){
 
     /** Hashtags */
     Route::resource('hashtags', HashtagController::class)->only('index');
+=======
+>>>>>>> ad9023aa5a5befee8151f7f4aa12b6349fae90a4
 });

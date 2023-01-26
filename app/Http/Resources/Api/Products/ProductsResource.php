@@ -17,6 +17,7 @@ class ProductsResource extends JsonResource
     {
         return [
             'id' => $this->id,
+<<<<<<< HEAD
             'name' => $this->getTranslation('name', app()->getLocale()),
             'category_id' => $this->category_id,
             'category' => CategoriesResource::make($this->whenLoaded('category')),
@@ -31,6 +32,29 @@ class ProductsResource extends JsonResource
             'price' => 1239.39,
             'reviews_average' => rand(1,5),
             'reviews_count' => rand(1,50),
+=======
+            'name' => $this->getTranslations('name'),
+            'category' => CategoriesResource::make($this->category),
+            'img' => [
+                'cover' => 'https://picsum.photos/200/400',
+                'slider' => [
+                    'https://picsum.photos/200',
+                    'https://picsum.photos/200',
+                ],
+            ],
+            'discount' => 0.1,
+            'new' => true,
+            'proce_old' => [
+                'currency' => 'GEL',
+                'amount' => 1430.30,
+            ],
+            'price' => [
+                'currency' => 'GEL',
+                'amount' => 1239.39,
+            ],
+            'reviews_average' => 4,
+            'reviews_count' => 132,
+>>>>>>> ad9023aa5a5befee8151f7f4aa12b6349fae90a4
         ];
     }
 }
