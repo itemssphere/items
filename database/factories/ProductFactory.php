@@ -2,18 +2,9 @@
 
 namespace Database\Factories;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Support\Arr;
-=======
->>>>>>> ad9023aa5a5befee8151f7f4aa12b6349fae90a4
-=======
-use App\Models\Product;
-use App\Models\Category;
-use Illuminate\Support\Arr;
->>>>>>> 7850dad (added Cors middleware; crud:news; tags package;)
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,10 +13,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class ProductFactory extends Factory
 {
     /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7850dad (added Cors middleware; crud:news; tags package;)
      * Configure the model factory.
      *
      * @return $this
@@ -41,11 +28,6 @@ class ProductFactory extends Factory
         });
     }
     /**
-<<<<<<< HEAD
-=======
->>>>>>> ad9023aa5a5befee8151f7f4aa12b6349fae90a4
-=======
->>>>>>> 7850dad (added Cors middleware; crud:news; tags package;)
      * Define the model's default state.
      *
      * @return array<string, mixed>
@@ -54,22 +36,10 @@ class ProductFactory extends Factory
     {
         return [
             'name' => [
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7850dad (added Cors middleware; crud:news; tags package;)
                 'ge' => fake('ka_GE')->sentence(3, false),
                 'en' => fake()->sentence(3, false)
             ],
             'category_id' => Arr::random(Category::where('type', 'product')->pluck('id')->toArray())
-<<<<<<< HEAD
-=======
-                'ge' => fake()->sentence(3, false),
-                'en' => fake()->sentence(3, false)
-            ],
->>>>>>> ad9023aa5a5befee8151f7f4aa12b6349fae90a4
-=======
->>>>>>> 7850dad (added Cors middleware; crud:news; tags package;)
         ];
     }
 }
