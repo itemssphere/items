@@ -16,7 +16,7 @@ class UsersUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -31,6 +31,4 @@ class UsersUpdateRequest extends FormRequest
             'status' => 'nullable|string|max:255',
         ];
     }
-
-  
 }

@@ -4,6 +4,7 @@ namespace App\Http\Resources\Api\News;
 
 use App\Http\Resources\Api\Users\UsersResource;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\Api\Categories\CategoriesResource;
 
 class NewsResource extends JsonResource
 {
@@ -17,12 +18,18 @@ class NewsResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'title' => $this->title,
-            'body' => $this->body,
+            'title' => $this->getTranslation('title', app()->getLocale()),
+            'body' => $this->getTranslation('body', app()->getLocale()),
+            'category_id' => $this->category_id,
+            'category_name' => $this->category->getTranslation('name', app()->getLocale()),
+            // 'category' => CategoriesResource::make($this->whenLoaded('category')),
             'author' => new UsersResource($this->user),
-            'published_at' => $this->created_at->format('d.m.Y'),
+            'created_at' => $this->created_at->format('d.m.Y'),
+            'created_at_diff' => $this->created_at->diffForHumans(),
             'cover' => $this->getFirstMediaUrl('cover', 'thumb'),
-            'status' => $this->status
+            'status' => $this->status,
+            'likes_count' => rand(1,1500),
+            'shares_count' => rand(1,750),
         ];
     }
 }

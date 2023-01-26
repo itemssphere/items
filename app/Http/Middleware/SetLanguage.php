@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
@@ -17,7 +18,10 @@ class SetLanguage
      */
     public function handle(Request $request, Closure $next)
     {
-        App::setLocale($request->language);
+        $lang = ($request->has('lang')) ? $request->input('lang') : app()->currentLocale();
+        App::setLocale($lang);
+        Carbon::setLocale(($lang == 'ge') ? 'ka' : $lang);
+
         return $next($request);
     }
 }

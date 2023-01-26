@@ -16,7 +16,7 @@ class CategoriesResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->getTranslations('name'),
+            'name' => $this->getTranslation('name', app()->getLocale()),
             'type' => $this->type,
             'category_id' => $this->category_id,
             'children' => CategoriesResource::collection($this->children),

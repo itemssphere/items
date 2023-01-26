@@ -27,7 +27,8 @@ class CategoriesStoreRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'type' => [ 'required', Rule::in(Category::TYPES) ]
+            'type' => [ 'required', Rule::in(Category::TYPES) ],
+            'category_id' => 'nullable|int|exists:categories'
         ];
     }
 

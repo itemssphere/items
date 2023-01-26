@@ -3,6 +3,9 @@
 namespace Database\Factories;
 
 use App\Models\News;
+use App\Models\User;
+use App\Models\Category;
+use Illuminate\Support\Arr;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,7 +22,7 @@ class NewsFactory extends Factory
     {
         /** Hooks for created users */
         return $this->afterCreating(function (News $news) {
-            /** Add Cover */
+            /** Add default cover photo */
             $news->addMediaFromUrl("https://source.unsplash.com/random/1024x1024")->toMediaCollection("cover");
             /** Define `Initial Status` */
             $news->defineInitialStatus();
@@ -33,9 +36,16 @@ class NewsFactory extends Factory
     public function definition()
     {
         return [
-            'title' => fake()->sentence( 3, true ), // $table->string('title')->nullable();
-            'body' => fake()->sentence( 3, false ), // $table->longText('body')->nullabe();
-            'user_id' => 1 // $table->foreignId('user_id')->constrained('users');
+            'title' => [
+                'ge' => fake()->sentence( 3, false),
+                'en' => fake()->sentence( 3, false )
+            ],
+            'body' => [
+                'ge' => fake()->sentence( 350, false),
+                'en' => fake()->sentence( 250, false )
+            ],
+            'user_id' => Arr::random(range(1, User::all()->count())),
+            'category_id' => Arr::random(Category::where('type', 'news')->pluck('id')->toArray())
         ];
     }
 }

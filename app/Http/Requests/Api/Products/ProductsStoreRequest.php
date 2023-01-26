@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Api\News;
+namespace App\Http\Requests\Api\Products;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class NewsUpdateRequest extends FormRequest
+class ProductsStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class NewsUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,9 +24,8 @@ class NewsUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'nullable|string|max:255',
-            'body' => 'nullable|string|max:255',
-            'status' => 'nullable|string|max:255'
+            'name' => 'required',
+            'category_id' => 'nullable|int|exists:categories',
         ];
     }
 }
