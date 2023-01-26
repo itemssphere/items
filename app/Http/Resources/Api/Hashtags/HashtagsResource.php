@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Api\Categories;
+namespace App\Http\Resources\Api\Hashtags;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CategoriesResource extends JsonResource
+class HashtagsResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,10 +16,9 @@ class CategoriesResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->getTranslation('name', app()->getLocale()),
-            'type' => $this->type,
-            'category_id' => $this->category_id,
-            'children' => CategoriesResource::collection($this->children),
+            'title' => $this->getTranslation('title', app()->getLocale()),
+            'cover' => $this->getFirstMediaUrl('cover','thumb'),
+            'url' => $this->url,
         ];
     }
 }

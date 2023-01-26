@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Api\Categories;
+namespace App\Http\Requests\Api\Products;
 
-use App\Models\Category;
-use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CategoriesStoreRequest extends FormRequest
+class ProductsStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,7 +13,7 @@ class CategoriesStoreRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -27,9 +25,7 @@ class CategoriesStoreRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'type' => [ 'required', Rule::in(Category::TYPES) ],
-            'category_id' => 'nullable|int|exists:categories'
+            'category_id' => 'nullable|int|exists:categories',
         ];
     }
-
 }

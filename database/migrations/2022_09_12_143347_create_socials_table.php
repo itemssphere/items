@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('socials', function (Blueprint $table) {
             $table->id();
+            $table->json('title')->nullable();
+            $table->json('description')->nullabe();
+            $table->foreignId('category_id')
+                ->nullable()
+                ->constrained('categories');
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }

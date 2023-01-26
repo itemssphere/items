@@ -23,7 +23,7 @@ class CategoryFactory extends Factory
                 'en' => fake('en_US')->sentence( 2, true ),
                 'ge' => fake('ka_GE')->sentence( 2, true )
             ],
-            'type' => Arr::random(Category::TYPES)
+            'type' => Arr::random(Category::TYPES),
         ];
     }
 }

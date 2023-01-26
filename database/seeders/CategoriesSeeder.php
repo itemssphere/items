@@ -18,9 +18,9 @@ class CategoriesSeeder extends Seeder
     {
         /** Number of Categories */
         $parents = 10;
-        $secondary = 25;
-        $third = 50;
-        $fourth = 100;
+        $secondary = 10;
+        $third = 15;
+        $fourth = 20;
         /** Create Categories */
         Category::factory()->count($parents)->create([
             'category_id' => null

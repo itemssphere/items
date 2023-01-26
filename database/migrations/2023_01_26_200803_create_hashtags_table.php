@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('hashtags', function (Blueprint $table) {
             $table->id();
-            $table->json('name');
-            $table->foreignId('category_id')
-                ->nullable()
-                ->constrained('categories');
+            $table->json('title');
+            $table->string('url');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('hashtags');
     }
 };

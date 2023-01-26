@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use App\Models\User;
+use App\Models\Category;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\ModelStatus\HasStatuses;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Spatie\Translatable\HasTranslations;
 
 class News extends Model implements HasMedia
 {
@@ -21,7 +22,8 @@ class News extends Model implements HasMedia
      */
     protected $fillable = [
         'title',
-        'body'
+        'body',
+        'category_id',
     ];
 
     protected $translatable = [ 'title', 'body' ];
@@ -43,6 +45,14 @@ class News extends Model implements HasMedia
 
         /** Set Initial status to user */
         $this->setStatus( $status, $reason );
+    }
+
+     /**
+     * relation for category
+     */
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 
 }

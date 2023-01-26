@@ -19,7 +19,7 @@ class CategoriesController extends Controller
     {
         return response()->json([
             'success' => true,
-            'data' => CategoriesResource::collection(Category::with('children'))
+            'data' => CategoriesResource::collection(Category::with('children')->get())
         ], 200);
 
     }
