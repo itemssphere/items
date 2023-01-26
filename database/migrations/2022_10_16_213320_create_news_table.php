@@ -17,6 +17,9 @@ return new class extends Migration
             $table->id();
             $table->json('title')->nullable();
             $table->json('body')->nullabe();
+            $table->foreignId('category_id')
+                ->nullable()
+                ->constrained('categories');
             $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });

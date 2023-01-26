@@ -23,13 +23,10 @@ class UsersController extends Controller
      */
     public function index(Request $request): JsonResponse
     {
-        return response()->json([
-            'success' => true,
-            'data' => UsersResource::collection($request->has('role')
-                ? Search::new()->add(User::class, 'roles.name')->search($request->role)
-                : User::all())
-        ]);
-
+        $data = $request->has(config('request.role'))
+            ? User::role(request()[config('request.role')])->customPaginate()
+            : User::customPaginate();
+        return response()->success(UsersResource::collection($data));
     }
 
     /**

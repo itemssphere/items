@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\News;
+use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\News\NewsResource;
@@ -17,10 +18,7 @@ class NewsController extends Controller
      */
     public function index(): JsonResponse
     {
-        return response()->json([
-            'success' => true,
-            'data' => NewsResource::collection(News::all())
-        ], 200);
+        return response()->success(NewsResource::collection(News::customPaginate()));
     }
 
     /**
@@ -39,10 +37,7 @@ class NewsController extends Controller
         /** add default cover photo */
         $news->addMediaFromUrl("https://source.unsplash.com/random/1024x1024")->toMediaCollection("cover");
         /** Return success response */
-        return response()->json([
-            'success' => true,
-            'data' => new NewsResource($news)
-        ], 200);
+        return response()->success(new NewsResource($news));
     }
 
     /**
@@ -54,10 +49,7 @@ class NewsController extends Controller
      */
     public function show(News $news): JsonResponse
     {
-        return response()->json([
-            'success' => true,
-            'data' => new NewsResource($news)
-        ], 200);
+        return response()->success(new NewsResource($news));
     }
 
     /**
@@ -75,10 +67,7 @@ class NewsController extends Controller
         /** Update status */
         $news->setStatus($request->status, 'updated manually');
         /** Return success response */
-        return response()->json([
-            'success' => true,
-            'data' => new NewsResource($news)
-        ], 200);
+        return response()->success(new NewsResource($news));
     }
 
     /**

@@ -13,7 +13,7 @@ class Category extends Model
     /**
      * Constants
      */
-    const TYPES = ['product', 'social'];
+    const TYPES = ['product', 'social', 'news'];
 
     protected $guarded = [];
 

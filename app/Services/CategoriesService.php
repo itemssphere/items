@@ -15,15 +15,15 @@ use App\Http\Resources\Api\Categories\CategoriesWithParentResource;
  */
 class CategoriesService {
 
-    
+
 
     public function __construct(){
-        
+
     }
 
     /**
      * Get Constant of Category Model
-     * 
+     *
      * @param String $constant
      * @return JsonResponse
      */
@@ -34,7 +34,7 @@ class CategoriesService {
 
     /**
      * Get Formated Categories
-     * 
+     *
      * @param String $format
      * @return JsonResponse
      */

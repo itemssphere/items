@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Resources\Api\News;
+namespace App\Http\Resources\Api\Socials;
 
-use App\Http\Resources\Api\Users\UsersResource;
+use Illuminate\Support\Arr;
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\Api\Categories\CategoriesResource;
 
-class NewsResource extends JsonResource
+class SocialsResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,18 +15,21 @@ class NewsResource extends JsonResource
      */
     public function toArray($request)
     {
+        $amount = rand(1000,2500);
+        $raised = $amount / Arr::random([2,3,4,5,6,7,8,9]);
+
         return [
             'id' => $this->id,
+            'cover' => $this->getFirstMediaUrl('cover'),
             'title' => $this->getTranslation('title', app()->getLocale()),
-            'body' => $this->getTranslation('body', app()->getLocale()),
+            'description' => $this->getTranslation('description', app()->getLocale()),
             'category_id' => $this->category_id,
             'category_name' => $this->category->getTranslation('name', app()->getLocale()),
             // 'category' => CategoriesResource::make($this->whenLoaded('category')),
-            'author' => new UsersResource($this->user),
-            'created_at' => $this->created_at->format('d.m.Y'),
-            'created_at_diff' => $this->created_at->diffForHumans(),
-            'cover' => $this->getFirstMediaUrl('cover', 'thumb'),
-            'status' => $this->status,
+            'currency' => 'GEL',
+            'goal_amount' => $amount,
+            'raised_amount' => round($raised,2),
+            'raised_diff' => round($raised / $amount * 100) . '%',
             'likes_count' => rand(1,1500),
             'shares_count' => rand(1,750),
         ];

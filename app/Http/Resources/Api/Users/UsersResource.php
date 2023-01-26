@@ -16,13 +16,15 @@ class UsersResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
+            'name' => $this->getTranslation('name', app()->getLocale()),
             'email' => $this->email,
             'roles' => $this->roles,
             'date' => $this->created_at->isoFormat('DD.MM.YYYY / H:m'),
             'seen' => $this->created_at->diffForHumans(),
             'avatar' => $this->getFirstMediaUrl('avatar', 'thumb'),
-            'status' => $this->status
+            'status' => $this->status,
+            'likes_count' => rand(1,1500),
+            'shares_count' => rand(1,750),
         ];
     }
 }
