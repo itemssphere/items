@@ -54,8 +54,6 @@ Route::middleware('cors')->group(function(){
     Route::resource('products', ProductsController::class)->only('index', 'show');//->middleware( 'permission:view products|manage products' );
     Route::resource('products', ProductsController::class)->only('store', 'update', 'destroy');//->middleware( 'permission:manage products' );
 
-
-
     /** Avertisements */
     Route::resource('advertisements', AdvertisementController::class)->only('index', 'show');//->middleware( 'permission:view products|manage products' );
     // Route::resource('advertisements', AdvertisementController::class)->only('store', 'update', 'destroy');//->middleware( 'permission:view products|manage products' );
