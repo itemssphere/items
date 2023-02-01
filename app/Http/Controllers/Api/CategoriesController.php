@@ -17,10 +17,7 @@ class CategoriesController extends Controller
      */
     public function index(): JsonResponse
     {
-        return response()->json([
-            'success' => true,
-            'data' => CategoriesResource::collection(Category::with('children')->get())
-        ], 200);
+        return response()->success(CategoriesResource::collection(Category::with('children')->get()));
 
     }
 
@@ -35,10 +32,7 @@ class CategoriesController extends Controller
     {
         $category = Category::create($request->validated());
 
-        return response()->json([
-            'success' => true,
-            'data' => new CategoriesResource($category)
-        ], 200);
+        return response()->success(new CategoriesResource($category));
 
     }
 
@@ -51,10 +45,7 @@ class CategoriesController extends Controller
      */
     public function show(Category $category): JsonResponse
     {
-        return response()->json([
-            'success' => true,
-            'data' => new CategoriesResource($category)
-        ], 200);
+        return response()->success(new CategoriesResource($category));
     }
 
     /**
@@ -68,10 +59,8 @@ class CategoriesController extends Controller
     public function update(CategoriesStoreRequest $request, Category $category): jsonResponse
     {
         $category->update($request->validated());
-        return response()->json([
-            'success' => true,
-            'data' => new CategoriesResource($category)
-        ], 200);
+
+        return response()->success(new CategoriesResource($category));
     }
 
     /**
