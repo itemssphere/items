@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\User;
 use App\Models\Product;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\Products\ProductsStoreRequest;
-use Illuminate\Http\Request;
+use App\Http\Requests\Api\Reviews\ReviewStoreRequest;
 use App\Http\Resources\Api\Products\ProductsResource;
+use App\Http\Requests\Api\Products\ProductsStoreRequest;
 
 class ProductsController extends Controller
 {
@@ -70,5 +71,17 @@ class ProductsController extends Controller
             'success' => ($product->delete()) ? true : false,
             'message' => 'Product id: ' . $product->id . ' has been deleted from database',
         ], 200);
+    }
+
+    /**
+     * addReview add review to Product.
+     *
+     * @param  \App\Http\Requests\Api\Reviews\ReviewStoreRequest  $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function addReview(ReviewStoreRequest $request, Product $product): JsonResponse
+    {
+        $product->review($request->validated()['message'], User::find(1), $request->validated()['rating']);
+        return response()->success(new ProductsResource($product));
     }
 }

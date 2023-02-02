@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Category;
+use Digikraaft\ReviewRating\Traits\HasReviewRating;
 use Spatie\Tags\HasTags;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
@@ -12,7 +13,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Product extends Model implements HasMedia
 {
-    use HasFactory, HasTranslations, InteractsWithMedia, HasTags;
+    use HasFactory, HasTranslations, InteractsWithMedia, HasTags, HasReviewRating;
 
     protected $fillable = [
         'name',
