@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Support\Arr;
@@ -25,6 +26,13 @@ class ProductFactory extends Factory
             $product->addMediaFromUrl("https://source.unsplash.com/random/300x300")->toMediaCollection("images");
             /** Add Wallpaper */
             $product->addMediaFromUrl("https://source.unsplash.com/random/600x600")->toMediaCollection("images");
+            /** Add several Reviews */
+            $availableRatings = range(1, 5, 1);
+            $totalReviews = Arr::random(range(1, 25, 1));
+            for( $i=1; $i <= $totalReviews; $i++ ){
+                $product->review(fake()->sentence(),User::find(1),Arr::random($availableRatings));
+                $i++;
+            }
         });
     }
     /**
