@@ -10,6 +10,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\Api\Socials\SocialsResource;
 use App\Http\Resources\Api\Products\ProductsResource;
 use App\Http\Resources\Api\Categories\CategoriesResource;
+use App\Http\Resources\Api\Reviews\ReviewsResource;
 
 class ProductResource extends JsonResource
 {
@@ -39,6 +40,7 @@ class ProductResource extends JsonResource
             'reviews_count' => $this->reviews()->count(),
             'likes_count' => rand(1,5000),
             'shares_count' => rand(1,5000),
+            'reviews' => ReviewsResource::collection($this->reviews),
             'img' => [
                 'cover' => $this->getFirstMediaUrl('images', 'thumb'),
                 'images' => array_map(function($img){ return $img['original_url']; }, $this->getMedia('images')->toArray()),

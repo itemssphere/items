@@ -51,7 +51,7 @@ Route::middleware('cors')->group(function(){
     Route::resource('categories', CategoriesController::class)->only('store', 'update', 'destroy');//->middleware( 'permission:manage categories' );
 
     /** Products Routes */
-    Route::post('products/{product}/rewiews', [ ProductsController::class, 'createReview'])->name('products.reviews.store'); // r&p next...
+    Route::post('products/{product}/reviews', [ ProductsController::class, 'createReviews'])->name('products.reviews.store'); // r&p next...
     Route::resource('products', ProductsController::class)->only('index', 'show');//->middleware( 'permission:view products|manage products' );
     Route::resource('products', ProductsController::class)->only('store', 'update', 'destroy');//->middleware( 'permission:manage products' );
 

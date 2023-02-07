@@ -84,10 +84,11 @@ class ProductsController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\JsonResponse
      */
-    public function createReview(ReviewStoreRequest $request, Product $product): JsonResponse
+    public function createReviews(ReviewStoreRequest $request, Product $product): JsonResponse
     {
         $product->review($request->validated()['message'], User::find(1), $request->validated()['rating']);
         return response()->success(new ProductsResource($product));
     }
+
 
 }
