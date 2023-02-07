@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Product;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Api\Products\ProductResource;
 use App\Http\Requests\Api\Reviews\ReviewStoreRequest;
 use App\Http\Resources\Api\Products\ProductsResource;
 use App\Http\Requests\Api\Products\ProductsStoreRequest;
@@ -30,6 +31,9 @@ class ProductsController extends Controller
      */
     public function store(ProductsStoreRequest  $request): JsonResponse
     {
+        /**
+         * User Must Create Product
+         */
         $product = Product::create($request->validated());
         return response()->success($product);
     }
@@ -42,7 +46,7 @@ class ProductsController extends Controller
      */
     public function show(Product $product): JsonResponse
     {
-        return response()->success(new ProductsResource($product));
+        return response()->success( ProductResource::make($product) );
     }
 
     /**
@@ -74,14 +78,27 @@ class ProductsController extends Controller
     }
 
     /**
-     * addReview add review to Product.
+     * Create Review of Product.
      *
      * @param  \App\Http\Requests\Api\Reviews\ReviewStoreRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function addReview(ReviewStoreRequest $request, Product $product): JsonResponse
+    public function createReview(ReviewStoreRequest $request, Product $product): JsonResponse
     {
         $product->review($request->validated()['message'], User::find(1), $request->validated()['rating']);
         return response()->success(new ProductsResource($product));
     }
+
+    /**
+     * Replay to Review of Product.
+     *
+     * @param  \App\Http\Requests\Api\Reviews\ReviewStoreRequest  $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function replyReview(ReviewStoreRequest $request, Product $product): JsonResponse
+    {
+        $product->review($request->validated()['message'], User::find(1), $request->validated()['rating']);
+        return response()->success(new ProductsResource($product));
+    }
+
 }
