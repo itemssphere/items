@@ -21,18 +21,16 @@ class ProductResource extends JsonResource
      */
     public function toArray($request)
     {
-        // dd(Product::customPaginate());
+        /** count average rating not to break code */
         $averageRating = round($this->averageRating());
+
         return [
             'id' => $this->id,
             'name' => $this->getTranslation('name', app()->getLocale()),
             'category_id' => $this->category_id,
             'category' => CategoriesResource::make($this->whenLoaded('category')),
             'new' => true,
-            'img' => [
-                'cover' => $this->getFirstMediaUrl('images', 'thumb'),
-                'images' => array_map(function($img){ return $img['original_url']; }, $this->getMedia('images')->toArray()),
-            ],
+            'stock' => rand(1,255),
             'currency' => 'GEL',
             'discount' => 0.1,
             'proce_old' => 1430.30,
@@ -41,10 +39,14 @@ class ProductResource extends JsonResource
             'reviews_count' => $this->reviews()->count(),
             'likes_count' => rand(1,5000),
             'shares_count' => rand(1,5000),
+            'img' => [
+                'cover' => $this->getFirstMediaUrl('images', 'thumb'),
+                'images' => array_map(function($img){ return $img['original_url']; }, $this->getMedia('images')->toArray()),
+            ],
+            'description' => fake()->sentence(50, false), // Get Translations of descrition Field
             'seller' => UsersResource::make(User::role('shop')->inRandomOrder()->first()), // after $this->user
             'donation' => SocialsResource::make(Social::inRandomOrder()->first()), // after $this->social
-            'stock' => rand(1,255),
-            'symilar' => ProductsResource::collection(Product::inRandomOrder()->take(5)->get())
+            'symilar' => ProductsResource::collection(Product::inRandomOrder()->take(5)->get()) // Add Some Logic to it
         ];
     }
 }
