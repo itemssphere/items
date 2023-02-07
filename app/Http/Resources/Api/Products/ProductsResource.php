@@ -26,7 +26,7 @@ class ProductsResource extends JsonResource
             'discount' => 0.1,
             'proce_old' => 1430.30,
             'price' => 1239.39,
-            'reviews_average' => round($this->averageRating()),
+            'reviews_average' => rand(1,5),//round($this->averageRating()),
             'reviews_count' => $this->reviews()->count(),
             'img' => [
                 'cover' => $this->getFirstMediaUrl('images', 'thumb'),
