@@ -15,8 +15,6 @@ class ProductsResource extends JsonResource
      */
     public function toArray($request)
     {
-        /** count average rating not to break code */
-        $averageRating = round($this->averageRating());
 
         return [
             'id' => $this->id,
@@ -28,7 +26,7 @@ class ProductsResource extends JsonResource
             'discount' => 0.1,
             'proce_old' => 1430.30,
             'price' => 1239.39,
-            'reviews_average' => $averageRating,
+            'reviews_average' => round($this->averageRating()),
             'reviews_count' => $this->reviews()->count(),
             'img' => [
                 'cover' => $this->getFirstMediaUrl('images', 'thumb'),
