@@ -24,7 +24,7 @@ class NewsResource extends JsonResource
             'category_name' => $this->category->getTranslation('name', app()->getLocale()),
             // 'category' => CategoriesResource::make($this->whenLoaded('category')),
             'author' => new UsersResource($this->user),
-            'created_at' => $this->created_at->format('d.m.Y'),
+            'created_at' => $this->created_at->shiftTimezone(config('app.timezone'))->toRfc7231String('Europe/Stockholm'),
             'created_at_diff' => $this->created_at->diffForHumans(),
             'cover' => $this->getFirstMediaUrl('cover', 'thumb'),
             'status' => $this->status,
