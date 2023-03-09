@@ -1,16 +1,19 @@
 <?php
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HashtagController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\NewsController;
-use App\Http\Controllers\Api\UsersController;
 // use App\Http\Controllers\Api\ReviewsController;
+use App\Http\Controllers\Api\UsersController;
 use App\Http\Controllers\Api\SocialsController;
+use App\Http\Resources\Api\Users\UsersResource;
 use App\Http\Controllers\Api\ProductsController;
 use App\Http\Controllers\Api\CategoriesController;
 use App\Http\Controllers\Api\AdvertisementController;
 use App\Http\Controllers\Api\Admin\AdminAuthController;
+
 // use App\Http\Controllers\Api\Reviews\ProductReviewsController;
 // use App\Http\Requests\Api\Reviews\ReviewRequestContract;
 
@@ -32,7 +35,12 @@ Route::middleware('cors')->group(function(){
 
     /** Auth Routes */
     Route::middleware('auth:sanctum')->group(function(){
-        // ...
+
+        Route::get('/authTest', function(): JsonResponse
+        {
+            return response()->success(UsersResource::make(auth()->user()));
+        });
+
     });
 
     /** Authentication */

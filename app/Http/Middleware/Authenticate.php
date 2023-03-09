@@ -20,3 +20,12 @@ class Authenticate extends Middleware
         }
     }
 }
+
+/*
+let response = await axios.get('https://items.magischer.de/api/authTest', {
+    headers: {
+        Authorization: `Bearer ${TOKEN}`,
+        Accept: 'application/json'
+    }
+})
+*/
