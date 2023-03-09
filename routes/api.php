@@ -70,8 +70,8 @@ Route::middleware('cors')->group(function(){
     Route::resource('socials', SocialsController::class)->only('index', 'show');//->middleware( 'permission:view socials|manage socials' );
     Route::resource('socials', SocialsController::class)->only('store', 'update', 'destroy');//->middleware( 'permission:view socials|manage socials' );
     /** Hashtags */
-    Route::resource('/', HashtagController::class)->only('index', 'show');//->middleware( 'permission:view hashtags|manage hashtags' );
-    Route::resource('/', HashtagController::class)->only('store', 'update', 'destroy');//->middleware( 'permission:view hashtags|manage hashtags' );
+    Route::resource('/hashtags', HashtagController::class)->only('index', 'show');//->middleware( 'permission:view hashtags|manage hashtags' );
+    Route::resource('/hashtags', HashtagController::class)->only('store', 'update', 'destroy');//->middleware( 'permission:view hashtags|manage hashtags' );
 
 
 });
