@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\SocialsController;
 use App\Http\Controllers\Api\ProductsController;
 use App\Http\Controllers\Api\CategoriesController;
 use App\Http\Controllers\Api\AdvertisementController;
+use App\Http\Controllers\Api\Admin\AdminAuthController;
 // use App\Http\Controllers\Api\Reviews\ProductReviewsController;
 // use App\Http\Requests\Api\Reviews\ReviewRequestContract;
 
@@ -37,6 +38,10 @@ Route::middleware('cors')->group(function(){
     /** Authentication */
     Route::post('/auth/register', [ AuthController::class, 'createUser' ]);
     Route::post('/auth/login', [ AuthController::class, 'loginUser' ]);
+
+    /** Authentication */
+    Route::post('/admin/register', [ AdminAuthController::class, 'createUser' ]);
+    Route::post('/admin/login', [ AdminAuthController::class, 'loginUser' ]);
 
     /**
      * CRUDS

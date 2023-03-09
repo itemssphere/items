@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Admin;
 
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Resources\Api\Users\UsersResource;
 
-class AuthController extends Controller
+class AdminAuthController extends Controller
 {
     /**
      * Create User
@@ -89,16 +89,16 @@ class AuthController extends Controller
             /** Update Last Seen */
             $user->update(['last_seen' => now()]);
             /** Determine if user is Admin */
-        //    $is_admin = $user->isAdmin();
+            $is_admin = $user->isAdmin();
 
-        //    $status_code = ($is_admin) ? 200 : 401;
+            $status_code = ($is_admin) ? 200 : 401;
 
             return response()->json([
-                'status' => true,
+                'status' => ($is_admin) ? true : false,
                 'user' => new UsersResource($user),
-                'message' => 'User Logged In Successfully',
-                'token' => $user->createToken("API TOKEN")->plainTextToken
-            ], 200);
+                'message' => ($is_admin) ? 'Admin Logged In Successfully' : 'User is not Admin',
+                'token' => ($is_admin) ? $user->createToken("API TOKEN")->plainTextToken : false
+            ], $status_code);
         } catch (\Throwable $th) {
             return response()->json([
                 'status' => false,
