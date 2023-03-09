@@ -5,7 +5,7 @@ namespace App\Http\Requests\Api\Reviews;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Http\Requests\Api\Reviews\ReviewRequestContract;
 
-class ReviewStoreRequest extends ReviewRequestContract
+class ReviewUpdateRequest extends ReviewRequestContract
 {
     /**
      * Determine if the user is authorized to make this request.

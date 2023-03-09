@@ -1,16 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HashtagController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\UsersController;
+// use App\Http\Controllers\Api\ReviewsController;
+use App\Http\Controllers\Api\SocialsController;
 use App\Http\Controllers\Api\ProductsController;
 use App\Http\Controllers\Api\CategoriesController;
 use App\Http\Controllers\Api\AdvertisementController;
-use App\Http\Controllers\Api\ReviewsController;
-use App\Http\Controllers\Api\SocialsController;
-use App\Http\Controllers\HashtagController;
-
+// use App\Http\Controllers\Api\Reviews\ProductReviewsController;
+// use App\Http\Requests\Api\Reviews\ReviewRequestContract;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,7 +52,9 @@ Route::middleware('cors')->group(function(){
     Route::resource('categories', CategoriesController::class)->only('store', 'update', 'destroy');//->middleware( 'permission:manage categories' );
 
     /** Products Routes */
-    Route::post('products/{product}/reviews', [ ProductsController::class, 'createReviews'])->name('products.reviews.store'); // r&p next...
+    // Route::post('products/{product}/reviews', [ ProductsController::class, 'createReviews'])->name('products.reviews.store'); // r&p next...
+    Route::get('products/{product}/reviews', [ ProductsController::class, 'getReviews' ])->name('products.reviews.index'); // r&p next...
+    Route::post('products/{product}/reviews', [ ProductsController::class, 'createReviews' ])->name('products.reviews.store'); // r&p next...
     Route::resource('products', ProductsController::class)->only('index', 'show');//->middleware( 'permission:view products|manage products' );
     Route::resource('products', ProductsController::class)->only('store', 'update', 'destroy');//->middleware( 'permission:manage products' );
 

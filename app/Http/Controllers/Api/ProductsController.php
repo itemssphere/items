@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Product;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Api\Reviews\ReviewsResource;
 use App\Http\Resources\Api\Products\ProductResource;
 use App\Http\Requests\Api\Reviews\ReviewStoreRequest;
 use App\Http\Resources\Api\Products\ProductsResource;
@@ -88,6 +89,17 @@ class ProductsController extends Controller
     {
         $product->review($request->validated()['message'], User::find(1), $request->validated()['rating']);
         return response()->success(new ProductsResource($product));
+    }
+
+    /**
+     * Show Reviews of Product
+     *
+     * @param  \App\Models\Product $product
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getReviews(Product $product): JsonResponse
+    {
+        return response()->success(ReviewsResource::collection($product->reviews));
     }
 
 
