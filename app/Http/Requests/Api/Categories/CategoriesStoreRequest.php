@@ -32,4 +32,12 @@ class CategoriesStoreRequest extends FormRequest
         ];
     }
 
+
+    public function prepareForValidation()
+    {
+        $this->merge([
+            'category_id' => +$this->category_id,
+        ]);
+    }
+
 }
