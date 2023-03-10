@@ -36,10 +36,17 @@ Route::middleware('cors')->group(function(){
     /** Auth Routes */
     Route::middleware('auth:sanctum')->group(function(){
 
+        /**
+         * Temporary
+         */
+
         Route::get('/authTest', function(): JsonResponse
         {
             return response()->success(UsersResource::make(auth()->user()));
         });
+
+        // Route::resource('categories', CategoriesController::class)->only('index', 'show');//->middleware( 'permission:view categories|manage categories' );
+        Route::resource('categories', CategoriesController::class)->only('store', 'update', 'destroy');//->middleware( 'permission:manage categories' );
 
     });
 
@@ -62,7 +69,7 @@ Route::middleware('cors')->group(function(){
     Route::resource('news', NewsController::class)->only('store', 'update', 'destroy');//->middleware( 'permission:manage news' );
     /** Categoris Routes */
     Route::resource('categories', CategoriesController::class)->only('index', 'show');//->middleware( 'permission:view categories|manage categories' );
-    Route::resource('categories', CategoriesController::class)->only('store', 'update', 'destroy');//->middleware( 'permission:manage categories' );
+    // Route::resource('categories', CategoriesController::class)->only('store', 'update', 'destroy');//->middleware( 'permission:manage categories' );
 
     /** Products Routes */
     // Route::post('products/{product}/reviews', [ ProductsController::class, 'createReviews'])->name('products.reviews.store'); // r&p next...
