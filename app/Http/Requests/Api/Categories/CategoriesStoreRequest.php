@@ -28,16 +28,7 @@ class CategoriesStoreRequest extends FormRequest
         return [
             'name' => 'required',
             'type' => [ 'required', Rule::in(Category::TYPES) ],
-            'category_id' => 'nullable|int|exists:categories'
+            'category_id' => 'nullable|exists:categories'
         ];
     }
-
-
-    public function prepareForValidation()
-    {
-        $this->merge([
-            'category_id' => +$this->category_id,
-        ]);
-    }
-
 }
