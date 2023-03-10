@@ -25,10 +25,13 @@ class CategoriesStoreRequest extends FormRequest
      */
     public function rules()
     {
+        // dd($this);
         return [
             'name' => 'required',
             'type' => [ 'required', Rule::in(Category::TYPES) ],
-            'category_id' => 'nullable|exists:categories'
+            'category_id' => 'nullable|int|exists:categories,id'
         ];
     }
+
+
 }
