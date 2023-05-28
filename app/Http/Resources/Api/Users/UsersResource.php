@@ -20,7 +20,7 @@ class UsersResource extends JsonResource
             'email' => $this->email,
             'roles' => $this->roles,
             'date' => $this->created_at->isoFormat('DD.MM.YYYY / H:m'),
-            'seen' => $this->created_at->diffForHumans(),
+            'seen' => $this->last_seen->diffForHumans(),
             'avatar' => $this->getFirstMediaUrl('avatar', 'thumb'),
             'status' => $this->status,
             'likes_count' => rand(1,1500),

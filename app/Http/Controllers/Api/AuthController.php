@@ -3,108 +3,63 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\User;
-use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Resources\Api\Users\UsersResource;
+use App\Http\Requests\Auth\RegisterRequest;
 
 class AuthController extends Controller
 {
     /**
      * Create User
-     * @param Request $request
-     * @return User
+     *
+     * @param \App\Http\Requests\Auth\RegisterRequest $request
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function createUser(Request $request)
+    public function createUser(RegisterRequest $request): JsonResponse
     {
-        try {
-            //Validated
-            $validateUser = Validator::make(
-                $request->all(),
-                [
-                    'name' => 'required',
-                    'email' => 'required|email|unique:users,email',
-                    'password' => 'required'
-                ]
-            );
+        $password = Hash::make($request->safe()->password);
 
-            if ($validateUser->fails()) {
-                return response()->json([
-                    'status' => false,
-                    'message' => 'validation error',
-                    'errors' => $validateUser->errors()
-                ], 401);
-            }
+        $user = User::create(array_merge($request->validated(),[ 'password' => $password ]));
 
-            $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password)
-            ]);
+        $user->assignRole($request->safe()->role);
 
-            return response()->json([
-                'status' => true,
-                'message' => 'User Created Successfully',
-                'user' => UsersResource::make($user),
-                'token' => $user->createToken("API TOKEN")->plainTextToken
-            ], 200);
-        } catch (\Throwable $th) {
-            return response()->json([
-                'status' => false,
-                'message' => $th->getMessage()
-            ], 500);
-        }
+        $user->update(['last_seen' => now()]);
+
+        return response()->json([
+            'status' => true,
+            'message' => 'User Created Successfully',
+            'user' => UsersResource::make($user),
+            'token' => $user->createToken("API TOKEN")->plainTextToken
+        ]);
     }
 
     /**
-     * Login The User
-     * @param Request $request
-     * @return User
+     * Login
+     *
+     * @param \App\Http\Requests\Auth\LoginRequest $request
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function loginUser(Request $request)
+    public function loginUser(LoginRequest $request): JsonResponse
     {
-        try {
-            $validateUser = Validator::make(
-                $request->all(),
-                [
-                    'email' => 'required|email',
-                    'password' => 'required'
-                ]
-            );
-            if ($validateUser->fails()) {
-                return response()->json([
-                    'status' => false,
-                    'message' => 'validation error',
-                    'errors' => $validateUser->errors()
-                ], 401);
-            }
-            if (!Auth::attempt($request->only(['email', 'password']))) {
-                return response()->json([
-                    'status' => false,
-                    'message' => 'Email & Password does not match with our record.',
-                ], 401);
-            }
-            $user = User::where('email', $request->email)->with(['roles', 'media'])->first();
-            /** Update Last Seen */
-            $user->update(['last_seen' => now()]);
-            /** Determine if user is Admin */
-        //    $is_admin = $user->isAdmin();
+        $request->authenticate();
 
-        //    $status_code = ($is_admin) ? 200 : 401;
+        $user = auth()->user();
 
-            return response()->json([
-                'status' => true,
-                'user' => new UsersResource($user),
-                'message' => 'User Logged In Successfully',
-                'token' => $user->createToken("API TOKEN")->plainTextToken
-            ], 200);
-        } catch (\Throwable $th) {
-            return response()->json([
-                'status' => false,
-                'message' => $th->getMessage()
-            ], 500);
-        }
+        $user->tokens()->delete();
+
+        $user->update(['last_seen' => now()]);
+
+        return response()->json([
+            'status' => true,
+            'user' => UsersResource::make($user),
+            'message' => 'User Logged In Successfully',
+            'token' => $user->createToken("API TOKEN")->plainTextToken,
+        ], 200);
     }
+
 }
