@@ -2,18 +2,19 @@
 
 namespace App\Models;
 
+use App\Models\Profile;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\ModelStatus\HasStatuses;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Translatable\HasTranslations;
 use phpDocumentor\Reflection\Types\Boolean;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Spatie\Translatable\HasTranslations;
 
 class User extends Authenticatable implements HasMedia
 {
@@ -122,6 +123,10 @@ class User extends Authenticatable implements HasMedia
 
     public function news(){
         return $this->hasMany(News::class);
+    }
+
+    public function profile(){
+        return $this->hasOne(Profile::class);
     }
 
 }

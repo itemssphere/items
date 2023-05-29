@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\User;
+use Illuminate\Support\Arr;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\Auth\LoginRequest;
-use App\Http\Resources\Api\Users\UsersResource;
 use App\Http\Requests\Auth\RegisterRequest;
+use App\Http\Resources\Api\Users\UsersResource;
 
 class AuthController extends Controller
 {
@@ -21,11 +22,17 @@ class AuthController extends Controller
      */
     public function createUser(RegisterRequest $request): JsonResponse
     {
+
         $password = Hash::make($request->safe()->password);
 
-        $user = User::create(array_merge($request->validated(),[ 'password' => $password ]));
+        $user = User::create(array_merge(Arr::only($request->validated(),[ 'name', 'email' ]),[ 'password' => $password ]));
 
         $user->assignRole($request->safe()->role);
+
+        $user->profile()->create(array_merge(
+            Arr::except($request->validated(),[ 'email', 'password', 'role', 'agreement' ]),
+            [ 'name' => [ app()->getLocale() => $request->safe()->name ]]
+        ));
 
         $user->update(['last_seen' => now()]);
 

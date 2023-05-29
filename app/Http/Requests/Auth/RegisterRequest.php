@@ -30,6 +30,9 @@ class RegisterRequest extends FormRequest
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => ['required', Password::defaults()],
+            'contact_name' => 'required_if:role,shop|required_if:role,charity',
+            'contact_phone' => 'required_if:role,shop|required_if:role,charity',
+            'agreement' => 'accepted',
         ];
     }
 }
