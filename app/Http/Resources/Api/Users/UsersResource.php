@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Api\Users;
 
+use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class UsersResource extends JsonResource
@@ -20,7 +21,7 @@ class UsersResource extends JsonResource
             'email' => $this->email,
             'roles' => $this->roles,
             'date' => $this->created_at->isoFormat('DD.MM.YYYY / H:m'),
-            'seen' => $this->last_seen->diffForHumans(),
+            'seen' => ($this->last_seen instanceof Carbon) ? $this->last_seen->diffForHumans() : $this->created_at->diffForHumans(),
             'avatar' => $this->getFirstMediaUrl('avatar', 'thumb'),
             'status' => $this->status,
             'likes_count' => rand(1,1500),
